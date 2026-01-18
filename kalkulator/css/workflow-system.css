@@ -1,0 +1,170 @@
+/**
+ * WORKFLOW SYSTEM - Finalizacja z animacją typewriter
+ */
+
+/* Kontener finalizacji (ostatni krok) */
+.workflow-completion {
+  max-width: 900px;
+  /* Screen 0: bez fullscreen overlay, zaraz pod progress barem */
+  margin: 20px auto 64px;
+  padding: 32px;
+  text-align: center;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border, #e5e5e5);
+  border-radius: var(--radius-sm, 2px);
+  box-shadow: var(--shadow-subtle, 0 1px 3px rgba(0,0,0,0.08));
+  box-sizing: border-box;
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+}
+
+/* Ukryty domyślnie - pokazywany przez JS */
+.workflow-completion.hidden {
+  display: none;
+}
+
+/* Typewriter container */
+.typewriter-container {
+  margin: 0;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+/* Typewriter text */
+.typewriter-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary, #1A1A1A);
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.typewriter-text.typing::after {
+  content: '|';
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA Button */
+.workflow-cta {
+  margin-top: 48px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.workflow-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.workflow-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
+  min-height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1A1A);
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-dark, #999999);
+  border-radius: var(--radius-sm, 2px);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: var(--shadow-subtle, 0 1px 3px rgba(0,0,0,0.08));
+  letter-spacing: 0.01em;
+}
+
+.workflow-cta-button:hover {
+  border-color: var(--color-text-muted, #6B7280);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg, 0 4px 12px rgba(0,0,0,0.12));
+}
+
+.workflow-cta-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-subtle, 0 1px 3px rgba(0,0,0,0.08));
+}
+
+.workflow-cta-button i {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.workflow-cta-button:hover i {
+  transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .workflow-completion {
+    margin: 32px 16px;
+    padding: 24px 20px;
+  }
+
+  .typewriter-container {
+    min-height: 100px;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .typewriter-text {
+    font-size: 16px;
+  }
+
+  .workflow-cta {
+    margin-top: 36px;
+  }
+
+  .workflow-cta-button {
+    padding: 14px 28px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 390px) {
+  .workflow-completion {
+    margin: 24px 12px;
+    padding: 20px 16px;
+  }
+
+  .typewriter-text {
+    font-size: 15px;
+  }
+
+  .workflow-cta-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,4855 @@
+/* Fonty są ładowane przez wp_enqueue_style w heatpump-calculator.php */
+/* @import usunięty - eliminacja duplikacji */
+
+:root {
+  /* Brand Colors - Gold (Primary) - premium HVAC */
+  --color-accent: #d4a574;
+  --color-accent-dark: #b8976a;
+  --color-accent-light: rgba(212, 165, 116, 0.1);
+  --color-accent-gradient: linear-gradient(135deg, #d4a574, #b8976a);
+
+  /* Accent (Premium gold) - motion + focus */
+  --accent: var(--color-accent);
+  --accent-weak: rgba(212, 165, 116, 0.22);
+  --accent-glow: rgba(212, 165, 116, 0.16);
+
+  /* Navy/Dark Colors (Headers, Text) - z paleta.html */
+  --color-deep-navy: #1a202c;
+  --color-slate-navy: #2d3748;
+  --color-cool-gray: #374151;
+  --color-navy-gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+
+  /* Text Colors - High Contrast */
+  --color-text: #1a202c; /* Główny tekst */
+  --color-text-primary: #1a202c;
+  --color-text-heading: #1a202c;
+  --color-text-secondary: #374151;
+  --color-text-muted: #4b5563; /* ✅ FIXED: Poprawiono kontrast z #6B7280 (4.5:1) na #4B5563 (7:1) dla WCAG AA */
+
+  /* Background Colors - Clean, technical (Viessmann-inspired) */
+  --color-bg: #faf9f9; /* Główny background */
+  --color-bg-white: #faf9f9;
+  --color-bg-light: #faf9f9;
+  --color-bg-section: #faf9f9;
+  --color-surface: #ffffff; /* Karty, inputy */
+  --color-surface-2: #f7f7f7; /* Selected, hover light */
+  --color-bg-input: #ffffff;
+
+  /* Border Colors - Technical, subtle (Viessmann-inspired) */
+  --color-border: #e0e0e0;
+  --color-border-light: #f0f0f0;
+  --color-border-strong: #2b2b2b; /* Selected, active */
+
+  /* Gradient - Gold */
+  --gradient-gold: linear-gradient(135deg, #d4a574, #b8976a);
+  --gradient-gold-hover: linear-gradient(135deg, #b8976a, #d4a574);
+
+  /* Form Success/Valid (Gold for Heat Pumps) */
+  --color-success: #d4a574;
+  --color-success-light: rgba(212, 165, 116, 0.1);
+  --color-success-hover: #b8976a;
+
+  /* Warning & Danger — premium neutral + gold (no red/green) */
+  --color-warning: #b8976a;
+  --color-danger: #8b6914;
+
+  /* Selection State (Gold for selected cards) - PREMIUM HVAC DESIGN */
+  --color-selected: #d4a574;
+  --color-selected-bg: #f0ddc4; /* FIXED: sync to mobile (better contrast) */
+  --color-selected-border: #e8d4b8;
+
+  /* Slider Technical Gold - HVAC warmth + precision */
+  --color-slider-value: #8b6914;
+
+  /* Form Interactive States - Premium Slate (delikatny, nie rzuca się w oczy) */
+  --color-form-interactive: #64748b;
+  --color-form-interactive-light: rgba(100, 116, 139, 0.08);
+  --color-form-interactive-hover: rgba(100, 116, 139, 0.06);
+
+  /* Gold Accent Colors - Premium HVAC Design (jak w konfiguratorze) */
+  --color-gold: #d4a574; /* Główny złoty - checkmark, badge, button */
+  --color-gold-dark: #8b6914; /* Ciemny złoty - tekst */
+  --color-gold-light: #f0ddc4; /* FIXED: sync to selected-bg */
+  --color-gold-border: #d4a574; /* Złota ramka */
+
+  /* Interactive States (non-error) - REMOVED: nieużywane zmienne */
+
+  /* Typography - Titillium Web (Professional sans-serif) */
+  --font-family: "Titillium Web", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace; /* For technical values */
+  --font-size-xs: 12px; /* ADDED: for mobile consistency */
+  --font-size-base: 15px; /* było 17px */
+  --font-size-sm: 13px; /* było 14px */
+  --font-size-md: 14px; /* było 15px */
+  --font-size-lg: 16px; /* było 18px */
+  --font-size-xl: 18px; /* było 20px */
+  --font-size-2xl: 22px; /* było 24px */
+  --font-size-3xl: 28px; /* było 32px */
+  --font-size-4xl: 36px; /* było 40px */
+
+  /* Spacing - Premium Technical Scale (8px base - STRICT GRID) */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px; /* FIXED: was 40px (off-grid) */
+  --spacing-3xl: 48px;
+
+  /* Semantic spacing (for consistency with mobile) */
+  --space-section: var(--spacing-xl); /* 32px - Between major sections */
+  --space-section-tight: var(--spacing-lg); /* 24px - Hero → first section */
+  --space-component: var(--spacing-lg); /* 24px - Between form fields */
+  --space-related: var(--spacing-sm); /* 12px - Between related items */
+  --space-tight: var(
+    --spacing-xs
+  ); /* 8px - Label → input, tight relationships */
+
+  /* Form Elements */
+  --input-height: 52px;
+  --input-padding: 16px;
+  --input-radius: 2px;
+  --button-height: 52px;
+
+  /* Shadows - Technical, subtle (Viessmann-inspired) - Premium prefers border + micro-shadow */
+  --shadow-none: none;
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04); /* Micro-shadow dla premium */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06); /* ADDED: alias for mobile consistency */
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08); /* FIXED: was 0.06 (sync to mobile) */
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1); /* FIXED: was 0 2px 8px 0.08 (sync to mobile) */
+  --shadow-input: 0 0 0 2px rgba(217, 119, 6, 0.15);
+  --shadow-focus: 0 0 0 1px rgba(37, 99, 235, 0.18); /* Focus ring */
+  --shadow-red: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-selected: 0 0 0 4px rgba(212, 165, 116, 0.16); /* ADDED: for consistency with mobile */
+  --shadow-sticky: 0 4px 12px rgba(0, 0, 0, 0.12); /* ADDED: for consistency with mobile */
+
+  /* Transitions */
+  --transition: 0.2s ease;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease; /* alias dla --transition */
+  --transition-slow: 0.25s ease;
+
+  /* Motion tokens */
+  --m-press: 80ms;
+  --m-release: 120ms;
+  --m-snap: 160ms;
+  --m-step: 240ms;
+  --m-reveal: 260ms;
+  --m-scan: 280ms;
+
+  --e-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --e-snap: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --e-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Border Radius - Premium Technical Style */
+  --radius-xs: 1px;
+  --radius-sm: 2px; /* Domyślny - inputy, przyciski, karty */
+  --radius-md: 4px; /* Większe karty */
+  --radius-lg: 8px; /* Sekcje, modale */
+  --radius-xl: 16px; /* Duże modale */
+  --radius-pill: 20px; /* Pill badges */
+  --radius-full: 50%; /* Kółka, okrągłe elementy */
+
+  /* Border Colors - Uzupełnienie */
+  --color-border-hover: #b8b8b8;
+  --color-border-dark: #d1d5db; /* Hover, aktywne */
+  --color-border-focus: #3b82f6; /* Focus ring - niebieski dla accessibility */
+  --color-accent-weak: rgba(212, 165, 116, 0.1); /* Subtelny akcent */
+
+  /* Background Colors - Uzupełnienie */
+  --color-bg-hover: #fafafa;
+  --color-bg-selected: #f7f7f7;
+  --color-bg-disabled: #f5f7fa;
+
+  /* Text Colors - Uzupełnienie */
+  --color-text-disabled: var(--color-text-muted);
+
+  /* Border Width */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  /* Opacity */
+  --opacity-disabled: 0.5;
+  --opacity-disabled-light: 0.65; /* Progressive disabled (widoczny ale nieaktywny) */
+
+  /* Z-Index - Layering System */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 100;
+  --z-modal: 1000;
+  --z-toast: 10000;
+
+  /* Line Height */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.3;
+  --line-height-relaxed: 1.6;
+
+  /* Container Widths */
+  --container-sm: 530px;
+  --container-md: 1148px;
+  --container-lg: 1300px;
+  --container-xl: 1400px; /* FIXED: was 1200px (XL must be > LG) */
+
+  /* Checkmark - Premium Design */
+  --checkmark-size: 20px;
+  --checkmark-font-size: 12px;
+  --checkmark-offset: 8px;
+
+  /* Breakpoints - Responsive */
+  --breakpoint-mobile: 530px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1148px;
+}
+
+/* OPTIMIZATION: Wyłącz animacje podczas ładowania strony */
+html:not(.loaded) *,
+html:not(.loaded) *::before,
+html:not(.loaded) *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --m-press: 0ms;
+    --m-release: 0ms;
+    --m-snap: 0ms;
+    --m-step: 0ms;
+    --m-reveal: 0ms;
+    --m-scan: 0ms;
+  }
+}
+
+/* ============================================================================
+   2. RESET & BASE (SCOPED TO CALCULATOR)
+   ============================================================================ */
+/* Scoped reset - tylko dla kalkulatora, nie wpływa na resztę strony WordPress */
+.heatpump-calculator,
+.heatpump-calculator *,
+.heatpump-calculator *::before,
+.heatpump-calculator *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scroll behavior - scoped do wrappera */
+.heatpump-calculator-wrapper {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+/* Base styles - scoped do kalkulatora */
+.heatpump-calculator {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================================
+   2.4. PREMIUM MICRO-MOTION SYSTEM (TOKENS + STATES)
+   ============================================================================ */
+.ui-stepper {
+  position: relative;
+}
+
+.ui-option {
+  position: relative;
+  min-height: 56px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui-option__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ui-option__value {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ui-option__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.ui-option__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ui-option__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.92);
+}
+
+.ui-option__scan {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  top: auto;
+  bottom: 10px;
+  transform: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.18),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ui-option:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-weak);
+}
+
+.ui-option.is-pressing {
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.18);
+}
+
+.ui-option.is-selected {
+  border-color: var(--color-border-strong);
+  box-shadow: none;
+}
+
+.ui-option.is-selected .ui-option__check {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.ui-option.has-scanline .ui-option__scan {
+  opacity: 0.12;
+}
+
+.ui-option.is-disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ui-option.is-invalid {
+  border-color: var(--color-border-strong);
+  box-shadow: none;
+}
+
+.form-progress-fill,
+.ui-progress__bar {
+  width: 100% !important;
+  transform-origin: left center;
+  transform: scaleX(0.12);
+}
+
+/* ============================================================================
+   2.5. HERO BANNER - HETZNER STYLE
+   ============================================================================ */
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(var(--spacing-3xl), 10vw, calc(var(--spacing-3xl) * 2.5))
+    var(--spacing-lg);
+  overflow: hidden;
+  background: var(--color-deep-navy);
+  color: var(--color-surface);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Background image */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* ✅ FIXED: Overlay dla lepszej czytelności tekstu na obrazie */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 25, 20, 0.75) 0%,
+    rgba(45, 38, 30, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+/* Content container */
+.hero .container {
+  max-width: min(var(--container-xl), 95%);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Pill badge */
+.hero-pill {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-danger), #b91c1c);
+  color: var(--color-surface);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-none);
+}
+
+/* Hero title */
+.hero h1 {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
+  font-weight: 800;
+  line-height: var(--line-height-tight);
+  margin: 0;
+  color: var(--color-surface);
+  text-shadow: var(--shadow-md);
+}
+
+/* Hero lead text */
+.hero-lead {
+  font-size: clamp(var(--font-size-sm), 1.8vw, var(--font-size-lg));
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: var(--container-xl);
+  margin: 0;
+}
+
+/* Full-bleed hero inside Elementor/WordPress containers */
+.heatpump-calculator-wrapper .hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  border-radius: 0;
+  padding-left: clamp(var(--spacing-lg), 6vw, var(--spacing-3xl));
+  padding-right: clamp(var(--spacing-lg), 6vw, var(--spacing-3xl));
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+/* Hero media - pełna szerokość viewport (nadpisane przez wordpress-integration.css) */
+/* Style przeniesione do wordpress-integration.css dla lepszej specyficzności i !important */
+
+.heatpump-calculator-wrapper .hero .container {
+  max-width: min(var(--container-xl), 1080px);
+  padding-left: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+  padding-right: clamp(var(--spacing-lg), 4vw, var(--spacing-2xl));
+}
+
+/* Hetzner-style notch (wcięcie) */
+
+/* Responsive hero - ✅ FIXED: padding usunięty, clamp w main hero sam się skaluje */
+
+/* ============================================================================
+   3. TYPOGRAPHY - PROFESSIONAL HIERARCHY
+   ============================================================================ */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: var(--line-height-normal);
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: var(--spacing-lg) var(--spacing-sm) 0 var(--spacing-sm);
+}
+
+/* Dla głównych nagłówków sekcji - dodatkowy spacing */
+.section > h3 {
+  padding-bottom: 0;
+}
+
+.section > h3:first-of-type {
+  margin-top: var(--spacing-lg);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 var(--spacing-lg) 0;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+}
+
+/* ============================================================================
+   4. LAYOUT - CENTRAL, RESPONSIVE
+   ============================================================================ */
+#top-instal-calc.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: var(--color-bg);
+  overflow-x: hidden;
+}
+
+/* Authority Header */
+
+/* Section Container - Clean, Spacious */
+.section {
+  display: none;
+  width: var(--container-lg);
+  max-width: 100%; /* FIXED: Zapobiega overflow na małych ekranach */
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: var(--spacing-2xl) var(--spacing-3xl);
+  background: var(--color-bg);
+  overflow-x: hidden;
+  border-radius: var(--radius-md);
+  box-sizing: border-box; /* FIXED: Padding wliczony w width */
+}
+
+.section.active {
+  display: block;
+  animation: fadeIn var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-row-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  grid-column-gap: var(--spacing-2xl);
+  grid-row-gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  align-items: start;
+  position: relative;
+  width: 100%; /* FIXED: Pełna szerokość */
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+
+.form-row-mosaic .form-field {
+  margin-bottom: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Kontener dla pojedynczego pytania w form-field */
+.form-field-item {
+  position: relative; /* Wymagane dla pozycjonowania checkmarków */
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-field-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Kolejne pytania w form-field - obniżone w stosunku do poprzedniego */
+.form-field-item--subsequent {
+  margin-top: var(--spacing-xl);
+}
+
+/* Biała karta dla sekcji formularza - Technical style (Viessmann-inspired) */
+.form-card {
+  background: var(--color-surface);
+  padding: var(--spacing-2xl) var(--spacing-3xl);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-2xl);
+  box-shadow: var(--shadow-subtle);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  line-height: var(--line-height-relaxed);
+  box-sizing: border-box; /* FIXED: Padding wliczony w width */
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+}
+
+.form-row-mosaic > .form-field:first-of-type .form-field-item:first-of-type,
+.form-card > .form-field:first-of-type .form-field-item:first-of-type {
+  margin-top: var(--spacing-lg);
+}
+
+/* Ujednolicony styl pól podpowiedzi - Technical style (Viessmann-inspired) */
+.help-box {
+  padding: var(--spacing-lg);
+  background: var(--color-bg);
+  border: var(--border-width-thick) solid var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  position: relative;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-row-mosaic .help-box {
+  width: calc(100% - var(--spacing-xl));
+  margin-left: var(--spacing-xl);
+  min-width: 0; /* Zapobiega overflow w gridzie */
+  justify-self: stretch; /* Rozciąga do pełnej szerokości kolumny */
+}
+
+/* Kontener help-boxów - naturalny flow, help-boxy dostosowują się do pytań */
+.form-row-mosaic > div:last-child {
+  display: block;
+}
+
+/* Odstęp między help-boxami w form-card - taki sam jak między pytaniami */
+.form-card .help-box:not(:first-child) {
+  margin-top: 0px; /* Delikatnie zwiększony spacing */
+}
+
+/* Help-box na pełną szerokość w gridzie */
+.help-box--full-width {
+  grid-column: 1 / -1;
+  margin-bottom: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+/* Help-box dla zużycia wody - pozycjonowanie obok pola hotWaterOptions (3. wiersz w gridzie) */
+#hotWaterUsageHelpBox {
+  grid-row: 3;
+  align-self: start;
+}
+
+.form-row-mosaic .help-box h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-deep-navy);
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-row-mosaic .help-box h4 i.ph {
+  font-size: 16px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Wyśrodkuj obrazki w help-boxach */
+.help-box img,
+.help-box .zone-map {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Help-box zone-map - 85% szerokość */
+.help-box .zone-map {
+  width: 85%;
+}
+
+/* Help-box obrys-img - pełna szerokość z max-width */
+.help-box .obrys-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 16px auto 0;
+  border-radius: var(--radius-sm);
+}
+
+/* Help-box obrys - 90% szerokość z max-width (typowy obrazek) */
+.help-box img:not(.zone-map):not(.obrys-img) {
+  width: 90%;
+  max-width: 300px;
+  display: block;
+  margin: 8px auto 0;
+}
+
+/* Warianty kolorystyczne usunięte – wszystkie boxy wyglądają identycznie jak tip */
+
+/* Help-box paragraphs - compact spacing */
+.help-box p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.help-box p:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.help-box p:last-child {
+  margin-bottom: 0px;
+}
+
+/* Help-box strong - zmniejszony font-size */
+.help-box strong {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* ============================= */
+/* DETAILED MODE TOGGLE (Checkbox) */
+/* ============================= */
+
+.detailed-mode-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.detailed-mode-toggle:hover {
+  background-color: var(--color-surface-2);
+}
+
+.detailed-mode-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid var(--color-border);
+  border-radius: 3px;
+  background-color: var(--color-surface);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.detailed-mode-checkbox:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.detailed-mode-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.detailed-mode-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.detailed-mode-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailed-mode-label strong {
+  font-weight: 600;
+  color: var(--color-deep-navy);
+  font-size: var(--font-size-md);
+}
+
+.detailed-mode-label small {
+  display: block;
+  color: var(--color-text-muted);
+  font-weight: normal;
+  font-size: var(--font-size-sm);
+}
+
+/* ============================= */
+/* BUILDING TYPE CARDS – ENGINEERING STYLE */
+/* ============================= */
+
+.building-type-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  justify-content: start;
+}
+
+/* ============================= */
+/* CARD – DEFAULT STATE */
+/* ============================= */
+
+.building-type-card {
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.15s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 120px;
+  min-height: 130px;
+  max-height: 130px;
+
+  position: relative;
+  overflow: hidden;
+
+  font-family: var(--font-family);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* HOVER – SYSTEM RESPONSE */
+/* ============================= */
+
+.building-type-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* FOCUS – ACCESSIBILITY */
+/* ============================= */
+
+.building-type-card:focus-visible {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.building-type-card:focus {
+  outline: none;
+  border-color: var(--color-border-dark);
+}
+
+/* ============================= */
+/* SELECTED – ACTIVE SYSTEM PARAMETER */
+/* ============================= */
+
+.building-type-card.building-type-card--selected {
+  border-color: var(--color-border-strong);
+  border-width: var(--border-width-thick);
+  background: var(--color-surface-2);
+}
+
+/* Gold checkmark - premium design */
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* ICON */
+/* ============================= */
+
+.building-type-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 80px;
+  height: 80px;
+
+  margin-top: 4px;
+  margin-bottom: 2px;
+
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  transition: transform 0.15s ease;
+}
+
+.building-type-card:hover .building-type-card__icon {
+  transform: scale(1.01);
+}
+
+.building-type-card.building-type-card--selected .building-type-card__icon {
+  transform: scale(1.03);
+}
+
+.building-type-card__icon img {
+  width: 80px;
+  height: 80px;
+
+  min-width: 80px;
+  min-height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* LABEL */
+/* ============================= */
+
+.building-type-card__label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0 4px;
+
+  text-align: center;
+  width: 100%;
+
+  word-wrap: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+
+  box-sizing: border-box;
+  display: block;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.building-type-card.building-type-card--selected .building-type-card__label {
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+/* ============================= */
+/* SPECIAL CASE – FIRST CARD */
+/* ============================= */
+
+.building-type-card--first {
+  padding: 0;
+}
+
+.building-type-card--first .building-type-card__label {
+  /* Inherits font-size: 16px, font-weight: 500, margin-bottom: 12px from parent */
+  line-height: 1.25;
+  padding: 0 2px;
+}
+
+/* ============================================================================
+   YES/NO CARDS - Karty Tak/Nie (120x70px)
+   ENGINEERING STYLE – System Configuration Parameters
+   ============================================================================ */
+.yes-no-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  justify-content: start;
+}
+
+.yes-no-card {
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-family);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.yes-no-card:hover {
+  border-color: #b5b5b5;
+  transform: translateY(-1px);
+}
+
+.yes-no-card:focus {
+  outline: none;
+  border-color: #8a8a8a;
+}
+
+/* ============================= */
+/* SELECTED – ACTIVE SYSTEM PARAMETER */
+/* ============================= */
+
+.yes-no-card.yes-no-card--selected {
+  border-color: #2b2b2b;
+  border-width: 2px;
+  background: #f7f7f7;
+}
+
+.yes-no-card.ui-option.is-selected {
+  border-color: var(--color-border-strong);
+  border-width: 2px;
+  background: var(--color-surface-2);
+  box-shadow: none;
+}
+
+/* No scanline / no floating checkmark for YES/NO cards (clean, premium) */
+.yes-no-card.ui-option .ui-option__check,
+.yes-no-card.ui-option .ui-option__scan {
+  display: none !important;
+}
+
+.yes-no-card--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Gold checkmark - premium design */
+.yes-no-card__label {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+  transition: font-weight 0.15s ease, color 0.15s ease;
+}
+
+.yes-no-card.yes-no-card--selected .yes-no-card__label {
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+/* ============================================================================
+   OPTION CARDS - 3-4 opcje (120x130px)
+   ENGINEERING STYLE – System Parameters (Climate Zones)
+   ============================================================================ */
+.option-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: var(--spacing-md);
+}
+
+.option-card {
+  width: 120px;
+  height: 130px;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.15s ease;
+  font-family: var(--font-family);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.option-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
+}
+
+.option-card:focus-visible {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.option-card:focus {
+  outline: none;
+  border-color: var(--color-border-dark);
+}
+
+/* ============================= */
+/* SELECTED – ACTIVE SYSTEM PARAMETER */
+/* ============================= */
+
+.option-card--selected {
+  border-color: var(--color-border-strong);
+  border-width: var(--border-width-thick);
+  background: var(--color-surface-2);
+}
+
+.option-card.ui-option.is-selected {
+  border-color: var(--color-border-strong);
+  box-shadow: none;
+}
+
+/* No scanline / no floating checkmark for option cards (keep selection via border only) */
+.option-card.ui-option .ui-option__check,
+.option-card.ui-option .ui-option__scan {
+  display: none !important;
+}
+
+/* Gold checkmark - premium design */
+.option-card--disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.option-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: font-weight var(--transition-fast), color var(--transition-fast);
+}
+
+.option-card--selected .option-card__title {
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.option-card__subtitle {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.option-cards--wide .option-card {
+  width: 160px;
+}
+
+.option-cards--compact .option-card {
+  width: 110px;
+}
+
+/* Responsive dla kart Tak/Nie */
+
+/* Responsive - 2 kolumny na tablet */
+
+/* Responsive - 1 kolumna na mobile */
+
+/* Disabled radio label */
+.form-field__radio-label.disabled,
+.form-field__radio-label[style*="opacity"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   RESPONSIVE - TABLET (992px)
+   ============================================================================ */
+
+/* Fix for nested mosaic in regularFields and irregularFields */
+#regularFields .form-row-mosaic,
+#irregularFields .form-row-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* Specyficzne selektory help-box usunięte - wszystko dziedziczy z .help-box */
+
+/* areaField styling - standardowy input pod labelem */
+#areaField {
+  margin-top: 16px;
+}
+
+#areaField label {
+  display: block;
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  padding-left: 20px;
+}
+
+#areaField label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #114a62;
+}
+
+#areaField input {
+  display: block;
+  margin-left: 0;
+  width: 530px;
+  max-width: 100%;
+}
+
+/* Fix for heatedFloorsSection visibility */
+#heatedFloorsSection {
+  display: block !important;
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+#heatedFloorsSection > label {
+  margin-bottom: var(
+    --spacing-sm
+  ); /* ✅ FIXED: Zmniejszono odstęp z 24px do 12px */
+}
+
+#heatedFloorsContainer {
+  display: block !important;
+  margin-top: 0; /* ✅ FIXED: Usunięto dodatkowy margin-top - już jest w label powyżej */
+  margin-left: 32px; /* Wyrównanie z innymi checkboxami */
+}
+
+/* Spacing dla checkboxów w heatedFloorsContainer */
+#heatedFloorsContainer label {
+  margin-bottom: 8px !important; /* Zwarte checkboxy */
+}
+
+/* Fix for traditionalOptions mosaic layout */
+#traditionalOptions .form-row-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* #traditionalOptions .help-box - usunięte, używaj .help-box */
+
+/* ============================================================================
+   5. PROGRESS BAR - FORM PROGRESS (Calm Motion + Brand Colors)
+   ============================================================================ */
+/* Progress Steps Indicator */
+
+.progress-step {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.progress-step.active {
+  background: var(--color-accent-gradient);
+  border-color: var(--color-accent);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(220, 20, 60, 0.3);
+}
+
+.progress-step.completed {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.progress-step.completed::after {
+  content: "✓";
+  font-size: 14px;
+}
+
+.form-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border);
+  margin: var(--spacing-lg) 0 0 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: var(--color-accent-gradient);
+  width: 0;
+  transition: width var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.form-progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  /* OPTIMIZATION: Animacja tylko gdy progress bar jest widoczny i aktywny */
+  animation: progressShimmer 2.2s ease-in-out infinite;
+  /* Wyłącz animację gdy strona się ładuje - włączona przez JS po załadowaniu */
+  animation-play-state: paused;
+}
+
+/* OPTIMIZATION: Włącz animację dopiero po załadowaniu strony */
+body.loaded .form-progress-fill::after,
+html.loaded .form-progress-fill::after {
+  animation-play-state: running;
+}
+
+@keyframes progressShimmer {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Progress Label - Integralna część progress-bara */
+.form-progress-label {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0; /* Usunięte marginesy - kontrolowane przez progress-info-row */
+  margin-left: 0;
+  padding-left: 0; /* ✅ FIXED: Usunięto padding - napis bezpośrednio pod paskiem */
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Progress Info Row - Kontener dla procentu i labela */
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0 48px 0;
+}
+
+/* ============================================================================
+   STICKY PROGRESS BAR - Przykleja się podczas scrollowania
+   ============================================================================ */
+
+/* Sticky progress bar container - pod headerem */
+.progress-bar-container.sticky {
+  position: fixed;
+  top: var(--header-height, 60px);
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-xs);
+  margin: 0 !important;
+  box-shadow: var(--shadow-md);
+  animation: stickySlideDown var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+}
+
+/* Wyśrodkuj zawartość w sticky container */
+.progress-bar-container.sticky .hp-progress,
+.progress-bar-container.sticky .hp-progress-info {
+  max-width: var(--container-md);
+  margin: 0 auto;
+}
+
+/* Mobile adjustments for sticky */
+
+/* Mobile (480px) - dodatkowe dostosowania sticky */
+
+@keyframes stickySlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Placeholder gdy progress bar jest sticky (globalny, poza formularzem) */
+.progress-sticky-placeholder {
+  height: 60px;
+  display: none;
+}
+
+/* Mobile - dostosuj wysokość placeholder */
+
+/* Progress Bar Container - Wrapper dla max-width */
+.progress-bar-container {
+  max-width: var(--container-md);
+  margin: 0 auto var(--spacing-xl);
+  padding: 0 var(--spacing-xl);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Mobile adjustments */
+
+/* Mobile (480px) - dodatkowe dostosowania */
+
+/* Progress Percentage - Wyświetlanie aktualnego % na środku */
+.form-progress-percentage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Ukryj procent w pierwszej zakładce (data-tab="0") */
+.section[data-tab="0"] .form-progress-percentage {
+  display: none;
+}
+
+/* Zmniejsz odstęp między formularzem a przyciskiem w pierwszej zakładce */
+
+.section[data-tab="0"] .formularz-z-mapa {
+  margin-bottom: 0px;
+}
+
+/* ============================================================================
+   6. FORM ELEMENTS - CONSISTENT RHYTHM & CLEAN STYLE
+   ============================================================================ */
+
+.form-field {
+  margin-bottom: var(--spacing-xl);
+  transition: all var(--transition-slow);
+  position: relative;
+}
+
+/* Ostatni form-field nie potrzebuje dolnego marginesu */
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+/* Radio group spacing wewnątrz form-field */
+.form-field__radio-group {
+  margin-top: var(--spacing-sm); /* 12px - po labelu */
+  margin-bottom: 0; /* form-field kontroluje bottom spacing */
+}
+
+/* Input/Select wewnątrz form-field NIE mają własnego margin-bottom */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  margin-bottom: 0; /* form-field kontroluje spacing */
+}
+
+/* Wyjątek: gdy input/select NIE jest w form-field */
+.section > input,
+.section > select {
+  margin-bottom: var(--spacing-lg); /* 24px - większy odstęp */
+}
+
+label,
+.form-label {
+  display: block;
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--line-height-normal);
+  position: relative;
+  padding-left: var(--spacing-lg);
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.form-label {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Większy odstęp między pytaniami gdy label jest bezpośrednim dzieckiem .section */
+.section > label,
+.section > .form-label {
+  margin-top: var(--spacing-xl); /* 32px - większy odstęp między pytaniami */
+}
+
+.section > label:first-of-type,
+.section > h3 + label {
+  margin-top: 0; /* Usuń dodatkowy margin dla pierwszego labela lub labela po h3 */
+}
+
+/* Wizualny wskaźnik pytania - punkt zaczepienia wzrokowego */
+label::before,
+.form-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--spacing-xs);
+  height: var(--spacing-xs);
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+/* ❌ REMOVE SLIDER CHECKMARK - Parameter is confirmed via card, not checkmark */
+.form-field-item:has(.custom-slider-container.slider-confirmed)
+  .form-label::after {
+  content: none;
+}
+
+@keyframes checkmarkAppear {
+  0% {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Wyjątki - label w radio/checkbox/inline nie potrzebuje wskaźnika */
+.form-field__radio-label::before,
+.form-field__radio-label label::before,
+.instruction-toggle::before,
+label[for*="radio"]::before,
+#heatedFloorsSection #heatedFloorsContainer label::before,
+#heatedFloorsContainer label::before,
+#areaField label::before,
+#balconyFields label::before,
+label:has(img)::before,
+label:has(strong)::before {
+  display: none;
+}
+
+.form-field__radio-label,
+#heatedFloorsContainer label,
+#areaField label,
+#balconyFields label,
+label:has(img),
+label:has(strong) {
+  padding-left: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: var(--container-sm);
+  height: var(--input-height);
+  padding: 0 var(--input-padding);
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family);
+  font-weight: 400;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-none);
+}
+
+/* Jednolite wcięcie i szerokość dla input/textarea (nie w grid layout, input-with-unit, ani label>input) */
+input[type="text"]:not(#dimensionsFields input):not(.input-with-unit input):not(
+    label > input
+  ):not(#balconyFields input),
+input[type="number"]:not(#dimensionsFields input):not(
+    .input-with-unit input
+  ):not(label > input):not(#balconyFields input),
+textarea:not(#dimensionsFields textarea):not(label > textarea) {
+  margin-left: 32px;
+  width: 530px;
+  max-width: calc(100% - 32px);
+}
+
+/* Większy odstęp pod inputem/selectem gdy są bezpośrednim dzieckiem .section */
+.section > input,
+.section > select {
+  margin-bottom: var(
+    --spacing-lg
+  ); /* 24px - większy odstęp pod inputem dla lepszej czytelności */
+}
+
+/* Small/opis powinien być bliżej labela */
+
+/* Większy odstęp dla input/select który następuje PO small.opis */
+
+textarea {
+  height: auto;
+  min-height: 100px;
+  padding: var(--spacing-sm) var(--input-padding);
+  resize: vertical;
+}
+
+/* Dimensions Fields - Side by Side Layout */
+#dimensionsFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+#dimensionsFields .form-field {
+  margin-bottom: 0;
+}
+
+#dimensionsFields input {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Screen reader only - ukrywa legend dla accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================================
+   QUANTITY INPUT - PREMIUM REDESIGN (FIXED)
+   ============================================================================ */
+/* Komponent z przyciskami +/- - profesjonalny, spójny design */
+
+.quantity-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-left: 32px;
+  width: auto;
+  max-width: 100%;
+}
+
+.quantity-input {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-base);
+}
+
+.quantity-input:focus-within {
+  border-color: var(--color-form-interactive);
+  box-shadow: 0 0 0 2px var(--color-form-interactive-hover);
+}
+
+.quantity-input legend {
+  display: none;
+}
+
+.quantity-btn {
+  width: 40px;
+  height: var(--input-height);
+  min-width: 40px;
+  padding: 0;
+  margin: 0;
+  border: none; /* FIXED: Usunięto konflikty border */
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+}
+
+/* FIXED: Separator między przyciskami a inputem */
+.quantity-btn:first-child::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background: var(--color-border);
+}
+
+.quantity-btn:last-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background: var(--color-border);
+}
+
+.quantity-btn:hover:not(:disabled) {
+  background: var(--color-form-interactive-light);
+  color: var(--color-form-interactive);
+}
+
+.quantity-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+  z-index: 2;
+}
+
+.quantity-btn:active:not(:disabled) {
+  background: var(--color-form-interactive);
+  color: var(--color-surface);
+  transform: scale(0.95);
+}
+
+.quantity-btn:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  background: var(--color-bg-disabled);
+}
+
+.quantity-input input[type="number"] {
+  flex: 1;
+  min-width: 60px;
+  width: 80px;
+  max-width: none;
+  margin: 0;
+  border: none; /* FIXED: Usunięto wszystkie bordery */
+  border-radius: 0;
+  text-align: center;
+  padding: 0 var(--spacing-sm);
+  background: var(--color-surface);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-text);
+  -moz-appearance: textfield;
+  appearance: textfield;
+  outline: none; /* FIXED: Usunięto outline */
+}
+
+.quantity-input input[type="number"]::-webkit-inner-spin-button,
+.quantity-input input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  display: none; /* FIXED: Ukryto spinners */
+}
+
+/* FIXED: Usunięto focus borders które powodowały czerwone linie */
+.quantity-input input[type="number"]:focus {
+  outline: none;
+  border: none;
+}
+
+.quantity-input-wrapper .quantity-unit {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+  margin-left: var(--spacing-xs);
+}
+
+/* Responsive: Stack on mobile */
+
+/* Touch & Flow - Premium Focus States (Delikatny Slate) */
+/* ✅ FIXED: Poprawiono focus dla lepszej dostępności - używamy box-shadow zamiast outline */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border: var(--border-width-thick) solid var(--color-border-focus);
+  padding: 0 calc(var(--input-padding) - 1px);
+  box-shadow: var(--shadow-focus);
+  transition: all var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: var(--border-width-thick) solid var(--color-border-focus);
+  padding: 0 calc(var(--input-padding) - 1px);
+  box-shadow: var(--shadow-focus);
+  transition: all var(--transition-fast);
+}
+
+input:hover:not(:focus):not(:disabled),
+select:hover:not(:focus):not(:disabled),
+textarea:hover:not(:focus):not(:disabled) {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-none);
+  transition: border-color var(--transition-fast);
+}
+
+input[type="number"] {
+  font-weight: 400;
+  text-align: left;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+
+/* Delikatny styl dla progresywnych disabled pól - nie wygląda jak całkowicie wyłączone */
+
+/* Lepsza widoczność disabled radio labels */
+
+.form-field__radio-label:has(input.progressive-disabled),
+.form-field__radio-label:has(input:disabled.progressive-disabled) {
+  opacity: var(--opacity-disabled-light) !important;
+  background-color: var(--color-bg-disabled) !important;
+  border-color: var(--color-border-light) !important;
+}
+
+/* Wyszarzenie checkboxów w heatedFloorsContainer dla progressive-disabled */
+
+#heatedFloorsContainer label:has(input.progressive-disabled[type="checkbox"]) {
+  opacity: var(--opacity-disabled) !important;
+  pointer-events: none;
+  cursor: not-allowed;
+  transition: opacity var(--transition-slow);
+}
+
+#heatedFloorsContainer
+  label:has(input.progressive-disabled[type="checkbox"]):hover {
+  background: transparent !important;
+  transform: none !important;
+  padding-left: 12px !important;
+}
+
+/* Przycisk Dalej - disabled */
+
+/* Validation States - Subtle Error Feedback */
+input:invalid:not(:focus):not(:placeholder-shown):not([type="radio"]):not(
+    [type="checkbox"]
+  ),
+select:invalid:not(:focus) {
+  border-color: rgba(100, 116, 139, 0.4);
+  background: rgba(100, 116, 139, 0.02);
+}
+
+/* Select Dropdown */
+.form-select,
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8"%3E%3Cpath fill="%23444444" d="M6 8L0 0h12z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 48px;
+  margin-left: 0;
+  width: 530px;
+  max-width: 100%; /* Responsywność */
+  position: relative;
+}
+
+/* ============================================================================
+   CONSTRUCTION YEAR – STANY WIZUALNE
+   ============================================================================ */
+
+/* Bazowy wygląd selecta – spójny z innymi polami */
+.construction-year-wrapper .form-select {
+  border: var(--border-width) solid var(--color-border-dark);
+  background-color: var(--color-surface);
+  transition: border-color var(--transition-base),
+    background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Delikatne podbicie ramki przy hoverze */
+.construction-year-wrapper .form-select:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Stan aktywny (focus / rozwinięta lista) – niebieska ramka */
+.construction-year-wrapper.is-active .form-select {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+  background-color: var(--color-surface);
+}
+
+/* Stan zakończony (wybrana wartość) – jak karta selected */
+.construction-year-wrapper.has-value.completed .form-select {
+  border-color: var(--color-border-strong);
+  border-width: var(--border-width-thick);
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-none);
+}
+
+/* ============================================================================
+   POZOSTAŁE SELECTY – STANY WIZUALNE
+   ============================================================================ */
+
+/* Bazowy wygląd wszystkich selectów wewnątrz form-field (poza construction_year) */
+.form-field-item select.form-select:not(#construction_year) {
+  border: var(--border-width) solid var(--color-border-dark);
+  background-color: var(--color-surface);
+  transition: border-color var(--transition-base),
+    background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Delikatne podbicie ramki przy hoverze */
+.form-field-item select.form-select:not(#construction_year):hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Stan aktywny (focus / rozwinięta lista) – niebieska ramka */
+.form-field-item.is-active-select select.form-select:not(#construction_year) {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+  background-color: var(--color-surface);
+}
+
+/* Stan zakończony (wybrana wartość) – jak karta selected */
+.form-field-item.has-selected-value select.form-select:not(#construction_year) {
+  border-color: var(--color-border-strong);
+  border-width: var(--border-width-thick);
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-none);
+}
+
+/* Gdy ponownie aktywne, fokus ma priorytet nad stanem completed */
+.form-field-item.is-active-select.has-selected-value
+  select.form-select:not(#construction_year) {
+  border-width: var(--border-width);
+  border-color: var(--color-border-focus);
+  background-color: var(--color-surface);
+}
+
+.form-field-item.has-number-value
+  input[type="number"]:not(:focus):not(:disabled) {
+  border-color: var(--color-border-strong);
+  border-width: var(--border-width-thick);
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-none);
+}
+
+/* ============================================================================
+   CHECKMARK DLA CONSTRUCTION_YEAR - FIXED POSITIONING
+   ============================================================================ */
+/* Checkmark dla construction_year po wybraniu wartości - podobny do kart */
+
+.construction-year-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.construction-year-wrapper.has-value::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  right: 40px; /* FIXED: Pozycjonowanie od prawej, zawsze widoczne */
+  transform: translateY(-50%);
+  width: var(--checkmark-size);
+  height: var(--checkmark-size);
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-surface);
+  font-size: var(--checkmark-font-size);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  z-index: 2; /* FIXED: Nad selectem */
+  pointer-events: none;
+}
+
+/* FIXED: Usunięto specjalne pozycje dla konkretnych wartości - teraz działa uniwersalnie */
+
+/* ============================================================================
+   CHECKMARKI DLA WSZYSTKICH PÓL - INTELLIGENTNE POZYCJONOWANIE
+   ============================================================================ */
+
+/* Wyjątek dla construction_year - MUSI BYĆ PRZED ogólną regułą dla selectów */
+.form-field-item:has(.construction-year-wrapper)::after {
+  display: none !important; /* construction_year używa wrappera */
+}
+
+/* 2. Select fields - tylko gdy wartość jest rzeczywiście wybrana i select nie jest disabled */
+/* UWAGA: Używamy klasy has-selected-value dodawanej przez JavaScript */
+/* JavaScript sprawdza rzeczywistą wartość selecta (nie tylko atrybut HTML) */
+.form-field-item.has-selected-value:has(
+    select.form-select:not(:disabled)
+  )::after {
+  display: none !important;
+}
+
+/* 3. Input number fields - checkmark po prawej stronie */
+/* UWAGA: Używamy klasy has-number-value dodawanej przez JavaScript */
+/* JavaScript sprawdza czy wartość jest rzeczywiście wpisana przez użytkownika */
+.form-field-item.has-number-value:has(
+    input[type="number"]:not(:disabled)
+  )::after {
+  content: "✓";
+  position: absolute;
+  top: 15px;
+  right: var(--checkmark-offset);
+  width: var(--checkmark-size);
+  height: var(--checkmark-size);
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-surface);
+  font-size: var(--checkmark-font-size);
+  font-weight: 700;
+  line-height: var(--checkmark-size);
+  text-align: center;
+  z-index: var(--z-dropdown);
+  pointer-events: none;
+}
+
+/* 4. Slidery (custom-slider-container) - bez checkmarka */
+.form-field-item:has(.custom-slider-container)::after {
+  display: none !important;
+}
+
+/* 5. Radio buttons - NIE pokazuj checkmarka na form-field-item (radio buttons mają własny checkmark) */
+/* Radio buttons już mają własny checkmark w .form-field__radio-label input[type="radio"]:checked::after */
+.form-field-item:has(input[type="radio"]:checked)::after {
+  display: none !important; /* Radio buttons mają własny checkmark, nie potrzebują dodatkowego */
+}
+
+/* Wyjątek - nie pokazuj checkmarka dla pól z kartami (mają własne checkmarki na kartach) */
+.form-field-item:has(.building-type-cards)::after,
+.form-field-item:has(.option-cards)::after {
+  display: none !important;
+}
+
+/* Wyjątek - nie pokazuj checkmarka dla pól z radio buttons (mają własny checkmark na radio button) */
+.form-field-item:has(.form-field__radio-group)::after {
+  display: none !important;
+}
+
+/* Dodatkowe zabezpieczenie - ukryj checkmark dla pól z form-field-item które mają disabled select */
+.form-field-item:has(select.form-select:disabled)::after {
+  display: none !important;
+}
+
+/* Zabezpieczenie - ukryj checkmark gdy select ma pustą wartość na początku */
+.form-field-item:has(select.form-select[value=""])::after {
+  display: none !important;
+}
+
+/* Zabezpieczenie - ukryj checkmark gdy select ma wartość domyślną */
+.form-field-item:has(select.form-select[value="-- Wybierz --"])::after,
+.form-field-item:has(
+    select.form-select[value="-- Wybierz rok budowy --"]
+  )::after,
+.form-field-item:has(
+    select.form-select[value="-- Wybierz rodzaj budynku --"]
+  )::after {
+  display: none !important;
+}
+
+/* Zabezpieczenie - ukryj checkmark dla pustych input number */
+.form-field-item:has(input[type="number"][value=""])::after {
+  display: none !important;
+}
+
+/* Zabezpieczenie - ukryj checkmark dla disabled input number */
+.form-field-item:has(input[type="number"]:disabled)::after {
+  display: none !important;
+}
+
+/* Required Star */
+.required {
+  color: var(--color-form-interactive);
+  font-weight: 400;
+  margin-left: var(--spacing-xxs);
+}
+
+/* Input with Unit */
+
+/* ✅ FIXED: Przywrócono natywne spinnery - pseudo-elementy były nieaktywne */
+/* numberSpinners.js jest wyłączony, więc usunięto niefunkcjonalne ::before/::after */
+
+/* ============================================================================
+   7. RADIO BUTTONS & CHECKBOXES - CLEAN STYLE
+   ============================================================================ */
+.form-field__radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacing-md);
+  width: var(--container-sm);
+  max-width: calc(
+    100% - var(--spacing-xl)
+  ); /* Responsywność - nie wyjdzie poza kontener */
+}
+
+/* Szerokość radio group dla "zużycie ciepłej wody" */
+#hotWaterOptions .form-field__radio-group {
+  width: 498px;
+  max-width: calc(100% - var(--spacing-xl));
+}
+
+.form-field__radio-label {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  min-height: 44px; /* Hit area dla dotyku */
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-none);
+}
+
+.form-field__radio-label input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  aspect-ratio: 1 / 1;
+  margin-right: var(--spacing-sm);
+  flex-shrink: 0;
+  flex-grow: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  transition: all var(--transition-base);
+  overflow: hidden; /* FIXED: Zapobiega wystającym pikselom */
+}
+
+.form-field__radio-label input[type="radio"]:checked {
+  border-color: var(--color-form-interactive);
+}
+
+.form-field__radio-label input[type="radio"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-surface);
+  font-size: 11px; /* FIXED: Mniejszy font dla idealnego dopasowania */
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  pointer-events: none;
+  /* FIXED: Usunięto transform i z-index - nie są potrzebne */
+}
+
+.form-field__radio-label span {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  color: var(--color-text);
+  transition: all var(--transition);
+  white-space: normal; /* Pozwól na normalne zawijanie w poziomie */
+  word-wrap: normal; /* Normalne zawijanie słów, nie łam na pojedyncze litery */
+  overflow-wrap: normal; /* Normalne zawijanie */
+  min-width: 0; /* Pozwól na kurczenie w flex */
+  flex: 1; /* Zajmuj dostępną przestrzeń */
+}
+
+.form-field__radio-label:hover:not(:has(input:disabled)) {
+  border-color: var(--color-border-hover);
+  background: var(--color-bg-hover);
+  transition: border-color var(--transition-fast);
+}
+
+.form-field__radio-label:hover:not(:has(input:disabled)) input[type="radio"] {
+  border-color: var(--color-form-interactive);
+  box-shadow: 0 0 0 2px var(--color-form-interactive-hover);
+}
+
+.form-field__radio-label:has(input:focus-visible) {
+  outline: none;
+  border: var(--border-width-thick) solid var(--color-border-focus);
+  padding: calc(var(--spacing-sm) - 1px) calc(var(--spacing-md) - 1px);
+  box-shadow: var(--shadow-focus);
+  transition: all var(--transition-fast);
+}
+
+.form-field__radio-label:has(input:focus) {
+  outline: none;
+  border: var(--border-width-thick) solid var(--color-border-dark);
+  padding: calc(var(--spacing-sm) - 1px) calc(var(--spacing-md) - 1px);
+  box-shadow: var(--shadow-none);
+  transition: all var(--transition-fast);
+}
+
+.form-field__radio-label:has(input:checked) {
+  border: var(--border-width-thick) solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  padding: calc(var(--spacing-sm) - 1px) calc(var(--spacing-md) - 1px);
+}
+
+.form-field__radio-label:has(input:checked) span {
+  font-weight: 400;
+}
+
+/* Radio buttons zawsze jeden pod drugim - na wszystkich ekranach */
+
+/* ============================================================================
+   7.5. CHECKBOXES - UNIFIED SYSTEM
+   ============================================================================ */
+
+/* === Base Checkbox Styles === */
+
+/* === Checkbox Modifiers === */
+
+/* === Legacy Support (będzie stopniowo zastępowane) === */
+
+/* Wymuś bursztynowy kolor dla wszystkich checkboxów */
+
+input[type="radio"] {
+  accent-color: #d97706 !important;
+}
+
+/* === UNIFIED CHECKBOX INTERACTIONS === */
+/* Hover State - subtelny efekt bez agresywnej ramki */
+
+/* Focus State - tylko dla accessibility */
+
+/* Disabled State */
+
+/* HeatedFloorsContainer - ujednolicone checkboxy */
+#heatedFloorsContainer label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px !important;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+#heatedFloorsContainer label:hover {
+  background: rgba(217, 119, 6, 0.02);
+}
+
+/* ============================================================================
+   8. BUTTONS - IDENTYCZNE JAK W PALETA.HTML
+   ============================================================================ */
+button,
+.btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Primary/Secondary CTA Buttons - Workflow CTA style (neutral, premium) */
+.btn-next1,
+.btn-next2,
+.btn-next3,
+.btn-next4,
+.btn-next5,
+.btn-finish {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: var(--border-width) solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  margin: var(--spacing-xs);
+  box-shadow: var(--shadow-none);
+  min-height: var(--button-height);
+}
+
+/* Animacja ikon w przyciskach - workflow style */
+.btn-next1 i,
+.btn-next2 i,
+.btn-next3 i,
+.btn-next4 i,
+.btn-next5 i,
+.btn-finish i {
+  transition: transform 0.25s ease;
+}
+
+.btn-prev i {
+  transition: transform 0.25s ease;
+}
+
+/* Hover - workflow style z animacją */
+.btn-row .btn-next1:hover,
+.btn-row .btn-next2:hover,
+.btn-row .btn-next3:hover,
+.btn-row .btn-next4:hover,
+.btn-row .btn-next5:hover,
+.btn-row .btn-finish:hover {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-surface);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-row .btn-next1:hover i,
+.btn-row .btn-next2:hover i,
+.btn-row .btn-next3:hover i,
+.btn-row .btn-next4:hover i,
+.btn-row .btn-next5:hover i,
+.btn-row .btn-finish:hover i {
+  transform: translateX(3px);
+}
+
+.btn-row .btn-prev:hover i {
+  transform: translateX(-3px);
+}
+
+/* Focus - accessibility */
+.btn-next1:focus-visible,
+.btn-next2:focus-visible,
+.btn-next3:focus-visible,
+.btn-next4:focus-visible,
+.btn-next5:focus-visible,
+.btn-finish:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Active - press */
+.btn-next1:active,
+.btn-next2:active,
+.btn-next3:active,
+.btn-next4:active,
+.btn-next5:active,
+.btn-finish:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* Disabled - calm, readable */
+.btn-next1:disabled,
+.btn-next2:disabled,
+.btn-next3:disabled,
+.btn-next4:disabled,
+.btn-next5:disabled,
+.btn-finish:disabled {
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-none);
+}
+
+.btn-next1:disabled i,
+.btn-next2:disabled i,
+.btn-next3:disabled i,
+.btn-next4:disabled i,
+.btn-next5:disabled i,
+.btn-finish:disabled i {
+  transform: none;
+}
+
+/* Button Loading State */
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Secondary Button - Navy (z paleta.html) */
+.btn-prev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: var(--border-width) solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  text-transform: none;
+  letter-spacing: 0;
+  margin: var(--spacing-xs);
+  cursor: pointer;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  box-shadow: var(--shadow-none);
+  min-height: var(--button-height);
+}
+
+.btn-row .btn-prev:hover {
+  border-color: var(--color-border-hover);
+  background: var(--color-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-prev:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.btn-prev:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* Focus-visible dla przycisków */
+button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Button Row - Mosaic Layout (2 columns: left | right) */
+.btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) 0;
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--color-bg);
+  margin-top: var(--spacing-2xl);
+}
+
+.btn-row .btn-prev {
+  order: 1;
+  margin-right: auto;
+}
+
+.btn-row .btn-next1,
+.btn-row .btn-next2,
+.btn-row .btn-next3,
+.btn-row .btn-next4,
+.btn-row .btn-next5,
+.btn-row .btn-finish {
+  order: 2;
+  margin-left: auto;
+}
+
+.btn-row .btn-prev,
+.btn-row .btn-next1,
+.btn-row .btn-next2,
+.btn-row .btn-next3,
+.btn-row .btn-next4,
+.btn-row .btn-next5,
+.btn-row .btn-finish {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-sm);
+  border-width: var(--border-width-thick);
+  border-style: solid;
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  min-width: 120px;
+  transition: all var(--transition-fast) cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn-row .btn-next1,
+.btn-row .btn-next2,
+.btn-row .btn-next3,
+.btn-row .btn-next4,
+.btn-row .btn-next5,
+.btn-row .btn-finish {
+  background: var(--color-border-strong);
+  border-color: var(--color-border-strong);
+  color: #ffffff;
+}
+
+/* ============================================================================
+   9. INFO BOXES & TOOLTIPS - MINIMAL DESIGN
+   ============================================================================ */
+/* .info-box – usunięte; korzystamy wyłącznie z .help-box */
+
+/* Tooltip */
+
+/* ============================================================================
+   10. COLLAPSIBLE INSTRUCTION - COMPACT & INTERACTIVE
+   ============================================================================ */
+
+.instruction-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.instruction-toggle:hover {
+  background: rgba(217, 119, 6, 0.04);
+  padding-left: calc(var(--spacing-md) + 2px);
+}
+
+.instruction-content {
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm)
+    var(--spacing-md);
+  border: 1px solid rgba(61, 74, 86, 0.1);
+  animation: slideDown 0.25s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   11. SEKCJA WYNIKÓW - STYL HAIER (KARTA TECHNICZNA)
+   ============================================================================ */
+
+/* Wrapper główny sekcji wyników */
+.results-wrapper.section {
+  background: var(--color-bg);
+  padding: var(--spacing-3xl);
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box; /* FIXED: Padding wliczony w width */
+}
+
+/* Naprzemienne tła dla sekcji - biały/szary jak Haier */
+.extended-section.accordion-section {
+  background: var(--color-surface) !important;
+  padding: 0 !important;
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  border: none;
+  box-shadow: var(--shadow-none) !important;
+  border-radius: 0;
+  overflow: hidden;
+  margin-top: 0 !important;
+  animation: none !important;
+}
+
+/* Nagłówki sekcji - minimalistyczne */
+.section-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.section-title i {
+  font-size: var(--font-size-base);
+  color: var(--color-gold);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 400;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ============================================================================
+   PROFIL ENERGETYCZNY - STYL AKORDEONOWY Z TABELĄ
+   ============================================================================ */
+
+.energy-profile-section.glass-box {
+  border: none;
+  border-radius: 0;
+  background: var(--color-surface);
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-none);
+}
+
+/* Nagłówek sekcji (akordeonowy wygląd) */
+.energy-profile-section .result-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: var(--border-width) solid var(--color-border);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: var(--color-surface);
+  margin: 0;
+  transition: background var(--transition-base);
+}
+
+.energy-profile-section .result-title:hover {
+  background: var(--color-bg-hover);
+}
+
+.energy-profile-section .result-title::before {
+  content: "−";
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000;
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+/* Zwinięty akordeon */
+.energy-profile-section.collapsed .result-title::before {
+  content: "+";
+}
+
+/* Podtytuł (opis sekcji) */
+.energy-profile-section .result-subtitle {
+  font-size: 0.9rem;
+  color: #1a202c;
+  padding: 0 1.25rem 1rem 1.25rem;
+  margin: 0;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  line-height: 1.5;
+}
+
+/* Siatka wyników jako tabela */
+.energy-profile-section .result-grid {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  background: #fff;
+  margin-bottom: 0;
+}
+
+.energy-profile-section .result-item {
+  display: table-row;
+}
+
+.energy-profile-section .result-item span,
+.energy-profile-section .result-item strong {
+  display: table-cell;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: middle;
+}
+
+.energy-profile-section .result-item:nth-child(even) {
+  background: #fafafa;
+}
+
+.energy-profile-section .result-item span {
+  color: #1a202c;
+  font-weight: 400;
+  width: 60%;
+}
+
+.energy-profile-section .result-item strong {
+  text-align: right;
+  font-weight: 600;
+  color: #1a202c;
+  width: 40%;
+}
+
+/* Ostatni wiersz bez dolnej ramki */
+.energy-profile-section .result-item:last-child span,
+.energy-profile-section .result-item:last-child strong {
+  border-bottom: none;
+}
+
+/* ============================================================================
+   JEDEN UNIWERSALNY SZABLON DLA WSZYSTKICH SEKCJI
+   ============================================================================ */
+
+/* Wspólny wrapper dla wszystkich sekcji - identyczny dla każdej */
+
+/* Nagłówek - identyczny dla każdej sekcji */
+
+/* Zwinięty stan */
+
+/* Podtytuł - opcjonalny opis */
+
+/* Zawartość - padding i tło */
+
+/* Ukryj zawartość gdy zwinięty */
+
+/* Usuwamy wszystkie stare klasy - backwards compatibility */
+.accordion-section {
+  /* stare - będziemy zamieniać na result-section */
+  border: none;
+  border-radius: 0;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.extended-section.accordion-section .section-title,
+.haier-slider-wrapper.accordion-section .slider-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #000;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: #fff;
+  margin: 0;
+  transition: background 0.2s ease;
+}
+
+.extended-section.accordion-section .section-title:hover,
+.haier-slider-wrapper.accordion-section .slider-header h3:hover {
+  background: #fafafa;
+}
+
+.extended-section.accordion-section .section-title::before,
+.haier-slider-wrapper.accordion-section .slider-header h3::before {
+  content: "−";
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000;
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.extended-section.accordion-section.collapsed .section-title::before,
+.haier-slider-wrapper.accordion-section.collapsed .slider-header h3::before {
+  content: "+";
+}
+
+.extended-section.accordion-section .section-title i {
+  display: none; /* Usuwamy wszystkie ikonki */
+}
+
+.extended-section.accordion-section .section-subtitle {
+  padding: 0 0 1rem 0;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #1a202c;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 1.5;
+  background: #fff;
+}
+
+.extended-section.accordion-section .accordion-content,
+.haier-slider-wrapper.accordion-section > *:not(.slider-header) {
+  padding: var(--spacing-lg);
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+  position: relative;
+}
+
+/* Delikatny akcent inżynierski – pionowy pasek po lewej */
+.extended-section.accordion-section .accordion-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #0f172a, #64748b);
+  opacity: 0.9;
+}
+
+/* ============================================================================
+   PROSTE TABELKI INŻYNIERSKIE – PROFIL ENERGETYCZNY
+   ============================================================================ */
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: #ffffff;
+}
+
+.results-table thead {
+  background: #f3f4f6;
+}
+
+.results-table th,
+.results-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.results-table th:last-child,
+.results-table td:last-child {
+  text-align: right;
+}
+
+.results-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.results-table__num {
+  width: 40px;
+  text-align: right;
+  color: #6b7280;
+}
+
+.results-table__label {
+  font-weight: 500;
+  color: #111827;
+}
+
+.results-table__secondary {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.results-table__highlight {
+  border-left: 3px solid var(--color-gold);
+  background: #ecfdf3;
+}
+
+.results-table__highlight td {
+  border-bottom-color: var(--color-gold-border);
+}
+
+.results-table--compact th,
+.results-table--compact td {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.accordion-section.collapsed .accordion-content,
+.haier-slider-wrapper.accordion-section.collapsed > *:not(.slider-header) {
+  display: none !important;
+}
+
+/* ============================================================================
+   UNIWERSALNY SYSTEM TABEL DLA WSZYSTKICH SEKCJI - TECHNICZNY STYL
+   ============================================================================ */
+
+/* Tabela techniczna - uniwersalna */
+
+/* Lewa kolumna - etykiety */
+
+/* Prawa kolumna - wartości */
+
+/* Wariant z 3 kolumnami */
+
+/* Highlight - dla najważniejszych wartości */
+
+/* Sekcja pomp - także tabela */
+
+/* Pompy ciepła - format tabelaryczny */
+
+/* Grid dla kart pomp - 2 kolumny domyślnie */
+
+/* Karty pomp */
+
+/* Animacja fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   12. BUILDING SHAPE & IMAGES
+   ============================================================================ */
+
+.obrys-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--input-radius);
+}
+
+.formularz-z-mapa {
+  display: flex;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================================================
+   13. SEPARATOR - SUBTLE & MINIMAL
+   ============================================================================ */
+
+/* Separator w formach - UKRYTY, zastąpiony większymi odstępami między labelami */
+
+/* Separator dla głównych sekcji - wyraźniejszy */
+
+/* ============================================================================
+   14. BRAND FOOTER
+   ============================================================================ */
+.brand-content {
+  display: flex;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  border-top: var(--border-width) solid var(--color-border-light);
+  transition: all var(--transition-slow);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  margin-left: calc(var(--spacing-lg) * -1);
+  margin-right: calc(var(--spacing-lg) * -1);
+}
+
+.brand-content:hover {
+  background: #fafafa;
+  transform: none;
+}
+
+.brand-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.brand-text p {
+  font-size: var(--font-size-m);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.brand-text p:first-child {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+/* Badge content */
+
+/* ============================================================================
+   15. RESPONSIVE - TABLET (768px)
+   ============================================================================ */
+
+/* ============================================================================
+16. RESPONSIVE - MOBILE (480px)
+   ============================================================================ */
+
+/* ============================================================================
+   17. UTILITIES
+   ============================================================================ */
+.hidden {
+  display: none !important;
+}
+
+/* Dynamicznie pokazywane sekcje - dodaj spacing gdy są widoczne */
+
+#secondaryWallFields,
+#canadianOptions,
+#externalIsolationFields,
+#topIsolationFields,
+#bottomIsolationFields,
+#hotWaterOptions,
+#balconyFields {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Input w #balconyFields - full width w rodzicu */
+#balconyFields input {
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+#balconyFields label {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   18. ACCESSIBILITY
+   ============================================================================ */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Pola formularza używają delikatnego koloru premium */
+input:focus-visible:not([type="checkbox"]):not([type="radio"]),
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   CUSTOM SLIDER - Idealny slider z precyzyjnym pozycjonowaniem
+   ============================================================================ */
+
+.custom-slider-container {
+  position: relative;
+  margin-top: 50px;
+  padding-top: 48px; /* Space for bubble */
+  padding-bottom: 20px;
+  margin-bottom: var(--spacing-xl); /* 32px - jak form-field */
+  overflow: visible; /* Allow bubble to show */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Space between slider and button */
+}
+
+/* Małe slidery (≤10 opcji): balkony, drzwi */
+.custom-slider-small {
+  width: 530px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Duże slidery (>10 opcji): okna */
+.custom-slider-large {
+  width: 745px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Bąbelek z wartością */
+.custom-bubble {
+  position: absolute;
+  top: 0; /* Changed from -38px - now container has padding-top */
+  left: 0;
+  transform: translateX(-50%);
+  background: var(--color-slider-value);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: left 0.2s ease-out;
+  z-index: 10;
+  /* Prevent overflow */
+  min-width: 32px;
+  text-align: center;
+}
+.custom-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: var(--color-slider-value) transparent transparent transparent;
+}
+
+/* ============================================================================
+   CUSTOM SLIDER - ENGINEERING STYLE (Technical Parameter Control)
+   ============================================================================ */
+
+/* Track (szyna) - neutralna, techniczna */
+.custom-slider-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-bottom: 8px;
+  /* Allow thumb to extend slightly beyond track */
+  overflow: visible;
+}
+
+/* Thumb (kuleczka) - spokojny, techniczny */
+.custom-slider-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #6b7280;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  cursor: grab;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, left 0.1s ease-out;
+  z-index: 5;
+  /* Ensure thumb stays within track bounds */
+  /* JavaScript sets left: 0-100%, translateX(-50%) centers it */
+  /* At 0%: thumb center at track start (thumb half visible) */
+  /* At 100%: thumb center at track end (thumb half visible) */
+}
+
+.custom-slider-thumb:hover {
+  border-color: #4b5563;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.custom-slider-thumb:active {
+  cursor: grabbing;
+  border-color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Znaczniki (ticki) pod sliderem */
+.custom-slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0 2px; /* Prevent first/last tick from being cut off */
+  box-sizing: border-box;
+}
+
+.custom-slider-ticks .tick {
+  position: relative;
+  font-size: 0.85rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  flex: 0 0 auto;
+  min-width: 20px; /* Prevent overlap */
+  text-align: center;
+}
+
+.custom-slider-ticks .tick:hover {
+  color: var(--color-gold-dark);
+  transform: scale(1.1);
+}
+
+.custom-slider-ticks .tick::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background: #888;
+}
+
+.slider-confirm-card {
+  min-width: 140px !important;
+  width: auto !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  border: var(--border-width) solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-surface) !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  margin-top: 4px; /* Space from ticks */
+  align-self: center; /* Center within container */
+}
+
+.slider-confirm-card__icon {
+  display: none;
+}
+
+.slider-confirm-card .building-type-card__label {
+  display: none;
+}
+
+.slider-confirm-card__hint {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.slider-confirm-card:hover:not(:disabled) {
+  border-color: #b8b8b8;
+  background: #fafafa;
+  transform: none;
+}
+
+.slider-confirm-card:active:not(:disabled) {
+  border-color: var(--color-gold);
+  background: var(--color-gold-light);
+  transform: scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.slider-confirm-card:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ============================= */
+/* SLIDER CONFIRMED STATE – ENGINEERING STYLE */
+/* ============================= */
+
+.custom-slider-container.slider-confirmed .slider-confirm-card,
+.slider-confirm-card--confirmed {
+  border: 2px solid #2b2b2b;
+  background: #f7f7f7;
+  padding: 0;
+}
+
+.slider-confirm-card--confirmed .slider-confirm-card__hint {
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.custom-slider-container.slider-confirmed .slider-confirm-card__icon,
+.slider-confirm-card--confirmed .slider-confirm-card__icon {
+  display: none;
+}
+
+.custom-slider-ticks .tick.active {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* ========================================
+   DANE ROZSZERZONE - EXTENDED RESULTS
+   ======================================== */
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--color-text-heading);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+}
+
+.section-title i {
+  color: var(--color-gold);
+  font-size: 1.3rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === STRATY CIEPŁA === */
+
+/* === MODERNIZACJE === */
+
+/* === KOSZTY OGRZEWANIA === */
+
+/* === PUNKTY BIWALENTNE === */
+
+/* === ANIMACJE === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSYWNOŚĆ === */
+
+/* Tablet (768px) */
+
+/* Mobile (480px) */
+
+/* Extra small mobile (360px) */
+
+/* ============================================
+   ZORDON 3.0 - TECHNICAL REPORT OVERRIDE
+   Styl dokumentacji technicznej + mikro-psychologia
+   ============================================ */
+
+/* --- 1. STRUKTURA WIZUALNA --- */
+.glass-box,
+.extended-section,
+.results-actions {
+  box-shadow: var(--shadow-none) !important;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.results-wrapper.section {
+  width: var(--container-lg);
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  margin: 0 auto var(--spacing-3xl) auto;
+  background: var(--color-bg);
+  padding: var(--spacing-3xl);
+  box-sizing: border-box; /* FIXED: Padding wliczony w width */
+  padding-left: var(--spacing-3xl);
+  padding-right: var(--spacing-3xl);
+}
+
+/* --- 2. TYPOGRAFIA TECHNICZNA --- */
+.section-title,
+.result-title,
+.slider-header h3 {
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  border-bottom: var(--border-width) solid var(--color-border) !important;
+  padding-bottom: var(--spacing-xs) !important;
+  margin-bottom: var(--spacing-md) !important;
+  background: transparent !important;
+}
+
+/* Subtelniejsze kontrasty */
+.result-item span,
+.section-subtitle {
+  color: var(--color-text) !important;
+}
+
+.result-item strong {
+  color: var(--color-text) !important;
+  font-weight: 600 !important;
+}
+
+/* --- 3. UKŁAD DANYCH - TABELE TECHNICZNE --- */
+.energy-profile-section .result-grid {
+  display: table !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 0.95rem !important;
+  margin-top: 0 !important;
+}
+
+.energy-profile-section .result-item {
+  display: table-row !important;
+}
+
+.energy-profile-section .result-item span,
+.energy-profile-section .result-item strong {
+  display: table-cell !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+  vertical-align: middle !important;
+}
+
+.energy-profile-section .result-item:nth-child(even) {
+  background: #fafaf8 !important;
+}
+
+.energy-profile-section .result-item:last-child span,
+.energy-profile-section .result-item:last-child strong {
+  border-bottom: none !important;
+}
+
+/* --- 4. AKORDEONY - STYL DOKUMENTACYJNY --- */
+/* Override koloru i rozmiaru znaków +/− */
+.extended-section.accordion-section .section-title::before,
+.haier-slider-wrapper.accordion-section .slider-header h3::before,
+.energy-profile-section.accordion-section .result-title::before {
+  color: var(--color-gold) !important;
+  font-size: 1.4rem !important;
+}
+
+/* Dodaj znaki +/− dla profilu energetycznego */
+.energy-profile-section.accordion-section .result-title::before {
+  content: "−";
+  display: inline-block;
+  font-weight: 400;
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.energy-profile-section.accordion-section.collapsed .result-title::before {
+  content: "+";
+}
+
+/* Dodatkowa czytelność contentu akordeonów */
+.extended-section.accordion-section .accordion-content {
+  padding: 1rem 1.25rem !important;
+}
+
+.pump-recommendation-section.accordion-section .accordion-content {
+  padding: 1rem 1.25rem !important;
+}
+
+/* Zapewnij działanie akordeonów dla profilu energetycznego */
+.energy-profile-section.accordion-section.collapsed .result-grid,
+.energy-profile-section.accordion-section.collapsed .result-subtitle {
+  display: none !important;
+}
+
+/* .data-comment jest obsługiwany przez JavaScript (nextElementSibling) */
+
+/* Cursor i hover dla .result-title w akordeonach */
+.energy-profile-section.accordion-section .result-title {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.energy-profile-section.accordion-section .result-title:hover {
+  background: #fafafa !important;
+}
+
+/* Style dla sekcji rekomendacji pomp */
+.pump-recommendation-section.accordion-section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pump-recommendation-section.accordion-section .micro-note {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Style dla statycznego nagłówka rekomendacji pomp */
+.pump-recommendation-section .slider-header h3 {
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #000;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  margin: 0;
+  transition: background 0.2s ease;
+}
+
+.pump-recommendation-section .slider-header h3:hover {
+  background: #fafafa;
+}
+
+.pump-recommendation-section .slider-header h3::before {
+  content: "−";
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.pump-recommendation-section.collapsed .slider-header h3::before {
+  content: "+";
+}
+
+/* Ukryj zawartość gdy zwinięte */
+.pump-recommendation-section.collapsed .accordion-content {
+  display: none !important;
+}
+
+/* Dostosuj grid dla kart pomp */
+
+/* Sekcja alternatywnej mocy */
+
+/* --- 5. KARTY POMP - KATALOG PRODUKTOWY --- */
+
+/* --- 6. CTA - TECHNICZNY SPOKÓJ --- */
+
+/* --- 7. KOLORY I KONTRASTY --- */
+
+/* --- 8. MIKRO-PSYCHOLOGIA - NOWE ELEMENTY --- */
+
+/* Mikro-nagłówki wyjaśniające */
+.micro-note {
+  font-size: 0.9rem;
+  color: #1a202c;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Komentarze systemowe */
+.data-comment {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  background: var(--color-bg);
+  border-left: 3px solid var(--color-gold);
+  padding: var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.data-comment i {
+  margin-right: 6px;
+}
+
+.data-comment strong {
+  font-weight: 600;
+  color: var(--color-gold-dark);
+}
+
+/* Linia komfortu */
+.comfort-line {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #1a202c;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.comfort-line::before {
+  margin-right: 8px;
+}
+
+/* Podsumowanie eksperckie */
+.summary-line {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: #f8fdf9;
+  border-left: 3px solid var(--color-gold);
+  font-size: 0.9rem;
+  color: #1a202c;
+  line-height: 1.6;
+}
+
+.summary-line::before {
+  margin-right: 6px;
+  color: var(--color-gold);
+}
+
+/* Stopka ekspercka */
+.expert-footer {
+  font-size: 0.8rem;
+  color: #1a202c;
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+  margin-top: 1.5rem;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.expert-footer i {
+  color: var(--color-gold);
+  margin-right: 5px;
+}
+
+.expert-footer strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.expert-footer span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+}
+
+/* --- 9. MIKRO-ANIMACJE BEHAWIORALNE --- */
+.result-item strong {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.result-item:hover strong {
+  color: var(--color-gold);
+  transform: scale(1.02);
+}
+
+/* Subtelny efekt na tabelach */
+
+/* --- 10. RESPONSYWNOŚĆ --- */
+
+/* ============================================================================
+   PROFESJONALIZACJA SEKCJI Z WYNIKAMI - ZMIANY INŻYNIERSKIE
+   ============================================================================ */
+
+/* UJEDNOLICENIE KOLORÓW TEKSTU W SEKCJI WYNIKÓW - #1A202C */
+.results-wrapper p,
+.results-wrapper span,
+.results-wrapper .micro-note,
+.results-wrapper .section-subtitle,
+.results-wrapper .result-item span,
+.results-wrapper .comfort-line,
+.results-wrapper .summary-line,
+.results-wrapper .expert-footer,
+.results-wrapper .expert-footer span {
+  color: #1a202c !important;
+}
+
+/* 1️⃣ ZMNIEJSZENIE I UPROSZCZENIE ZAOKRĄGLEŃ - TECHNICZNA PRECYZJA */
+/* Maksymalnie 4px dla elementów z większym border-radius */
+
+/* 2️⃣ WYRÓWNANIE TONÓW KOLORÓW - CHŁODNE ODCIENIE TECHNICZNE */
+/* Zmiana kolorów z jaskrawych na stonowane */
+
+/* Zmiana tła sekcji na spójny, chłodny ton */
+.energy-profile-section .result-item:nth-child(even),
+.energy-profile-section .result-title:hover,
+.extended-section.accordion-section .section-title:hover,
+.haier-slider-wrapper.accordion-section .slider-header h3:hover,
+.energy-profile-section.accordion-section .result-title:hover,
+.pump-recommendation-section .slider-header h3:hover {
+  background: #f7f5f5 !important; /* Było: #fafafa, #f9f9f9 */
+}
+
+/* Hover dla elementów interaktywnych */
+
+/* 3️⃣ USUNIĘCIE CIENI I GRADIENTÓW - CZYSTOŚĆ TECHNICZNA */
+.energy-profile-section {
+  box-shadow: none !important;
+}
+
+/* Usunięcie gradientów z tła */
+.energy-profile-section .result-title,
+.extended-section.accordion-section .section-title,
+.haier-slider-wrapper.accordion-section .slider-header h3,
+.pump-recommendation-section .slider-header h3 {
+  background: #fff !important;
+}
+
+.energy-profile-section .result-title:hover,
+.extended-section.accordion-section .section-title:hover,
+.haier-slider-wrapper.accordion-section .slider-header h3:hover,
+.pump-recommendation-section .slider-header h3:hover {
+  background: #f7f5f5 !important;
+}
+
+/* 4️⃣ ZMNIEJSZENIE KONTRASTU NAGŁÓWKÓW - RYTM TABELARYCZNY */
+/* Nagłówki w sekcji wyników z cienką linią pod spodem */
+.results-wrapper h2,
+.results-wrapper h3,
+.results-wrapper .section-title,
+.results-wrapper .result-title,
+.results-wrapper .slider-header h3 {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 4px;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Dodatkowe zmniejszenie odstępu między tytułem a pierwszym wierszem */
+.energy-profile-section .result-title,
+.extended-section.accordion-section .section-title,
+.pump-recommendation-section .slider-header h3 {
+  margin-bottom: 0.75rem !important;
+}
+
+/* 5️⃣ UJEDNOLICENIE AKCENTÓW - JEDEN KOLOR ZŁOTY (#D4A574) */
+/* Wszystkie ikony w tytułach i komentarzach */
+.results-wrapper .section-title i,
+.results-wrapper .result-title i,
+.results-wrapper .data-comment i,
+.results-wrapper .comfort-line::before,
+.results-wrapper .summary-line::before,
+.results-wrapper .expert-footer i {
+  color: var(--color-gold) !important;
+}
+
+/* Podkreślenia i paski - lewa linia */
+.data-comment,
+.summary-line {
+  border-left: 3px solid #168a5d !important;
+}
+
+/* Przycisk CTA - ciemniejszy, spokojniejszy odcień */
+
+/* Wszystkie akcenty kolorystyczne w sekcji wyników */
+
+.results-wrapper .result-item:hover strong {
+  color: var(--color-gold) !important;
+}
+
+/* Dodatkowe ujednolicenie - usunięcie innych kolorów akcentowych */
+
+/* Ujednolicenie tła dla komentarzy */
+.data-comment,
+.summary-line {
+  background: #f7f5f5 !important; /* Było: #f8fdf9 */
+}
+
+/* ============================================================================
+   PRZYCISKI FUNKCJONALNE – STYL DOKUMENTACYJNY
+   ============================================================================ */
+
+/* Kontener z przyciskami */
+.results-actions {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* W widoku kalkulatora ukrywamy wewnętrzne .results-actions wczytywane z konfiguratora,
+   tak aby zawsze używać jednego, głównego bloku przycisków pod profilem energetycznym */
+.results-wrapper.section #configurator-view .results-actions {
+  display: none !important;
+}
+
+/* UJEDNOLICONE: Ukryj duplikat results-actions--configurator gdy widoczny jest profil energetyczny
+   (przycisk PDF jest już w kroku Podsumowanie konfiguracji - KROK 10/10)
+   Struktura: #energy-profile-view.visible jest sibling dla .results-actions--configurator */
+#energy-profile-view.visible ~ .results-actions--configurator,
+.results-view[data-view="energy-profile"].visible
+  ~ .results-actions--configurator,
+.hp-results[data-view="results"]:has(#energy-profile-view.visible)
+  .results-actions--configurator {
+  display: none !important;
+}
+
+/* UJEDNOLICONE: Ukryj duplikat results-actions w energy-profile-view (już jest .hidden, ale precyzja) */
+#energy-profile-view .results-actions.hidden,
+#energy-profile-view:not(.visible) .results-actions {
+  display: none !important;
+}
+
+/* Safety: konfigurator DOM może istnieć globalnie, ale będzie niewidoczny
+   dopóki root nie zostanie oznaczony jako widok konfiguratora */
+.heatpump-calculator .machine-room-configurator-section {
+  display: none;
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+.heatpump-calculator[data-view="configurator"]
+  .machine-room-configurator-section {
+  display: block;
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+
+/* Grupy przycisków */
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.primary-actions {
+  margin-bottom: 1rem;
+}
+
+/* Wszystkie przyciski - workflow premium style */
+.results-actions button,
+.results-actions .action-btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-none);
+  cursor: pointer;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  min-height: var(--button-height);
+}
+
+.results-actions button:focus-visible,
+.results-actions .action-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.results-actions button i,
+.results-actions .action-btn i {
+  transition: transform var(--transition-slow);
+}
+
+/* === PRZYCISK GŁÓWNY (zielony) === */
+
+.action-btn.primary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-dark);
+}
+
+.action-btn.primary:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.action-btn.primary:hover i {
+  transform: translateX(3px);
+}
+
+.action-btn.primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* === POZOSTAŁE PRZYCISKI (neutralne) === */
+.action-btn.secondary,
+.action-btn.tertiary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border);
+}
+
+.action-btn.secondary:hover,
+.action-btn.tertiary:hover {
+  border-color: var(--color-text-muted);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.action-btn.secondary:hover i,
+.action-btn.tertiary:hover i {
+  transform: translateX(3px);
+}
+
+/* === PRZYCISK WYŁĄCZONY === */
+
+/* === UKŁAD === */
+.secondary-actions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+   RESPONSYWNOŚĆ - ZACHOWANIE ZMIAN NA MOBILNYCH
+   ============================================================================ */
+
+/* Progress bar dopieszczony */
+.hp-progress {
+  margin-bottom: 8px;
+}
+.hp-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.hp-progress-info .form-progress-percentage {
+  font-weight: 600;
+}
+.hp-progress-info .form-progress-label {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ============================================================================
+   SUBTELNE ULEPSZENIA UX - DATA-TAB-0 & DATA-TAB-1
+   ============================================================================ */
+
+/* Lekko więcej przestrzeni w sekcjach */
+.section[data-tab="0"],
+.section[data-tab="1"] {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+/* Lepsze odstępy między form-card - dla wszystkich data-tab */
+.section[data-tab="0"] .form-card,
+.section[data-tab="1"] .form-card,
+.section[data-tab="2"] .form-card,
+.section[data-tab="3"] .form-card,
+.section[data-tab="4"] .form-card,
+.section[data-tab="5"] .form-card {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Lepsza separacja przycisków */
+.section[data-tab="0"] .btn-row,
+.section[data-tab="1"] .btn-row {
+  margin-top: var(--spacing-2xl);
+  gap: var(--spacing-md);
+}
+
+/* Wyśrodkowanie przycisku DALEJ w data-tab="0" */
+.section[data-tab="0"] .btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section[data-tab="0"] .btn-row .btn-next1 {
+  margin: 0;
+}
+
+/* Przycisk DALEJ - minimalistyczny premium style (workflow) */
+.section[data-tab="0"] .btn-next1,
+.section[data-tab="1"] .btn-next2 {
+  min-width: 220px;
+  padding: 0 var(--spacing-2xl);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  height: var(--button-height);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-dark);
+  box-shadow: var(--shadow-none);
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section[data-tab="0"] .btn-next1:hover,
+.section[data-tab="1"] .btn-next2:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.section[data-tab="0"] .btn-next1:active,
+.section[data-tab="1"] .btn-next2:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* Przycisk COFNIJ - minimalistyczny premium style (workflow) */
+.section[data-tab="1"] .btn-prev {
+  min-width: 140px;
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-dark);
+  opacity: 1;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-none);
+}
+
+.section[data-tab="1"] .btn-prev:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+  opacity: 1;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Subtelnie większe radio buttons dla lepszej klikalności */
+.section[data-tab="0"] .form-field__radio-label,
+.section[data-tab="1"] .form-field__radio-label {
+  min-height: 44px; /* Hit area dla dotyku */
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Radio button kropka - piękniejsza i wyraźniejsza (z palety) */
+.section[data-tab="0"] .form-field__radio-label input[type="radio"],
+.section[data-tab="1"] .form-field__radio-label input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  aspect-ratio: 1 / 1;
+  flex-grow: 0;
+  padding: 0;
+  border-width: 1.5px;
+  transition: all var(--transition-base);
+}
+
+.section[data-tab="0"] .form-field__radio-label input[type="radio"]:checked,
+.section[data-tab="1"] .form-field__radio-label input[type="radio"]:checked {
+  border-width: 1.5px;
+  border-color: var(--color-form-interactive);
+}
+
+.section[data-tab="0"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after,
+.section[data-tab="1"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-gold);
+}
+
+/* Hover na radio - subtelny efekt (delikatny slate) */
+.section[data-tab="0"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled),
+.section[data-tab="1"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled) {
+  border-color: var(--color-form-interactive);
+  box-shadow: 0 0 0 2px var(--color-form-interactive-hover);
+}
+
+/* Lepsza czytelność help-boxów */
+.section[data-tab="0"] .help-box,
+.section[data-tab="1"] .help-box {
+  padding: var(--spacing-md) var(--spacing-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Wyraźniejsze H3 */
+.section[data-tab="0"] h3,
+.section[data-tab="1"] h3 {
+  margin-top: var(--spacing-3xl);
+}
+
+.section[data-tab="0"] h3:first-of-type,
+.section[data-tab="1"] h3:first-of-type {
+  margin-top: var(--spacing-lg);
+}
+
+/* Lepsze odstępy między pytaniami */
+.section[data-tab="0"] .form-field-item--subsequent,
+.section[data-tab="1"] .form-field-item--subsequent {
+  margin-top: var(--spacing-2xl);
+}
+
+/* Lepsza separacja brand-content */
+.section[data-tab="0"] .brand-content,
+.section[data-tab="1"] .brand-content {
+  margin-top: var(--spacing-3xl);
+}
+
+/* ============================================================================
+   ROZSZERZENIE STYLÓW NA ZAKŁADKI 2, 3, 4, 5 - SPÓJNOŚĆ Z 0 I 1
+   ============================================================================ */
+
+/* Lekko więcej przestrzeni w sekcjach */
+.section[data-tab="2"],
+.section[data-tab="3"],
+.section[data-tab="4"],
+.section[data-tab="5"] {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+/* Lepsza separacja przycisków */
+.section[data-tab="2"] .btn-row,
+.section[data-tab="3"] .btn-row,
+.section[data-tab="4"] .btn-row,
+.section[data-tab="5"] .btn-row {
+  margin-top: var(--spacing-2xl);
+  gap: var(--spacing-md);
+}
+
+/* Przyciski DALEJ - minimalistyczny premium style (workflow) */
+.section[data-tab="2"] .btn-next3,
+.section[data-tab="3"] .btn-next4,
+.section[data-tab="4"] .btn-next5 {
+  min-width: 220px;
+  padding: 0 var(--spacing-2xl);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  height: var(--button-height);
+  border-radius: var(--radius-sm);
+  letter-spacing: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-dark);
+  box-shadow: var(--shadow-none);
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section[data-tab="2"] .btn-next3:hover,
+.section[data-tab="3"] .btn-next4:hover,
+.section[data-tab="4"] .btn-next5:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.section[data-tab="2"] .btn-next3:active,
+.section[data-tab="3"] .btn-next4:active,
+.section[data-tab="4"] .btn-next5:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* Przycisk COFNIJ - minimalistyczny premium style (workflow) */
+.section[data-tab="2"] .btn-prev,
+.section[data-tab="3"] .btn-prev,
+.section[data-tab="4"] .btn-prev,
+.section[data-tab="5"] .btn-prev {
+  min-width: 140px;
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-dark);
+  opacity: 1;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-none);
+}
+
+.section[data-tab="2"] .btn-prev:hover,
+.section[data-tab="3"] .btn-prev:hover,
+.section[data-tab="4"] .btn-prev:hover,
+.section[data-tab="5"] .btn-prev:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+  opacity: 1;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Subtelnie większe radio buttons dla lepszej klikalności */
+.section[data-tab="2"] .form-field__radio-label,
+.section[data-tab="3"] .form-field__radio-label,
+.section[data-tab="4"] .form-field__radio-label,
+.section[data-tab="5"] .form-field__radio-label {
+  min-height: 44px; /* Hit area dla dotyku */
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Radio button kropka - piękniejsza i wyraźniejsza (z palety) */
+.section[data-tab="2"] .form-field__radio-label input[type="radio"],
+.section[data-tab="3"] .form-field__radio-label input[type="radio"],
+.section[data-tab="4"] .form-field__radio-label input[type="radio"],
+.section[data-tab="5"] .form-field__radio-label input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  aspect-ratio: 1 / 1;
+  flex-grow: 0;
+  padding: 0;
+  border-width: 1.5px;
+  transition: all var(--transition-base);
+  overflow: hidden; /* FIXED: Zapobiega wystającym pikselom */
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.section[data-tab="2"] .form-field__radio-label input[type="radio"]:checked,
+.section[data-tab="3"] .form-field__radio-label input[type="radio"]:checked,
+.section[data-tab="4"] .form-field__radio-label input[type="radio"]:checked,
+.section[data-tab="5"] .form-field__radio-label input[type="radio"]:checked {
+  border-width: 1.5px;
+  border-color: var(--color-form-interactive);
+}
+
+.section[data-tab="2"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after,
+.section[data-tab="3"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after,
+.section[data-tab="4"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after,
+.section[data-tab="5"]
+  .form-field__radio-label
+  input[type="radio"]:checked::after {
+  /* FIXED: Consistent with Tab 0-1 - 100% fill */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-gold);
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* Hover na radio - subtelny efekt (delikatny slate) */
+.section[data-tab="2"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled),
+.section[data-tab="3"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled),
+.section[data-tab="4"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled),
+.section[data-tab="5"]
+  .form-field__radio-label:hover
+  input[type="radio"]:not(:disabled) {
+  border-color: var(--color-form-interactive);
+  box-shadow: 0 0 0 2px var(--color-form-interactive-hover);
+}
+
+/* Lepsza czytelność help-boxów */
+.section[data-tab="2"] .help-box,
+.section[data-tab="3"] .help-box,
+.section[data-tab="4"] .help-box,
+.section[data-tab="5"] .help-box {
+  padding: var(--spacing-md) var(--spacing-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Wyraźniejsze H3 */
+.section[data-tab="2"] h3,
+.section[data-tab="3"] h3,
+.section[data-tab="4"] h3,
+.section[data-tab="5"] h3 {
+  margin-top: var(--spacing-3xl);
+}
+
+.section[data-tab="2"] h3:first-of-type,
+.section[data-tab="3"] h3:first-of-type,
+.section[data-tab="4"] h3:first-of-type,
+.section[data-tab="5"] h3:first-of-type {
+  margin-top: var(--spacing-lg);
+}
+
+/* Lepsze odstępy między pytaniami */
+.section[data-tab="2"] .form-field-item--subsequent,
+.section[data-tab="3"] .form-field-item--subsequent,
+.section[data-tab="4"] .form-field-item--subsequent,
+.section[data-tab="5"] .form-field-item--subsequent {
+  margin-top: var(--spacing-lg);
+}
+
+/* Lepsza separacja brand-content */
+.section[data-tab="2"] .brand-content,
+.section[data-tab="3"] .brand-content,
+.section[data-tab="4"] .brand-content,
+.section[data-tab="5"] .brand-content {
+  margin-top: var(--spacing-3xl);
+}
+
+/* Mobile: zachowaj proporcje */
+
+.field-disabled {
+  pointer-events: none;
+  opacity: var(--opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   PODGLĄDOWY STICKY HEADER Z GRAFIKĄ (headerek.png)
+   Używany w: kalkulator.html, konfigurator.html, wyniki.html
+   ============================================================================ */
+.top-preview-header {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  width: 100%;
+  background: #000;
+}
+
+.top-preview-header img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   RESULTS SWITCHER - Premium Sticky Tabs
+   ======================================== */
+
+.results-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-bg);
+  backdrop-filter: blur(14px);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-2xl);
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+
+/* ========================================
+   RESULTS SWITCHER - Premium HVAC Design
+   ======================================== */
+
+.results-switch-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-none);
+  text-transform: none;
+  letter-spacing: 0;
+  min-height: 48px;
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+
+.results-switch-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.results-switch-btn i {
+  font-size: var(--font-size-lg);
+  transition: transform var(--transition-slow), color var(--transition-slow);
+  color: var(--color-text-muted);
+}
+
+.results-switch-btn:hover:not(.active) {
+  border-color: var(--color-border-dark);
+  background: var(--color-surface);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.results-switch-btn.active {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: var(--border-width) solid var(--color-border-dark);
+  box-shadow: var(--shadow-subtle);
+  font-weight: 600;
+}
+
+.results-switch-btn.active i {
+  color: var(--color-text-primary);
+}
+
+.results-switch-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-none);
+}
+
+/* ========================================
+   RESULTS VIEWS - Widoki zakładek
+   ======================================== */
+
+.results-view {
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.results-view.hidden {
+  display: none;
+}
+
+.results-view.visible {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive dla results-switcher */
+@media (max-width: 768px) {
+  .results-switcher {
+    flex-direction: column;
+    padding: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .results-switch-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    min-height: 44px;
+  }
+
+  .results-switch-btn i {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 390px) {
+  .results-switcher {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .results-switch-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    gap: var(--spacing-xs);
+  }
+}
+
+/* ============================================================================
+   PREMIUM HVAC DESIGN - MONOSPACE FOR TECHNICAL VALUES
+   ============================================================================ */
+/* Apply monospace font with tabular numbers for all technical values */
+input[type="number"],
+.custom-bubble,
+.progress-percentage,
+.quantity-input input[type="number"] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================================
+   PREMIUM HVAC DESIGN - TABULAR INPUT WIDTHS
+   ============================================================================ */
+/* Inputs with units (m, cm, °C) - fixed width for alignment */
+input[type="number"]:not(.quantity-input input):not(#dimensionsFields input) {
+  max-width: 120px;
+  text-align: right;
+  padding-right: 12px;
+}
+
+/* Wider inputs for other types */
+input[type="text"] {
+  max-width: 530px;
+}
+
+/* Select dropdowns - consistent width */
+select,
+.form-select {
+  max-width: 530px;
+}
+
+/* Responsywność dla mobile */
+
+/* -----------------------------------------------------------------------------
+   Responsive layout refresh — mobile & tablet (Dec 2025)
+   -------------------------------------------------------------------------- */
+
+/* ============================================================================
+   MOBILE OPTIMIZATION - Kompleksowa naprawa wizualna
+   Profesjonalne doświadczenie mobilne - światowy poziom
+   ============================================================================ */
+
+/* ============================================================================
+   QUICK SCENARIO (DEV UX) — szybka symulacja na przykładowych danych
+   Uwaga: Reverse-engine/DEV prompt zostały usunięte — zostaje tylko Quick Scenario.
+   ============================================================================ */
+
+/* Czarny okrągły przycisk szybkiej symulacji w zakładce 0 */
+.section[data-tab="0"] .quick-scenario-btn {
+  width: 44px; /* Hit area dla dotyku */
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: none;
+  margin-right: var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-text);
+  color: var(--color-surface);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.section[data-tab="0"] .quick-scenario-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.section[data-tab="0"] .quick-scenario-btn:hover {
+  background: var(--color-text-heading);
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+.section[data-tab="0"] .quick-scenario-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Modal szybkiej symulacji */
+.quick-scenario-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 11000;
+  font-family: "Titillium Web", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    system-ui, sans-serif;
+}
+
+.quick-scenario-modal.is-open {
+  display: flex;
+}
+
+.quick-scenario-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.quick-scenario-dialog {
+  position: relative;
+  z-index: var(--z-modal, 11001);
+  max-width: 520px;
+  width: 92%;
+  background: #0b1120; /* Ciemne tło modala - specjalny przypadek */
+  color: #e5e7eb; /* Jasny tekst na ciemnym tle - specjalny przypadek */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+  box-shadow: var(--shadow-lg);
+  border: var(--border-width) solid rgba(148, 163, 184, 0.4);
+}
+
+.quick-scenario-dialog h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.quick-scenario-subtitle {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #9ca3af;
+}
+
+.quick-scenario-fields {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-right: -4px;
+}
+
+.quick-scenario-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+  align-items: center;
+  column-gap: 16px;
+  padding: 6px 0;
+}
+
+.quick-scenario-label {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.quick-scenario-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.qs-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: #020617; /* Ciemne tło modala - specjalny przypadek */
+  color: #e5e7eb; /* Jasny tekst - specjalny przypadek */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.qs-btn:hover {
+  background: #111827; /* Ciemne tło modala - specjalny przypadek */
+  transform: translateY(-1px);
+}
+
+.qs-btn:active {
+  transform: translateY(0);
+}
+
+.qs-input {
+  width: 84px;
+  text-align: center;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid #4b5563; /* Ciemna ramka na ciemnym tle - specjalny przypadek */
+  background: #020617; /* Ciemne tło modala - specjalny przypadek */
+  color: #e5e7eb; /* Jasny tekst - specjalny przypadek */
+  font-size: var(--font-size-sm);
+}
+
+.qs-input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.55);
+}
+
+/* ✅ SELECT dla quick scenario */
+.qs-select {
+  width: 100%;
+  min-width: 180px;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.qs-select:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.55);
+}
+
+.qs-select:hover {
+  border-color: #6b7280;
+}
+
+/* ✅ CHECKBOX dla quick scenario */
+.qs-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.qs-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #f97316;
+}
+
+.qs-checkbox-label span {
+  font-size: var(--font-size-sm);
+  color: #e5e7eb;
+}
+
+.quick-scenario-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.quick-scenario-cancel,
+.quick-scenario-ok {
+  min-width: 110px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: var(--border-width) solid transparent;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 var(--spacing-sm);
+}
+
+.quick-scenario-cancel {
+  background: transparent;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.quick-scenario-cancel:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.quick-scenario-ok {
+  background: linear-gradient(90deg, #f97316, #dc2626);
+  color: #f9fafb;
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
+}
+
+.quick-scenario-ok:hover {
+  filter: brightness(1.05);
+}

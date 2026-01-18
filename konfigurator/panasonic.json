@@ -1,0 +1,2014 @@
+[
+{
+    "kit": "KIT-WC03K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 3.20,
+      "A7W35_COP": 5.33,
+      "A7W55_kW": 3.20,
+      "A7W55_COP": 2.81
+    },
+
+    "cooling": {
+      "A35W7_kW": 3.20,
+      "A35W7_EER": 4.71
+    },
+
+    "scop": {
+      "35C_value": 5.07,
+      "35C_class": "A+++",
+      "55C_value": 3.47,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K3E5",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ03KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 622, "w": 824, "d": 298 },
+      "weight_kg": 37
+    }
+  },
+
+  {
+    "kit": "KIT-WC05K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 5.00,
+      "A7W35_COP": 5.10,
+      "A7W55_kW": 5.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": {
+      "A35W7_kW": 5.00,
+      "A35W7_EER": 4.90
+    },
+
+    "scop": {
+      "35C_value": 5.12,
+      "35C_class": "A+++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K3E5",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ05KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC07K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 7.00,
+      "A7W35_COP": 4.86,
+      "A7W55_kW": 7.00,
+      "A7W55_COP": 2.92
+    },
+
+    "cooling": {
+      "A35W7_kW": 7.00,
+      "A35W7_EER": 4.72
+    },
+
+    "scop": {
+      "35C_value": 4.90,
+      "35C_class": "A++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K3E5",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ07KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC09K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.55,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": {
+      "A35W7_kW": 9.00,
+      "A35W7_EER": 4.18
+    },
+
+    "scop": {
+      "35C_value": 4.44,
+      "35C_class": "A++",
+      "55C_value": 3.41,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K3E5",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC03K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 3.20,
+      "A7W35_COP": 5.33,
+      "A7W55_kW": 3.20,
+      "A7W55_COP": 2.81
+    },
+
+    "cooling": {
+      "A35W7_kW": 3.20,
+      "A35W7_EER": 4.71
+    },
+
+    "scop": {
+      "35C_value": 5.07,
+      "35C_class": "A+++",
+      "55C_value": 3.47,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ03KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 622, "w": 824, "d": 298 },
+      "weight_kg": 37
+    }
+  },
+
+  {
+    "kit": "KIT-WC05K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 5.00,
+      "A7W35_COP": 5.10,
+      "A7W55_kW": 5.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": {
+      "A35W7_kW": 5.00,
+      "A35W7_EER": 4.90
+    },
+
+    "scop": {
+      "35C_value": 5.12,
+      "35C_class": "A+++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ05KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC07K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 7.00,
+      "A7W35_COP": 4.86,
+      "A7W55_kW": 7.00,
+      "A7W55_COP": 2.92
+    },
+
+    "cooling": {
+      "A35W7_kW": 7.00,
+      "A35W7_EER": 4.72
+    },
+
+    "scop": {
+      "35C_value": 4.90,
+      "35C_class": "A++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ07KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC09K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.55,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": {
+      "A35W7_kW": 9.00,
+      "A35W7_EER": 4.18
+    },
+
+    "scop": {
+      "35C_value": 4.44,
+      "35C_class": "A++",
+      "55C_value": 3.41,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC0309K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-WC12K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": {
+      "A35W7_kW": 12.00,
+      "A35W7_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC1216K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE5",
+      "sound_dB": 63,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-WC16K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": {
+      "A35W7_kW": 13.00,
+      "A35W7_EER": 3.80
+    },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.46,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC1216K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+{
+    "kit": "KIT-ADC03K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 3.20,
+      "A7W35_COP": 5.33,
+      "A7W55_kW": 3.20,
+      "A7W55_COP": 2.81
+    },
+
+    "cooling": { "A35W7_kW": 3.20, "A35W7_EER": 4.71 },
+
+    "scop": {
+      "35C_value": 5.07,
+      "35C_class": "A+++",
+      "55C_value": 3.47,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.20
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K3E5",
+      "weight_kg": 100
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ03KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 622, "w": 824, "d": 298 },
+      "weight_kg": 37
+    }
+  },
+
+  {
+    "kit": "KIT-ADC05K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 5.00,
+      "A7W35_COP": 5.10,
+      "A7W55_kW": 5.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": { "A35W7_kW": 5.00, "A35W7_EER": 4.90 },
+
+    "scop": {
+      "35C_value": 5.12,
+      "35C_class": "A+++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K3E5",
+      "weight_kg": 100
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ05KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC07K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 7.00,
+      "A7W35_COP": 4.86,
+      "A7W55_kW": 7.00,
+      "A7W55_COP": 2.92
+    },
+
+    "cooling": { "A35W7_kW": 7.00, "A35W7_EER": 4.72 },
+
+    "scop": {
+      "35C_value": 4.90,
+      "35C_class": "A++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K3E5",
+      "weight_kg": 100
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ07KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC09K3E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E3", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.55,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": { "A35W7_kW": 9.00, "A35W7_EER": 4.18 },
+
+    "scop": {
+      "35C_value": 4.44,
+      "35C_class": "A++",
+      "55C_value": 3.41,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K3E5",
+      "weight_kg": 100
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC03K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 3.20,
+      "A7W35_COP": 5.33,
+      "A7W55_kW": 3.20,
+      "A7W55_COP": 2.81
+    },
+
+    "cooling": { "A35W7_kW": 3.20, "A35W7_EER": 4.71 },
+
+    "scop": {
+      "35C_value": 5.07,
+      "35C_class": "A+++",
+      "55C_value": 3.47,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.20
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ03KE5",
+      "sound_dB": 55,
+      "dimensions_mm": { "h": 622, "w": 824, "d": 298 },
+      "weight_kg": 37
+    }
+  },
+
+  {
+    "kit": "KIT-ADC05K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 5.00,
+      "A7W35_COP": 5.10,
+      "A7W55_kW": 5.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": { "A35W7_kW": 5.00, "A35W7_EER": 4.90 },
+
+    "scop": {
+      "35C_value": 5.12,
+      "35C_class": "A+++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ05KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC07K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 7.00,
+      "A7W35_COP": 4.86,
+      "A7W55_kW": 7.00,
+      "A7W55_COP": 2.92
+    },
+
+    "cooling": { "A35W7_kW": 7.00, "A35W7_EER": 4.72 },
+
+    "scop": {
+      "35C_value": 4.90,
+      "35C_class": "A++",
+      "55C_value": 3.62,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ07KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC09K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.55,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.93
+    },
+
+    "cooling": { "A35W7_kW": 9.00, "A35W7_EER": 4.18 },
+
+    "scop": {
+      "35C_value": 4.44,
+      "35C_class": "A++",
+      "55C_value": 3.41,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0309K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE5",
+      "sound_dB": 56,
+      "dimensions_mm": { "h": 795, "w": 875, "d": 380 },
+      "weight_kg": 55
+    }
+  },
+
+  {
+    "kit": "KIT-ADC12K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": { "A35W7_kW": 12.00, "A35W7_EER": 3.92 },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.20
+    },
+
+    "indoor_unit": {
+      "model": "ADC1216K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-ADC16K6E5",
+    "series": "HP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E6", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": { "A35W7_kW": 13.00, "A35W7_EER": 3.80 },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.46,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.20
+    },
+
+    "indoor_unit": {
+      "model": "ADC1216K6E5",
+      "weight_kg": 101
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-ADC09K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": { "A35W7_kW": 8.80, "A35W7_EER": 4.63 },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A",
+      "COPdhw": 2.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E8",
+      "weight_kg": 102
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-ADC12K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.00,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": { "A35W7_kW": 10.70, "A35W7_EER": 3.92 },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A",
+      "COPdhw": 2.50
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E8",
+      "weight_kg": 102
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-ADC16K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-185",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 14.70,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": { "A35W7_kW": 15.50, "A35W7_EER": 3.60 },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.40,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A",
+      "COPdhw": 2.40
+    },
+
+    "indoor_unit": {
+      "model": "ADC16K9E8",
+      "weight_kg": 103
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+
+  {
+    "kit": "KIT-ADC09K9E83",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-260",
+    "aux_heater": { "code": "E83", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": { "A35W7_kW": 8.80, "A35W7_EER": 4.63 },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.08
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E83",
+      "weight_kg": 119
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-ADC12K9E83",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-260",
+    "aux_heater": { "code": "E83", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.00,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": { "A35W7_kW": 10.70, "A35W7_EER": 3.92 },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 3.30
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E83",
+      "weight_kg": 119
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-ADC16K9E83",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "all-in-one-260",
+    "aux_heater": { "code": "E83", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 14.70,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": { "A35W7_kW": 15.50, "A35W7_EER": 3.60 },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.40,
+      "55C_class": "A++"
+    },
+
+    "dhw": {
+      "class": "A+",
+      "COPdhw": 2.45
+    },
+
+    "indoor_unit": {
+      "model": "ADC16K9E83",
+      "weight_kg": 120
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+
+  {
+    "kit": "KIT-WC09K3E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": { "A35W7_kW": 8.80, "A35W7_EER": 4.63 },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": { "model": "SDC09K3E8", "weight_kg": 40 },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC09K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": { "A35W7_kW": 8.80, "A35W7_EER": 4.63 },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": { "model": "SDC09K9E8", "weight_kg": 41 },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC12K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.00,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": { "A35W7_kW": 10.70, "A35W7_EER": 3.92 },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": { "model": "SDC12K9E8", "weight_kg": 41 },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC16K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 14.70,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": { "A35W7_kW": 15.50, "A35W7_EER": 3.60 },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.40,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": { "model": "SDC16K9E8", "weight_kg": 41 },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+{
+    "kit": "KIT-WXC09K3E5",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E5", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 3.07
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC09K3E5",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-WXC09K3E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 3.07
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC09K3E8",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WXC09K6E5",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E5", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC09K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-WXC12K6E5",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "1-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E5", "power_kW": 6 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.84,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 10.70,
+      "A35W7_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC12K6E5",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ12KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-WXC09K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC09K9E8",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WXC12K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.84,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 10.70,
+      "A35W7_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A+++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC12K9E8",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WXC16K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.38,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": {
+      "A35W7_kW": 15.50,
+      "A35W7_EER": 3.50
+    },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.31,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SXC16K9E8",
+      "weight_kg": 42
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+{
+    "kit": "KIT-WC09K3E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 3 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC09K3E8",
+      "weight_kg": 40
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC09K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 4.90,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 2.97
+    },
+
+    "cooling": {
+      "A35W7_kW": 8.80,
+      "A35W7_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "35C_class": "A+++",
+      "55C_value": 3.57,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC09K9E8",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC12K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.78,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 2.90
+    },
+
+    "cooling": {
+      "A35W7_kW": 10.70,
+      "A35W7_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.58,
+      "35C_class": "A+++",
+      "55C_value": 3.33,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC12K9E8",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-WC16K9E8",
+    "series": "HP",
+    "generation": "K",
+    "phase": "3-fazowa",
+    "refrigerant": "R32",
+    "type": "split",
+    "aux_heater": { "code": "E8", "power_kW": 9 },
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": {
+      "A35W7_kW": 15.50,
+      "A35W7_EER": 3.60
+    },
+
+    "scop": {
+      "35C_value": 4.46,
+      "35C_class": "A++",
+      "55C_value": 3.40,
+      "55C_class": "A++"
+    },
+
+    "indoor_unit": {
+      "model": "SDC16K9E8",
+      "weight_kg": 41
+    },
+
+    "outdoor_unit": {
+      "model": "UDZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+{
+    "kit": "KIT-AXC09K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "185L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 3.07
+    },
+
+    "cooling": {
+      "A35W18_kW": 8.80,
+      "A35W18_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "55C_value": 3.57,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A",
+      "COPdhw": 2.80
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E8",
+      "weight_kg": 102
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-AXC12K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "185L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.84,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 3.04
+    },
+
+    "cooling": {
+      "A35W18_kW": 10.70,
+      "A35W18_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.58,
+      "55C_value": 3.33,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A",
+      "COPdhw": 2.80
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E8",
+      "weight_kg": 103
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-AXC16K9E8",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "185L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.31,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": {
+      "A35W18_kW": 15.50,
+      "A35W18_EER": 3.60
+    },
+
+    "scop": {
+      "35C_value": 4.46,
+      "55C_value": 3.31,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A",
+      "COPdhw": 2.68
+    },
+
+    "indoor_unit": {
+      "model": "ADC16K9E8",
+      "weight_kg": 120
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  },
+{
+    "kit": "KIT-AXC09K6E53",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "260L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 9.00,
+      "A7W35_COP": 5.03,
+      "A7W55_kW": 9.00,
+      "A7W55_COP": 3.07
+    },
+
+    "cooling": {
+      "A35W18_kW": 8.80,
+      "A35W18_EER": 4.63
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "55C_value": 3.57,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A+",
+      "COPdhw": 3.08
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K6E53",
+      "weight_kg": 119
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ09KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-AXC12K6E53",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "260L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.84,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 3.04
+    },
+
+    "cooling": {
+      "A35W18_kW": 10.70,
+      "A35W18_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.96,
+      "55C_value": 3.57,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A+",
+      "COPdhw": 3.08
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K6E53",
+      "weight_kg": 119
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ12KE5",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 88
+    }
+  },
+
+  {
+    "kit": "KIT-AXC12K9E83",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "260L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 12.10,
+      "A7W35_COP": 4.84,
+      "A7W55_kW": 12.10,
+      "A7W55_COP": 3.04
+    },
+
+    "cooling": {
+      "A35W18_kW": 10.70,
+      "A35W18_EER": 3.92
+    },
+
+    "scop": {
+      "35C_value": 4.58,
+      "55C_value": 3.33,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A",
+      "COPdhw": 3.08
+    },
+
+    "indoor_unit": {
+      "model": "ADC0912K9E83",
+      "weight_kg": 119
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ12KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 90
+    }
+  },
+
+  {
+    "kit": "KIT-AXC16K9E83",
+    "series": "T-CAP",
+    "generation": "K",
+    "tank": "260L",
+    "phase": "1F/3F",
+    "refrigerant": "R32",
+    "type": "all-in-one",
+    "fans": 2,
+
+    "heating": {
+      "A7W35_kW": 16.00,
+      "A7W35_COP": 4.38,
+      "A7W55_kW": 16.00,
+      "A7W55_COP": 2.72
+    },
+
+    "cooling": {
+      "A35W18_kW": 15.50,
+      "A35W18_EER": 3.60
+    },
+
+    "scop": {
+      "35C_value": 4.46,
+      "55C_value": 3.31,
+      "35C_class": "A+++",
+      "55C_class": "A++"
+    },
+
+    "cwu": {
+      "class": "A",
+      "COPdhw": 2.45
+    },
+
+    "indoor_unit": {
+      "model": "ADC16K9E83",
+      "weight_kg": 120
+    },
+
+    "outdoor_unit": {
+      "model": "UXZ16KE8",
+      "sound_dB": 65,
+      "dimensions_mm": { "h": 1340, "w": 900, "d": 320 },
+      "weight_kg": 103
+    }
+  }
+]

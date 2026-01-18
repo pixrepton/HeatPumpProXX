@@ -1,0 +1,321 @@
+<!-- Widok konfiguratora maszynowni ładowany do calculator.html -->
+    <section class="configurator-page results-view visible">
+      <!-- KONFIGURATOR MASZYNOWNI – modułowy, montowany w wynikach -->
+      <section id="section-configurator" class="machine-room-configurator-section glass-box">
+        <div data-role="configurator-root" class="configurator-mount" data-config-source="results">
+          <!-- Konfigurator - struktura zgodna z configurator-unified.js -->
+          <div id="configurator-app" class="configurator-container">
+            <!-- Placeholder dla sticky selections bar (zapobiega skokowi treści) -->
+            <div class="selections-sticky-placeholder" id="selections-sticky-placeholder" style="display: none;"></div>
+
+            <!-- STICKY PASEK Z WYBRANYMI KOMPONENTAMI -->
+            <div class="configurator-selections-bar" id="configurator-selections-bar">
+              <div class="selections-inner">
+                <div class="selection-item" data-type="pompa">
+                  <span class="selection-label">Pompa ciepła:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="cwu">
+                  <span class="selection-label">Zasobnik CWU:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="bufor">
+                  <span class="selection-label">Bufor CO:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="cyrkulacja">
+                  <span class="selection-label">Cyrkulacja CWU:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="service">
+                  <span class="selection-label">Service Cloud:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="posadowienie">
+                  <span class="selection-label">Posadowienie:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="reduktor">
+                  <span class="selection-label">Reduktor:</span>
+                  <span class="selection-value">—</span>
+                </div>
+                <div class="selection-item" data-type="uzdatnianie">
+                  <span class="selection-label">Uzdatnianie:</span>
+                  <span class="selection-value">—</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kontener z krokami -->
+            <div id="configurator-steps">
+              <!-- KROK 1: POMPA CIEPŁA -->
+              <section class="config-step section-container" data-step-key="pompa">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">⚡</div>
+                    <div>
+                      <div class="section-step">KROK 1/10</div>
+                      <h2 class="section-title">Pompa ciepła</h2>
+                      <p class="section-description">
+                        Na podstawie obliczeń rekomendujemy pompę o odpowiedniej mocy. Wybierz
+                        preferowany model.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 2: ZASOBNIK CWU -->
+              <section class="config-step section-container" data-step-key="cwu">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">💧</div>
+                    <div>
+                      <div class="section-step">KROK 2/10</div>
+                      <h2 class="section-title">Zasobnik CWU</h2>
+                      <p class="section-description">
+                        Wybierz rodzaj wykończenia wewnętrznego zasobnika.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 3: PYTANIA INSTALACYJNE (Hydraulika CO) -->
+              <section class="config-step section-container" data-step-key="hydraulics_inputs">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">🧩</div>
+                    <div>
+                      <div class="section-step">KROK 3/10</div>
+                      <h2 class="section-title">Pytania instalacyjne</h2>
+                      <p class="section-description">
+                        Te 3 krótkie odpowiedzi pozwalają silnikowi dobrać: bufor magazynowy,
+                        sprzęgło (separator) lub ochronę przepływu.<br>Twoje odpowiedzi pomogą dobrać odpowiednie komponenty w następnym kroku.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="options-grid" id="hydraulics-inputs-grid">
+                  <!-- Renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 3: BUFOR CO -->
+              <section class="config-step section-container" data-step-key="bufor">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">📦</div>
+                    <div>
+                      <div class="section-step">KROK 4/10</div>
+                      <h2 class="section-title">Bufor / sprzęgło / ochrona przepływu</h2>
+                      <p class="section-description">
+                        Ta sekcja pokazuje wynik silnika: czy potrzebujesz bufora (magazyn energii),
+                        sprzęgła (separacja), ochrony przepływu, czy niczego.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 4: CYRKULACJA CWU -->
+              <section class="config-step section-container" data-step-key="cyrkulacja">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">🔄</div>
+                    <div>
+                      <div class="section-step">KROK 5/10</div>
+                      <h2 class="section-title">Cyrkulacja CWU</h2>
+                      <p class="section-description">
+                        System cyrkulacji zapewnia natychmiastowy dostęp do ciepłej wody.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 5: SERVICE CLOUD -->
+              <section class="config-step section-container" data-step-key="service">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">☁️</div>
+                    <div>
+                      <div class="section-step">KROK 6/10</div>
+                      <h2 class="section-title">Service Cloud</h2>
+                      <p class="section-description">
+                        Zdalne monitorowanie i serwis instalacji przez profesjonalistów.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karta będzie renderowana dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 6: POSADOWIENIE -->
+              <section class="config-step section-container" data-step-key="posadowienie">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">🏗️</div>
+                    <div>
+                      <div class="section-step">KROK 7/10</div>
+                      <h2 class="section-title">Posadowienie jednostki zewnętrznej</h2>
+                      <p class="section-description">
+                        Sposób montażu jednostki zewnętrznej pompy ciepła.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 7: REDUKTOR -->
+              <section class="config-step section-container" data-step-key="reduktor">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">🔧</div>
+                    <div>
+                      <div class="section-step">KROK 8/10</div>
+                      <h2 class="section-title">Reduktor ciśnienia</h2>
+                      <p class="section-description">
+                        Reduktor chroni instalację przed zbyt wysokim ciśnieniem wody.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karta będzie renderowana dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 8: UZDATNIANIE WODY -->
+              <section class="config-step section-container" data-step-key="woda">
+                <div class="section-header">
+                  <div class="section-header-content">
+                    <div class="section-icon">💧</div>
+                    <div>
+                      <div class="section-step">KROK 9/10</div>
+                      <h2 class="section-title">Stacja uzdatniania wody</h2>
+                      <p class="section-description">
+                        Ochrona instalacji przed kamieniem i korozją.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="options-grid">
+                  <!-- Karty będą renderowane dynamicznie przez configurator-unified.js -->
+                </div>
+              </section>
+
+              <!-- KROK 10: PODSUMOWANIE -->
+              <section class="config-step" data-step-key="summary">
+                <div class="summary-header">
+                  <div class="section-step">KROK 10/10</div>
+                  <h1>Podsumowanie konfiguracji</h1>
+                  <p>Sprawdź wybrane komponenty przed złożeniem zamówienia</p>
+                  <div class="summary-badge">Kompletna konfiguracja maszynowni</div>
+                </div>
+                <table class="summary-table">
+                  <tbody id="summary-rows">
+                    <!-- Wypełniane przez configurator-unified.js -->
+                  </tbody>
+                </table>
+                <div class="summary-actions">
+                  <button class="btn btn-primary" data-action="download-pdf">
+                    Pobierz raport PDF
+                  </button>
+                  <button class="btn" data-action="send-email">Wyślij na email</button>
+                  <button class="btn" data-action="print">Drukuj</button>
+                  <button class="btn" data-action="back-to-config">Wróć do konfiguracji</button>
+                </div>
+              </section>
+            </div>
+
+            <!-- Nawigacja -->
+            <div class="step-nav">
+              <button type="button" class="btn-step" id="nav-prev" disabled>← Wstecz</button>
+              <button type="button" class="btn-step btn-next" id="nav-next">Dalej →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRZYCISKI FUNKCJONALNE (dla konfiguratora) -->
+      <div class="results-actions glass-box">
+        <div class="action-row primary-actions">
+          <button type="button" data-action="download-pdf">Pobierz raport PDF</button>
+        </div>
+
+        <!-- FORMULARZ KONTAKTOWY DLA PDF (ukryty domyślnie) -->
+        <div id="pdf-contact-form" class="pdf-contact-form hidden">
+          <div class="contact-form-content">
+            <div class="form-header">
+              <h4><i class="fas fa-envelope"></i> Otrzymaj pełny raport energetyczny</h4>
+              <p>Pełny raport energetyczny z doborem mocy pompy otrzymasz drogą mailową</p>
+            </div>
+
+            <div class="form-fields">
+              <div class="form-field">
+                <label for="customer-email">Email <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="customer-email"
+                  class="contact-input"
+                  placeholder="twoj@email.pl"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="customer-postal-code"
+                  >Kod pocztowy <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="customer-postal-code"
+                  class="contact-input"
+                  placeholder="00-000"
+                  maxlength="6"
+                  required
+                />
+                <small class="field-note">Dla celów statystycznych</small>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="action-btn primary full-width" data-action="collect-customer-data">
+                <i class="fas fa-paper-plane"></i> Odbierz raport cieplny PDF
+              </button>
+              <button class="action-btn cancel-btn" data-action="hide-pdf-form">
+                <i class="fas fa-times"></i> Anuluj
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row secondary-actions">
+          <button class="action-btn secondary" data-action="go-back">
+            <i class="fas fa-arrow-left"></i> Wróć do formularza
+          </button>
+          <button class="action-btn tertiary" data-action="start-new">
+            <i class="fas fa-calculator"></i> Nowe obliczenie
+          </button>
+        </div>
+      </div>
+    </section>

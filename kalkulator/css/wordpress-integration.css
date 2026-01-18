@@ -1,0 +1,208 @@
+/* WordPress/Elementor Integration Styles
+ * Te style zapewniają poprawny layout w WordPress/Elementor
+ * Ładowane przez wp_enqueue_style w heatpump-calculator.php
+ */
+
+/* Reset i full-width dla wrappera - działa nawet jeśli CSS się nie załaduje */
+.heatpump-calculator-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow-x: hidden !important; /* Tylko X - zapobiega scrollbar */
+    overflow-y: visible !important; /* Y - normalny scroll */
+    clear: both !important;
+}
+
+/* Reset kontenerów WordPress/Elementor - MUSI być przed hero */
+.heatpump-calculator-wrapper .elementor-container,
+.heatpump-calculator-wrapper .elementor-row,
+.heatpump-calculator-wrapper .elementor-column,
+.heatpump-calculator-wrapper .elementor-widget-wrap,
+.heatpump-calculator-wrapper .wp-block-group,
+.heatpump-calculator-wrapper .entry-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important; /* Pozwala hero-media wyjść poza kontener */
+}
+
+/* Hero full-width - wychodzi poza kontener WordPress */
+.heatpump-calculator-wrapper .hero {
+    width: 100vw !important;
+    max-width: none !important; /* Usuwa ograniczenia */
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: grid !important; /* Zachowaj grid dla wyśrodkowania treści */
+    place-items: center !important;
+    min-height: 400px !important; /* Minimalna wysokość dla hero-media */
+    overflow-x: hidden !important; /* Zapobiega scrollbar */
+    overflow-y: visible !important;
+    padding: clamp(var(--spacing-3xl), 10vw, calc(var(--spacing-3xl) * 2.5)) var(--spacing-lg) !important;
+    text-align: center !important;
+}
+
+.heatpump-calculator-wrapper .hero .container,
+.heatpump-calculator-wrapper .hero .hero-inner {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Hero media (obrazek w tle) - pełna szerokość viewport - WYMUSZONE */
+.heatpump-calculator-wrapper .hero-media {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important; /* Wyśrodkowanie */
+    right: auto !important;
+    width: 100vw !important; /* Viewport width - wymusza pełną szerokość niezależnie od kontenera */
+    margin-left: -50vw !important; /* Przesunięcie do lewej krawędzi viewport */
+    height: 100% !important;
+    z-index: 0 !important;
+    overflow: hidden !important;
+    max-width: none !important; /* Usuwa ograniczenia z kontenera */
+    transform: none !important; /* Zapobiega transformacjom które mogą przesuwać */
+}
+
+.heatpump-calculator-wrapper .hero-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    opacity: 0.9 !important;
+    filter: brightness(0.8) contrast(1.1) !important;
+}
+
+/* Overlay dla lepszej czytelności tekstu - zgodne z oryginalnym CSS */
+.heatpump-calculator-wrapper .hero-media::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(30, 25, 20, 0.75) 0%, rgba(45, 38, 30, 0.65) 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Reset dla wszystkich elementów wewnątrz */
+.heatpump-calculator-wrapper * {
+    box-sizing: border-box;
+}
+
+/* Zapobieganie przesunięciu w prawo */
+.heatpump-calculator-wrapper .wrapper,
+.heatpump-calculator-wrapper #top-instal-calc {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    position: relative;
+}
+
+/* Formularz - pełna szerokość */
+.heatpump-calculator-wrapper form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Sekcje formularza */
+.heatpump-calculator-wrapper .section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: var(--spacing-xl, 24px) !important;
+}
+
+/* Formularz z mapą */
+.heatpump-calculator-wrapper .formularz-z-mapa {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Stopka */
+.heatpump-calculator-wrapper .brand-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: var(--spacing-xl, 24px) !important;
+}
+
+/* Progress bar */
+.heatpump-calculator-wrapper .progress-bar-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 var(--spacing-xl, 24px) !important;
+}
+
+/* Sticky progress bar - padding 15px powyżej + pozycja poniżej nagłówka WordPress (80px) */
+.heatpump-calculator-wrapper .progress-bar-container.sticky {
+    top: 95px !important; /* 80px nagłówek + 15px padding */
+    padding-top: 15px !important;
+}
+
+/* Results wrapper */
+.heatpump-calculator-wrapper .results-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: var(--spacing-xl, 24px) !important;
+}
+
+/* Wyrównanie pól Długość/Szerokość w poziomie (desktop) */
+.heatpump-calculator-wrapper #dimensionsFields {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--spacing-xl, 24px) !important;
+    align-items: flex-start !important;
+}
+
+.heatpump-calculator-wrapper #dimensionsFields .form-field-item--subsequent {
+    flex: 1 1 auto !important;
+    min-width: 200px !important;
+    margin-top: 0 !important;
+}
+
+/* Wyśrodkowanie przycisku POTWIERDŹ WYMIARY */
+.heatpump-calculator-wrapper #dimensionsFields .form-field-item--subsequent:last-child {
+    flex: 1 1 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: var(--spacing-lg, 16px) !important;
+}
+
+/* Mobile: układ pionowy dla pól Długość/Szerokość */
+@media (max-width: 767px) {
+    .heatpump-calculator-wrapper #dimensionsFields {
+        display: flex !important;
+        flex-direction: column !important; /* ✅ FIXED: Pionowy układ na mobile */
+        gap: var(--spacing-lg, 24px) !important; /* Większy odstęp między polami */
+        margin-top: var(--spacing-md, 16px) !important;
+        margin-bottom: var(--spacing-lg, 24px) !important;
+    }
+
+    .heatpump-calculator-wrapper #dimensionsFields .form-field-item--subsequent {
+        flex: 1 1 100% !important; /* Pełna szerokość na mobile */
+        min-width: 0 !important; /* Usuń min-width */
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .heatpump-calculator-wrapper #dimensionsFields .form-field-item--subsequent:last-child {
+        margin-top: var(--spacing-xl, 32px) !important; /* Większy odstęp przed przyciskiem */
+    }
+}

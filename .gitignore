@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.cursor/
+
+# Python
+__pycache__/
+*.pyc
+
+# Playwright / test artifacts
+playwright-report/
+test-results/
+test-results.json
+
+# Logs
+logi.log
+*.log
+
+# Build / misc artifacts
+*.tmp
+*.temp
+
+# Archives (keep repo light)
+*.zip

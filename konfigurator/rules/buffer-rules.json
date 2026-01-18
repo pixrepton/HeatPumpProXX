@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Buffer Decision Rules",
+  "description": "Data-driven rules for buffer sizing and decision engine. Can be modified without code changes.",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-XX",
+
+  "capacityPerKw": {
+    "description": "Minimalny wymagany zład wody instalacji [l/kW] dla każdego typu emitera",
+    "underfloor": 10,
+    "radiators_lt": 20,
+    "radiators_ht": 25,
+    "radiators": 20,
+    "mixed": 15,
+    "notes": "Wyższe wartości dla grzejników wysokotemperaturowych (radiators_ht) ze względu na większe wymagania hydrauliczne"
+  },
+
+  "systemVolumePerM2": {
+    "description": "Szacowany zład wody instalacji [l/m²] dla każdego typu emitera",
+    "underfloor": 0.95,
+    "radiators_lt": 0.6,
+    "radiators_ht": 0.9,
+    "radiators": 0.6,
+    "mixed": 0.9,
+    "notes": "Podłogówka: 0.95 l/m², grzejniki niskotemperaturowe (alu/płytowe): 0.6 l/m², grzejniki wysokotemperaturowe (stalowe/żeliwne): 0.9 l/m². Mixed obliczane proporcjonalnie (średnia ważona 50/50)."
+  },
+
+  "bivalentStorage": {
+    "description": "Reguły doboru pojemności bufora dla systemów bivalent (dwa źródła ciepła)",
+    "solid_fuel_boiler": {
+      "litersPerKw": 60,
+      "range": [40, 80],
+      "defaultPowerFactor": 1.0,
+      "defaultPowerClamp": [8, 25],
+      "description": "Kocioł na paliwo stałe wymaga magazynu ciepła (40-80 l/kW, średnio 60 l/kW). Fallback: designHeatLoss × 1.0, zakres 8-25 kW"
+    },
+    "fireplace_back_boiler": {
+      "minimum": 500,
+      "litersPerKw": 50,
+      "defaultPowerFactor": 0.7,
+      "defaultPowerClamp": [6, 20],
+      "description": "Kominek z płaszczem wodnym wymaga minimum 500 l + skalowanie z mocą (50 l/kW). Fallback: designHeatLoss × 0.7, zakres 6-20 kW"
+    },
+    "gas_boiler": {
+      "litersPerKw": 0,
+      "description": "Kocioł gazowy może modulować, nie wymaga magazynu (chyba że tryb parallel)"
+    }
+  },
+
+  "availableCapacities": {
+    "description": "Dostępne pojemności buforów na rynku [l]",
+    "buffer": [50, 80, 100, 120, 150, 200, 300, 400, 500, 800, 1000],
+    "cwu": [50, 60, 80, 100, 120, 150, 200, 300, 400, 500, 800, 1000],
+    "notes": "Bufor i CWU mogą mieć różne dostępne pojemności"
+  },
+
+  "minimumCapacities": {
+    "description": "Minimalne pojemności buforów dla różnych typów instalacji [l]",
+    "seriesBuffer": 50,
+    "parallelBuffer": 100,
+    "flowProtection": 50,
+    "notes": "seriesBuffer = minimum dla bufora szeregowego (z by-passem), parallelBuffer = minimum dla bufora równoległego (sprzęgło hydrauliczne), flowProtection = minimum dla ochrony przepływu"
+  },
+
+  "separatorSizeClasses": {
+    "description": "Klasyfikacja separatorów hydraulicznych według mocy pompy",
+    "thresholds": {
+      "small": 7,
+      "medium": 15
+    },
+    "mapping": {
+      "small": "< 7 kW",
+      "medium": "7-15 kW",
+      "large": "≥ 15 kW"
+    }
+  },
+
+  "antiCyclingDefaults": {
+    "description": "Domyślne parametry dla obliczania objętości anti-cycling",
+    "t_min_minutes": 12,
+    "t_min_minutes_range": [10, 15],
+    "deltaT_K": 7,
+    "deltaT_K_range": [5, 10],
+    "deltaT_by_type": {
+      "underfloor": 5,
+      "radiators_lt": 7,
+      "radiators_ht": 7,
+      "radiators": 7,
+      "mixed": 5
+    },
+    "minModulationPercent": 0.35,
+    "waterSpecificHeat": 1.16,
+    "notes": "t_min = minimalny czas pracy pompy, deltaT = różnica temperatur (zależna od typu emitera), minModulation = minimalna modulacja (35%)"
+  },
+
+  "absoluteRules": {
+    "description": "Reguły absolutne (nadrzędne, niepodlegające obliczeniom)",
+    "threePhaseKSeries": {
+      "enabled": true,
+      "phase": 3,
+      "series": "K",
+      "powers": [9, 12, 16],
+      "requiredCapacity": 200,
+      "description": "Pompy 3-fazowe serii K o mocy 9/12/16 kW → zawsze bufor 200 l (wymaganie producenta)"
+    }
+  },
+
+  "killerCase": {
+    "description": "Reguła 'killer case' - szczególny przypadek wymagający bufora",
+    "conditions": {
+      "emitterType": "radiators_ht",
+      "designHeatLoss_kW_max": 5,
+      "insufficientVolume": true
+    },
+    "minimumCapacity": 150,
+    "description": "Niskie obciążenie + grzejniki wysokotemperaturowe + niewystarczający zład = wysokie ryzyko short-cycling"
+  },
+
+  "scenarioRules": {
+    "description": "Scenariusze priorytetowe (pomijają obliczanie zładu)",
+    "underfloorNewBuilding": {
+      "heatingType": "underfloor",
+      "constructionYear_min": 2015,
+      "hasPreviousSource": false,
+      "recommendedCapacity": 0,
+      "required": false,
+      "allowZeroBuffer": true
+    },
+    "mixed": {
+      "heatingType": "mixed",
+      "recommendedCapacity": 100,
+      "required": false
+    },
+    "radiators": {
+      "heatingType": "radiators",
+      "recommendedCapacity": 100,
+      "required": true
+    }
+  },
+
+  "cwuRules": {
+    "description": "Reguły doboru zasobnika CWU",
+    "baseCapacity": {
+      "1": 150,
+      "2": 150,
+      "3": 200,
+      "4": 200,
+      "5+": 300
+    },
+    "usageAdjustments": {
+      "shower": 0,
+      "shower_bath": 50,
+      "bath": 100
+    },
+    "materialAdjustments": {
+      "inox": 50,
+      "emalia": 100
+    },
+    "safetyRule": {
+      "description": "Dla profilu 'bath' z 2+ osobami: minimum 200 L",
+      "usage": "bath",
+      "persons_min": 2,
+      "minimumCapacity": 200
+    },
+    "availableCapacities": [150, 200, 250, 300, 400, 500]
+  }
+}
+

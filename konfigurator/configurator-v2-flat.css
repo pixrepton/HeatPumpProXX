@@ -1,0 +1,1222 @@
+/**
+ * CONFIGURATOR V2 - STYL KALKULATORA
+ * Dopasowany do stylu kalkulatora - spójny design system
+ * Font: Titillium Web (jak w kalkulatorze)
+ */
+
+/* ============================================
+   DESIGN TOKENS – KONFIGURATOR (scoped do #configurator-app)
+   ============================================ */
+/* UWAGA: Zmienne są scoped do #configurator-app, aby nie nadpisywać globalnych zmiennych z main.css */
+#configurator-app {
+  --font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Force display context - moved from bottom */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  /* ============================================
+     SPACING – DUŻE MARGINESY jak w kalkulatorze (40-48px)
+     ============================================ */
+  --spacing-xs: 10px;
+  --spacing-s: 14px;
+  --spacing-m: 20px;
+  --spacing-l: 28px;
+  --spacing-xl: 40px; /* Duże marginesy sekcji */
+  --spacing-xxl: 48px; /* 40-48px jak w kalkulatorze */
+
+  --section-padding-top: 40px; /* Zwiększone z 28px */
+  --section-padding-bottom: 48px; /* Zwiększone z 40px */
+  --section-padding-bottom-small: 40px;
+  --spacing-section: 48px; /* Więcej białej przestrzeni */
+  --spacing-title-desc: 8px; /* Zmniejszone z 14px - spacing między tytułem a opisem */
+  --spacing-feature: 14px;
+  --spacing-cards: 36px; /* Zwiększone odstępy między kartami - więcej oddechu */
+
+  --card-padding: 24px; /* Zwiększone z 20px - więcej oddechu */
+  --card-padding-large: 32px; /* Zwiększone z 28px - więcej oddechu */
+  --card-gap: 36px; /* Zwiększone z 32px - więcej przestrzeni między kartami */
+
+  /* ============================================
+     TYPO – WYSOKI KONTRAST jak w kalkulatorze
+     ============================================ */
+  --font-size-h2: 22px;
+  --font-size-h3: 22px;
+  --font-size-h4: 18px;
+  --font-size-body: 15px;
+  --font-size-small: 13px;
+  --font-size-hint: 12px;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600; /* Semi-bold dla nagłówków */
+  --font-weight-normal: 400;
+
+  /* Line-height - CIASNY jak w kalkulatorze (zmniejszony o 2-4px) */
+  --line-height-tight: 1.2; /* Dla nagłówków */
+  --line-height-normal: 1.6; /* Dla tekstu - UJEDNOLICONE z kalkulatorem */
+  --line-height-relaxed: 1.6; /* Dla opisów - UJEDNOLICONE z kalkulatorem */
+
+  /* Letter-spacing - CAPS + TRACKING dla labeli */
+  --letter-spacing-caps: 0.5px; /* Dla uppercase labeli */
+
+  /* ============================================
+     RADIUS – jak w kalkulatorze (2px dla kart, 4px dla sekcji)
+     ============================================ */
+  --radius-card: 2px; /* Karty produktów - UJEDNOLICONE z kalkulatorem */
+  --radius-card-small: 2px; /* Małe elementy */
+  --radius-card-section: 4px; /* Sekcje - UJEDNOLICONE z form-card kalkulatora */
+  --radius-button: 2px;
+  --radius-slider: 2px;
+
+  /* ============================================
+     COLORS – wartości z kalkulatora (TOP-INSTAL)
+     ============================================ */
+  --color-accent: #d4a574; /* Gold z kalkulatora */
+  --color-accent-dark: #b8976a;
+  --color-accent-light: rgba(212, 165, 116, 0.1);
+  --color-accent-gradient: linear-gradient(135deg, #d4a574, #b8976a);
+
+  /* Złoty TOP-INSTAL - używany w kalkulatorze */
+  --color-selected: #d4a574; /* ZŁOTY - zgodny z kalkulatorem */
+  --color-selected-bg: #f5e6d3; /* Delikatne tło jak w kalkulatorze - UJEDNOLICONE */
+  --color-selected-border: #e8d4b8;
+
+  --color-primary: #d4a574; /* ZŁOTY dla selected */
+  --color-primary-light: #f5e6d3; /* Delikatne tło - UJEDNOLICONE */
+  --color-primary-strong: #b8976a; /* Ciemniejszy złoty */
+
+  /* Tekst - WYSOKI KONTRAST jak w kalkulatorze */
+  --color-text-primary: #1a1a1a; /* Ciemny czarny - nie #6B7280 */
+  --color-text-heading: #1a1a1a; /* Ciemny czarny */
+  --color-text-secondary: #374151; /* Szary jak w kalkulatorze - UJEDNOLICONE */
+  --color-text-muted: #4b5563; /* Dla mniejszych elementów */
+  --color-text-hint: #64748b;
+
+  /* Border - jak w kalkulatorze */
+  --color-border: #e0e0e0; /* Jak w kalkulatorze - UJEDNOLICONE */
+  --color-border-light: #f0f0f0;
+  --color-border-strong: #999999; /* Jak w kalkulatorze */
+  --color-border-selected: #d4a574; /* ZŁOTY */
+
+  /* Gold Accent Colors - Premium HVAC Design (jak w kalkulatorze) */
+  --color-gold: #d4a574; /* Główny złoty - checkmark, badge, button */
+  --color-gold-dark: #8b6914; /* Ciemny złoty - tekst */
+  --color-gold-light: #f5e6d3; /* Beżowo-złote tło */
+  --color-gold-border: #d4a574; /* Złota ramka */
+
+  /* Background */
+  --color-bg: #ffffff;
+  --color-bg-light: #fafafa; /* Jak w kalkulatorze */
+  --color-bg-section: #ffffff;
+  --color-bg-highlight: #f0fdf4; /* Delikatne zielone tło - UJEDNOLICONE */
+
+  /* ============================================
+     SHADOWS – subtelne jak w kalkulatorze
+     ============================================ */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-card: var(--shadow-subtle);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-card-selected: none; /* Bez cienia dla selected */
+  --shadow-card-elevation: none;
+
+  /* ============================================
+     TRANSITIONS – HIGH-TECH jak w kalkulatorze
+     ============================================ */
+  /* Cubic-bezier dla płynnych animacji - nie overshoot */
+  --ease-tech: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition: 0.15s var(--ease-tech); /* 100-160ms */
+  --ease-smooth: var(--ease-tech);
+  --ease-out-cubic: var(--ease-tech);
+  --ease-in-out: var(--ease-tech);
+
+  /* Czas trwania animacji - HIGH-TECH (100-160ms) */
+  --duration-fast: 0.1s; /* 100ms */
+  --duration-base: 0.15s; /* 150ms */
+  --duration-slow: 0.16s; /* 160ms */
+  --duration-enter: 0.15s; /* Fade-in sekcji */
+
+  /* Kompozytowe tokeny przejść */
+  --transition-fast: var(--duration-fast) var(--ease-tech);
+  --transition-base: var(--duration-base) var(--ease-tech);
+  --transition-card: var(--duration-base) var(--ease-tech);
+  --transition-card-smooth: var(--duration-slow) var(--ease-tech);
+  --transition-enter: var(--duration-enter) var(--ease-tech);
+  --transition-highlight: opacity var(--duration-slow) var(--ease-tech);
+}
+
+/* ============================================
+   SEKCJA KONFIGURATORA (wrapper w calculator.html)
+   ============================================ */
+#configurator-app .machine-room-configurator-section {
+  margin-top: 0;
+  padding: 0;
+  max-width: 100%; /* FIXED: Zapobiega overflow */
+  box-sizing: border-box;
+}
+
+#configurator-app .machine-room-configurator-section.glass-box:has(.configurator-container-v2) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+#configurator-app .configurator-mount {
+  margin: 0;
+  padding: 0;
+  min-height: 200px;
+}
+
+/* ============================================
+   KONTENER GŁÓWNY – bardziej kompaktowy, techniczny
+   ============================================ */
+#configurator-app .configurator-container-v2 {
+  max-width: 1200px;
+  width: 100%; /* FIXED: Pełna szerokość */
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--font-family);
+  box-sizing: border-box; /* FIXED: Padding wliczony w width */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+#configurator-app .configurator-header-v2 {
+  margin-bottom: 36px;
+  padding: 28px 20px 0;
+  background: var(--color-bg);
+}
+
+#configurator-app .configurator-title-v2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-title-desc) 0;
+  line-height: 1.2;
+}
+
+#configurator-app .configurator-subtitle-v2 {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-normal, 1.6); /* UJEDNOLICONE z kalkulatorem */
+}
+
+/* ============================================
+   STICKY BAR
+   ============================================ */
+#configurator-app .configurator-sticky-summary-v2 {
+  position: sticky;
+  top: 80px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 20px;
+  margin-bottom: 0;
+  z-index: 100;
+}
+
+#configurator-app .sticky-summary-content-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#configurator-app .sticky-summary-label-v2 {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+#configurator-app .sticky-summary-items-v2 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#configurator-app .sticky-item-v2 {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   SEKCJE – Premium calendar layout
+   ============================================ */
+#configurator-app .configurator-sections-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Zwiększone z 24px - więcej przestrzeni między sekcjami */
+  background: #f7f5f5;
+  padding: 32px 20px;
+  margin: 0 -20px;
+}
+
+#configurator-app .config-section-v2 {
+  background: var(--color-bg);
+  padding: 36px 32px; /* Zwiększony padding góra/dół z 32px na 36px - więcej oddechu */
+  border-radius: var(--radius-card-section, 4px); /* UJEDNOLICONE z form-card kalkulatora */
+  box-shadow: none; /* UJEDNOLICONE z kalkulatorem - bez cienia */
+  transition: opacity 0.32s var(--ease-smooth), transform 0.32s var(--ease-smooth);
+}
+
+/* Sekcje są domyślnie ukryte - tylko pompa widoczna na początku */
+#configurator-app .config-section-v2[data-section-id="cwu"]:not(.section-visible-v2),
+/* FIX: literówka w selektorze powodowała, że reguła nie obejmowała buffer */
+#configurator-app .config-section-v2[data-section-id="buffer"]:not(.section-visible-v2),
+#configurator-app .config-section-v2[data-section-id="circulation"]:not(.section-visible-v2),
+#configurator-app .config-section-v2[data-section-id="foundation"]:not(.section-visible-v2),
+#configurator-app .config-section-v2[data-section-id="service_cloud"]:not(.section-visible-v2) {
+  display: none !important;
+}
+
+#configurator-app .config-section-v2[data-section-id='reducer'],
+#configurator-app .config-section-v2[data-section-id='softener'],
+#configurator-app .config-section-v2[data-section-id='security'],
+#configurator-app .config-section-v2[data-section-id='infrastructure'] {
+  padding-bottom: var(--section-padding-bottom-small);
+}
+
+/* ============================================
+   TYTUŁY / OPIS — Viessmann Look
+   ============================================ */
+#configurator-app .section-title-v2 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-title-desc);
+  line-height: 1.2;
+}
+
+#configurator-app .section-description-v2 {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0 0 20px;
+  line-height: var(--line-height-normal, 1.6); /* UJEDNOLICONE z kalkulatorem */
+}
+
+#configurator-app .section-hint-v2 {
+  font-size: var(--font-size-hint);
+  color: var(--color-text-hint);
+  margin: 6px 0 0 0;
+  font-style: italic;
+}
+
+/* ============================================
+   KARTA INFORMACYJNA – BEZ CENI, TWARDY BORDER
+   ============================================ */
+#configurator-app .config-card-info-v2 {
+  background: var(--color-bg);
+  border: 2px solid var(--color-border); /* UJEDNOLICONE z kalkulatorem - 2px */
+  border-radius: var(--radius-card);
+  padding: var(--card-padding-large); /* 32px - wystarczający oddech */
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px; /* Zwiększone z 20px - więcej przestrzeni między obrazkiem a tekstem */
+  align-items: start;
+  transition: border var(--transition-base), background var(--transition-fast);
+  box-shadow: none;
+}
+
+#configurator-app .config-card-info-v2:hover {
+  border-color: var(--color-border-strong);
+}
+
+/* WERSJA WYBRANA – Neutralny/Złoty jak w kalkulatorze (BRAK ZIELENI) */
+#configurator-app .config-card-highlight-v2 {
+  border: 2px solid var(--color-border-strong, #2b2b2b);
+  background: var(--color-surface-2, #f7f7f7);
+}
+
+/* MEDIA / OBRAZY – prostota i techniczność */
+#configurator-app .card-info-media-v2 {
+  width: 180px;
+  height: 180px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#configurator-app .card-info-media-v2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#configurator-app .card-info-content-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Zwiększone z 12px - więcej przestrzeni między elementami */
+}
+
+#configurator-app .card-info-title-v2 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0; /* Dodany margin-bottom dla oddechu */
+  line-height: 1.2;
+}
+
+#configurator-app .card-info-description-v2 {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0 0 8px 0; /* Dodany margin-bottom dla oddechu */
+  line-height: var(--line-height-normal, 1.6); /* UJEDNOLICONE z kalkulatorem */
+}
+
+#configurator-app .card-info-specs-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-feature);
+}
+
+#configurator-app .spec-item-v2 {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#configurator-app .spec-item-featured {
+  padding: 10px;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-card-small);
+  margin: -2px 0;
+}
+
+#configurator-app .spec-icon {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-text-hint);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+#configurator-app .spec-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+#configurator-app .spec-label-v2 {
+  color: var(--color-text-hint);
+  font-size: var(--font-size-small);
+}
+
+#configurator-app .spec-value-v2 {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+#configurator-app .card-info-features-v2 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#configurator-app .card-info-features-v2 li {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal, 1.6); /* UJEDNOLICONE z kalkulatorem */
+}
+
+/* ============================================
+   ULEPSZONA SEKCJA POMPY
+   ============================================ */
+#configurator-app .pump-header-v2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+#configurator-app .pump-series-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  background: var(--color-surface-2, #f7f7f7);
+  color: var(--color-text-primary, #1a1a1a);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+#configurator-app .pump-recommended-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #ffffff;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#configurator-app .pump-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-light);
+  color: var(--color-text-hint);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================
+   KARTY WYBORU (2 kolumny)
+   ============================================ */
+#configurator-app .config-cards-2-v2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-cards); /* 36px - więcej przestrzeni między kartami */
+  margin-bottom: var(--spacing-lg); /* Dodany margin-bottom dla oddechu od kolejnych elementów */
+}
+
+/* ============================================
+   SELECTABLE CARDS – nowy styl Viessmann
+   ============================================ */
+#configurator-app .config-card-selectable-v2 {
+  background: var(--color-bg);
+  border: 2px solid var(--color-border); /* UJEDNOLICONE z kalkulatorem - 2px */
+  border-radius: var(--radius-card);
+  padding: var(--card-padding-large) var(--card-padding) var(--card-padding); /* Zwiększony padding - więcej oddechu */
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px; /* Zwiększone z 16px - więcej przestrzeni między obrazkiem a tekstem */
+  cursor: pointer;
+  transition: border var(--transition-card-smooth), background var(--transition-card-smooth),
+    box-shadow var(--transition-card-smooth), transform var(--transition-card-smooth);
+  box-shadow: none; /* UJEDNOLICONE z kalkulatorem - bez cienia */
+  position: relative;
+  transform: translateY(0);
+  will-change: transform, box-shadow;
+}
+
+#configurator-app .config-card-selectable-v2:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: none; /* UJEDNOLICONE z kalkulatorem - bez cienia */
+  transform: scale(1.01) translateY(-1px); /* UJEDNOLICONE z kalkulatorem */
+}
+
+#configurator-app .config-card-selectable-v2:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06), 0 0 0 4px var(--color-selected, #166534); /* ZIELONY */
+  transform: translateY(-1px);
+}
+
+#configurator-app .cwu-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06), 0 0 0 4px var(--color-selected, #166534); /* ZIELONY */
+  transform: translateY(-2px);
+}
+
+#configurator-app .cap-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06), 0 0 0 4px var(--color-selected, #166534); /* ZIELONY */
+  transform: translateY(-1px);
+}
+
+#configurator-app .config-card-selected-v2 {
+  border: 2px solid var(--color-selected, #166534); /* ZIELONY */
+  background: var(--color-selected-bg, #f0fdf4); /* Jasnozielone tło - UJEDNOLICONE */
+  box-shadow: none; /* Bez cienia jak w kalkulatorze */
+  transform: translateY(-1px); /* Subtelny hover jak w kalkulatorze */
+}
+
+/* Wariant wysokotemperaturowy / T-CAP – delikatnie cięższy optycznie */
+#configurator-app .config-card-selectable-v2#configurator-app .pump-high-temp {
+  border-left: 4px solid #000000;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+#configurator-app .config-card-selectable-v2#configurator-app .pump-high-temp:hover {
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.15);
+}
+#configurator-app .config-card-selectable-v2#configurator-app .pump-high-temp.selected {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+}
+#configurator-app .config-card-selectable-v2#configurator-app .pump-high-temp #configurator-app .card-selectable-title-v2 {
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+#configurator-app .card-selectable-media-v2 {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#configurator-app .card-selectable-media-v2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#configurator-app .card-selectable-content-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Zwiększone z 10px - więcej przestrzeni między elementami */
+}
+
+#configurator-app .card-selectable-title-v2 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0; /* Dodany margin-bottom dla oddechu */
+  line-height: 1.2;
+}
+
+#configurator-app .card-selectable-description-v2 {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0; /* Opis już ma gap z parent, ale możemy dodać jeśli potrzeba */
+  line-height: var(--line-height-normal, 1.6); /* UJEDNOLICONE z kalkulatorem */
+}
+
+/* ============================================
+   SUWAK POJEMNOŚCI CWU – Viessmann
+   ============================================ */
+#configurator-app .config-slider-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+#configurator-app .capacity-slider-v2 {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: var(--radius-slider);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#configurator-app .capacity-slider-v2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border-radius: var(--radius-slider);
+  border: none;
+  cursor: pointer;
+}
+
+#configurator-app .capacity-slider-v2::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border-radius: var(--radius-slider);
+  border: none;
+  cursor: pointer;
+}
+
+#configurator-app .slider-value-v2 {
+  display: flex;
+  justify-content: center;
+}
+
+#configurator-app .slider-value-display-v2 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gold-dark, #8b6914);
+  padding: 6px 12px;
+  background: var(--color-surface-2, #f7f7f7);
+  border-radius: var(--radius-card);
+}
+
+/* ============================================
+   PRZEŁĄCZNIK (Cyrkulacja) – Viessmann style
+   ============================================ */
+#configurator-app .config-toggle-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+#configurator-app .toggle-label-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+
+#configurator-app .toggle-input-v2 {
+  display: none;
+}
+
+#configurator-app .toggle-switch-v2 {
+  width: 42px;
+  height: 20px;
+  background: var(--color-border);
+  border-radius: var(--radius-button);
+  position: relative;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+#configurator-app .toggle-switch-v2::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-slider);
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--transition-fast);
+}
+
+#configurator-app .toggle-input-v2:checked + #configurator-app .toggle-switch-v2 {
+  background: var(--color-gold, #d4a574);
+}
+
+#configurator-app .toggle-input-v2:checked + #configurator-app .toggle-switch-v2::after {
+  transform: translateX(22px);
+}
+
+#configurator-app .toggle-text-v2 {
+  font-weight: var(--font-weight-semibold);
+}
+
+#configurator-app .toggle-hint-v2 {
+  font-size: var(--font-size-hint);
+  color: var(--color-text-hint);
+  margin: 0 0 0 54px;
+  font-style: italic;
+}
+
+/* ============================================
+   SEKCJA CWU – Viessmann layout
+   ============================================ */
+#configurator-app .cwu-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 15px 28px;
+}
+
+#configurator-app .cwu-heading {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+}
+
+#configurator-app .cwu-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Zwiększone z 12px - więcej przestrzeni między kartami */
+}
+
+@media (min-width: 700px) {
+  #configurator-app .cwu-cards {
+    flex-direction: row;
+    gap: 24px; /* Zwiększone z 16px - więcej przestrzeni między kartami */
+  }
+}
+
+#configurator-app .cwu-card {
+  position: relative;
+  flex: 1;
+  padding: 32px 28px 28px; /* Zwiększony padding - więcej oddechu (32px top, 28px boki i bottom) */
+  background: var(--color-bg);
+  border-radius: var(--radius-card);
+  border: 2px solid var(--color-border); /* UJEDNOLICONE z kalkulatorem - 2px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: border var(--transition-card-smooth), background var(--transition-card-smooth),
+    box-shadow var(--transition-card-smooth), transform var(--transition-card-smooth);
+  box-shadow: none; /* UJEDNOLICONE z kalkulatorem - bez cienia */
+  transform: translateY(0);
+  will-change: transform, box-shadow;
+}
+
+#configurator-app .cwu-card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: none; /* UJEDNOLICONE z kalkulatorem - bez cienia */
+  transform: scale(1.01) translateY(-1px); /* UJEDNOLICONE z kalkulatorem */
+}
+
+#configurator-app .cwu-card:active {
+  transform: scale(0.98);
+}
+
+#configurator-app .cwu-card.selected {
+  border: 2px solid var(--color-border-strong, #2b2b2b);
+  background: var(--color-surface-2, #f7f7f7);
+  box-shadow: none; /* Bez cienia jak w kalkulatorze */
+  transform: translateY(-1px); /* Subtelny hover */
+}
+
+#configurator-app .cwu-card__image img {
+  width: 160px;
+  height: 120px;
+  object-fit: contain;
+}
+
+#configurator-app .cwu-card__title {
+  margin-top: 16px; /* Zwiększone z 12px - więcej przestrzeni nad tytułem */
+  margin-bottom: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+/* CHECKMARK – Viessmann nie używa kółek, tylko prosty symbol */
+#configurator-app .cwu-card__check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  background: var(--color-gold, #d4a574);
+  border-radius: var(--radius-button);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+#configurator-app .cwu-card.selected #configurator-app .cwu-card__check {
+  display: flex;
+}
+
+/* ============================================
+   POJEMNOŚCI CWU – Viessmann minimal
+   ============================================ */
+#configurator-app .capacity-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#configurator-app .capacity-title {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+
+#configurator-app .capacity-selector {
+  background: var(--color-bg-light);
+  padding: 4px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: center;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+}
+
+#configurator-app .cap-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 2px; /* UJEDNOLICONE z kalkulatorem */
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: none;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  transition: all var(--transition-card-smooth);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+#configurator-app .cap-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+#configurator-app .cap-btn:active {
+  transform: scale(0.98);
+}
+
+#configurator-app .cap-btn.selected {
+  background: var(--color-gold, #d4a574);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+#configurator-app .cap-btn.selected:hover {
+  background: var(--color-accent-dark, #b8976a);
+  transform: translateY(-2px);
+}
+
+#configurator-app .cap-btn:not(:last-child) {
+  margin-right: 2px;
+}
+
+/* ============================================
+   RESPONSYWNOŚĆ
+   ============================================ */
+
+/* ============================================================================
+   MOBILE OPTIMIZATION - Konfigurator (profesjonalne doświadczenie mobilne)
+   ============================================================================ */
+
+/* ============================================
+   DEBUG / FALLBACK
+   ============================================ */
+/* DEBUG / FALLBACK consolidated to top */
+
+#configurator-app:empty::before {
+  content: 'Ładowanie konfiguratora...';
+  display: block;
+  padding: 20px;
+  color: var(--color-text-hint);
+  font-size: var(--font-size-body);
+  text-align: center;
+}
+
+#configurator-app .config-error {
+  padding: 20px;
+  background: rgba(212, 165, 116, 0.12);
+  border: 2px solid var(--color-gold, #d4a574);
+  border-radius: var(--radius-card);
+  color: #8b6914;
+  font-size: var(--font-size-body);
+  margin: 20px 0;
+}
+
+/* ============================================
+   SEKWENCYJNE PRZEŁĄCZANIE SEKCJI – Viessmann szybko i ostro
+   ============================================ */
+#configurator-app .section-hidden-v2 {
+  display: none !important;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.28s var(--ease-smooth), transform 0.28s var(--ease-smooth);
+  pointer-events: none;
+}
+
+#configurator-app .section-visible-v2 {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.32s var(--ease-smooth), transform 0.32s var(--ease-smooth);
+  pointer-events: auto;
+}
+
+/* section transitions consolidated to main block */
+
+/* ============================================
+   PROGRESS INDICATOR
+   ============================================ */
+#configurator-app .configurator-progress-v2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 20px;
+  margin-top: 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+#configurator-app .progress-step-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+}
+
+#configurator-app .progress-step-v2.active {
+  opacity: 1;
+}
+
+#configurator-app .progress-step-v2::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: calc(100% + 6px);
+  width: 24px;
+  height: 2px;
+  background: var(--color-border);
+  transition: background var(--transition-base);
+}
+
+#configurator-app .progress-step-v2:last-child::after {
+  display: none;
+}
+
+#configurator-app .progress-step-v2.active::after,
+#configurator-app .progress-step-v2.active ~ #configurator-app .progress-step-v2::after {
+  background: var(--color-gold, #d4a574);
+}
+
+#configurator-app .progress-step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-button);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+#configurator-app .progress-step-v2.active #configurator-app .progress-step-number {
+  background: var(--color-gold, #d4a574);
+  border-color: var(--color-gold, #d4a574);
+  color: white;
+}
+
+#configurator-app .progress-step-label {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  transition: color var(--transition-base);
+}
+
+#configurator-app .progress-step-v2.active #configurator-app .progress-step-label {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================
+   MOBILE OPTIMIZATION - UJEDNOLICONY SPACING
+   ============================================ */
+@media (max-width: 767px) {
+  /* ============================================
+     HELP-BOXY - Ujednolicone odstępy pionowe
+     ============================================ */
+  #configurator-app .help-box,
+  #configurator-app .config-card-info-v2,
+  #configurator-app .recommendation-note {
+    margin-top: 6px !important;
+    margin-bottom: 0px !important;
+  }
+
+  /* ============================================
+     LABELE (PYTANIA) - Minimalny odstęp pod labelem
+     ============================================ */
+  #configurator-app .section-title-v2,
+  #configurator-app .section-description-v2,
+  #configurator-app .step-title,
+  #configurator-app .step-description,
+  #configurator-app .form-label,
+  #configurator-app label,
+  #configurator-app .card-info-title-v2,
+  #configurator-app .card-selectable-title-v2 {
+    margin-bottom: 2px !important;
+  }
+
+  /* ============================================
+     SEKCJE - Kompaktowe odstępy pionowe
+     ============================================ */
+  #configurator-app .config-section-v2 {
+    padding: 24px 16px !important; /* Zmniejszone z 36px 32px */
+    margin-bottom: 20px !important;
+  }
+
+  #configurator-app .configurator-sections-v2 {
+    padding: 20px 16px !important; /* Zmniejszone z 32px 20px */
+    gap: 20px !important; /* Zmniejszone z 32px */
+  }
+
+  /* ============================================
+     KARTY - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .config-cards-2-v2 {
+    gap: 20px !important; /* Zmniejszone z 36px */
+    margin-bottom: 20px !important;
+  }
+
+  #configurator-app .config-card-selectable-v2,
+  #configurator-app .config-card-info-v2 {
+    padding: 20px 16px !important; /* Zmniejszone z 24px/32px */
+    margin-bottom: 16px !important;
+  }
+
+  /* ============================================
+     CONTENT W KARTACH - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .card-selectable-content-v2,
+  #configurator-app .card-info-content-v2 {
+    gap: 10px !important; /* Zmniejszone z 12px/14px */
+  }
+
+  /* ============================================
+     HEADER I TYTUŁY SEKCJI
+     ============================================ */
+  #configurator-app .configurator-header-v2 {
+    padding: 20px 16px 0 !important; /* Zmniejszone z 28px 20px 0 */
+    margin-bottom: 24px !important; /* Zmniejszone z 36px */
+  }
+
+  #configurator-app .section-title-v2 {
+    margin-bottom: 2px !important;
+  }
+
+  #configurator-app .section-description-v2 {
+    margin-bottom: 16px !important; /* Zmniejszone z 20px */
+  }
+
+  /* ============================================
+     STICKY BAR - Kompaktowy
+     ============================================ */
+  #configurator-app .configurator-sticky-summary-v2 {
+    padding: 10px 16px !important; /* Zmniejszone z 12px 20px */
+  }
+
+  /* ============================================
+     CWU SECTION - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .cwu-section {
+    padding: 10px 12px 20px !important; /* Zmniejszone z 10px 15px 28px */
+  }
+
+  #configurator-app .cwu-heading {
+    margin-bottom: 12px !important; /* Zmniejszone z 16px */
+  }
+
+  #configurator-app .cwu-cards {
+    gap: 16px !important; /* Zmniejszone z 20px */
+  }
+
+  #configurator-app .cwu-card {
+    padding: 24px 20px 20px !important; /* Zmniejszone z 32px 28px 28px */
+  }
+
+  /* ============================================
+     SLIDERY I TOGGLE - Kompaktowe
+     ============================================ */
+  #configurator-app .config-slider-v2,
+  #configurator-app .config-toggle-v2 {
+    padding: 16px 0 !important; /* Zmniejszone z 20px 0 */
+  }
+
+  /* ============================================
+     PROGRESS INDICATOR - Kompaktowy
+     ============================================ */
+  #configurator-app .configurator-progress-v2 {
+    padding: 24px 16px !important; /* Zmniejszone z 32px 20px */
+  }
+}
+
+/* ============================================
+   MOBILE TWEAKS - Karty na małych ekranach
+   ============================================ */
+@media (max-width: 420px) {
+  #configurator-app .card-selectable-media-v2 {
+    width: 88px;
+    height: 88px;
+  }
+
+  /* Dodatkowe kompaktowanie na bardzo małych ekranach */
+  #configurator-app .config-section-v2 {
+    padding: 20px 12px !important;
+  }
+
+  #configurator-app .config-card-selectable-v2,
+  #configurator-app .config-card-info-v2 {
+    padding: 16px 12px !important;
+  }
+
+  /* ============================================
+     DODATKOWE OPTYMALIZACJE - UJEDNOLICENIE SPACING
+     ============================================ */
+
+  /* Form fields - kompaktowe odstępy */
+  #configurator-app .form-field,
+  #configurator-app .form-field-item {
+    margin-bottom: 16px !important;
+  }
+
+  #configurator-app .form-field:last-child,
+  #configurator-app .form-field-item:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Inputy i selecty - kompaktowe odstępy */
+  #configurator-app input,
+  #configurator-app select,
+  #configurator-app textarea {
+    margin-top: 2px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Radio groups - kompaktowe odstępy */
+  #configurator-app .form-field__radio-group {
+    gap: 10px !important;
+    margin-top: 2px !important;
+  }
+
+  /* Slidery - kompaktowe odstępy */
+  #configurator-app .config-slider-v2 {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Toggle - kompaktowe odstępy */
+  #configurator-app .config-toggle-v2 {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Capacity selector - kompaktowe odstępy */
+  #configurator-app .capacity-container {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  #configurator-app .capacity-selector {
+    margin-top: 8px !important;
+  }
+
+  /* Field notes - kompaktowe odstępy */
+  #configurator-app .micro-note,
+  #configurator-app .field-note {
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+  }
+}

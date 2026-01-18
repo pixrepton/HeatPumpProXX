@@ -1,0 +1,1676 @@
+/**
+ * KONFIGURATOR MASZYNOWNI - STYL KALKULATORA
+ * Dopasowany do stylu kalkulatora, inspirowany stylem Viessmann (font + karty)
+ */
+
+/* Fonty są ładowane przez wp_enqueue_style w heatpump-calculator.php */
+/* @import usunięty - eliminacja duplikacji */
+
+/* ==========================================================================
+   RESET / BASE - Scope tylko dla konfiguratora
+   ========================================================================== */
+
+/* Reset dla wszystkich elementów wewnątrz - ale z wyjątkiem samego kontenera */
+/* UWAGA: NIE resetujemy już margin/padding, bo to nadpisywało spacing kart.
+   Zostawiamy tylko box-sizing, żeby layout był przewidywalny. */
+#configurator-app * {
+  box-sizing: border-box;
+}
+
+/* Główny kontener - padding dla oddechu od krawędzi */
+/* UWAGA: Reguła przeniesiona na koniec pliku dla najwyższego priorytetu */
+
+/* Wewnątrz konfiguratora używamy bardziej technicznego kroju (Barlow) */
+#configurator-app {
+  --font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Premium gold (no red/green) */
+  --accent: var(--color-gold, #d4a574);
+  --accent-weak: rgba(212, 165, 116, 0.22);
+  --accent-glow: rgba(212, 165, 116, 0.16);
+
+  --m-press: 80ms;
+  --m-release: 120ms;
+  --m-snap: 160ms;
+  --m-step: 240ms;
+  --m-reveal: 260ms;
+  --m-scan: 280ms;
+
+  --e-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --e-snap: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --e-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+  font-family: var(--font-family, 'Titillium Web'), -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================================================
+   PREMIUM MICRO-MOTION STATES (scoped)
+   ============================================================================= */
+#configurator-app .ui-option {
+  position: relative;
+  min-height: 56px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#configurator-app .ui-option__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-gold, #d4a574);
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.92);
+}
+
+#configurator-app .ui-option__scan {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  top: auto;
+  bottom: 10px;
+  transform: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.18),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+#configurator-app .ui-option:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-weak);
+}
+
+#configurator-app .ui-option.is-pressing {
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.18);
+}
+
+#configurator-app .ui-option.is-selected {
+  border-color: #2b2b2b;
+  box-shadow: none;
+}
+
+#configurator-app .ui-option.is-selected .ui-option__check {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+#configurator-app .ui-option.has-scanline .ui-option__scan {
+  opacity: 0.12;
+}
+
+/* No scanline / no floating checkmark for simple cards */
+#configurator-app .yes-no-card.ui-option .ui-option__check,
+#configurator-app .yes-no-card.ui-option .ui-option__scan,
+#configurator-app .option-card.ui-option .ui-option__check,
+#configurator-app .option-card.ui-option .ui-option__scan {
+  display: none !important;
+}
+
+#configurator-app .ui-option.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #configurator-app {
+    --m-press: 0ms;
+    --m-release: 0ms;
+    --m-snap: 0ms;
+    --m-step: 0ms;
+    --m-reveal: 0ms;
+    --m-scan: 0ms;
+  }
+}
+
+#configurator-app button:not(.product-card):not(.option-card):not(.btn-step) {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+#configurator-app .hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   INTEGRACJA Z KALKULATOREM - Kontenery zewnętrzne
+   ========================================================================== */
+
+#configurator-view {
+  width: 100%;
+}
+
+.machine-room-configurator-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.machine-room-configurator-section.glass-box {
+  background: var(--color-surface, #ffffff);
+  border-radius: var(--radius-sm, 2px);
+  border: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  padding: 0;
+  box-shadow: var(--shadow-none, none);
+}
+
+.configurator-mount {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   MAIN CONTAINER / STEPS
+   ========================================================================== */
+
+.configurator-container {
+  max-width: var(--container-xl, 1200px);
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: var(--shadow-none, none);
+  border: none;
+  overflow: visible;
+}
+
+/* Jeśli element ma ID configurator-app, nadpisz padding z .configurator-container */
+/* NOTE: Ten blok był redundantny. Padding dla #configurator-app jest wymuszany
+   na końcu pliku w sekcji:
+   "WYMUSZENIE STYLÓW DLA #configurator-app - NAJWYŻSZY PRIORYTET" */
+
+.configurator-header {
+  padding: var(--spacing-lg, 28px) var(--spacing-lg, 36px);
+  border-bottom: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  background: var(--color-bg, #fafafa);
+}
+
+/* ==========================================================================
+   PROGRESS BAR - Czerwony pasek postępu jak w kalkulatorze
+   ========================================================================== */
+
+.form-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border, #e0e0e0);
+  margin: var(--spacing-lg, 20px) 0 0 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm, 2px);
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: var(--color-border-strong, #2b2b2b);
+  width: 0;
+  transition: width var(--transition-slow, 0.4s) cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: var(--radius-sm, 2px);
+}
+
+.progress-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xs, 8px);
+  font-size: var(--font-size-sm, 13px);
+  color: var(--color-text-secondary, #374151);
+}
+
+.form-progress-percentage {
+  font-weight: 600;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.form-progress-label {
+  color: var(--color-text-secondary, #374151);
+}
+
+.step-indicator {
+  font-size: var(--font-size-base, 15px);
+  color: var(--color-text-secondary, #374151);
+  font-weight: 600;
+}
+
+.step-indicator span {
+  color: #6b7280; /* Neutralny szary */
+  font-weight: 700;
+}
+
+/* redundant step section selectors consolidated */
+#configurator-app .step-section,
+#configurator-app .config-step {
+  display: none !important; /* Force hide - ważne dla działania */
+  animation: fadeIn 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Aktywny krok - widoczny z animacją HIGH-TECH */
+#configurator-app .step-section.active,
+#configurator-app .config-step.active {
+  display: block !important; /* Force show - ważne dla działania */
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: sectionFadeIn var(--duration-enter, 0.15s) cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Animacje - HIGH-TECH jak w kalkulatorze (100-160ms, cubic-bezier) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px); /* Lekki slide 4-6px w górę */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in sekcji - 0.15s, lekki slide */
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   STICKY PASEK Z WYBRANYMI KOMPONENTAMI
+   ========================================================================== */
+
+.configurator-selections-bar {
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky, 100);
+  background: var(--color-surface, #ffffff);
+  border-bottom: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  padding: var(--spacing-xs, 8px) var(--spacing-lg, 24px) var(--spacing-xs, 8px);
+  margin: 0 auto var(--spacing-md, 16px);
+  font-size: var(--font-size-sm, 13px);
+  line-height: var(--line-height-normal, 1.3);
+  font-family: var(--font-family, 'Titillium Web'), system-ui, -apple-system, sans-serif;
+  max-width: var(--container-md, 1148px);
+  box-sizing: border-box;
+}
+
+.selections-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-sm, 12px) var(--spacing-lg, 20px);
+  max-width: var(--container-md, 1148px);
+  margin: 0 auto;
+}
+
+/* Sticky state - przyklejony POD nagłówkiem (nie zasłania go) */
+.configurator-selections-bar.sticky {
+  position: fixed;
+
+  /* Nie zasłania nagłówka (top-preview-header) – JS ustawia --header-height */
+  top: calc(var(--header-height, 0px) + env(safe-area-inset-top));
+  left: 0;
+  right: 0;
+
+  /* zawsze POD headerem, NAD treścią */
+  z-index: 1199;
+
+  margin: 0 !important;
+  padding: var(--spacing-xs, 8px) var(--spacing-lg, 24px) var(--spacing-xs, 8px);
+  box-shadow: var(--shadow-md, 0 2px 4px rgba(0, 0, 0, 0.04));
+  animation: stickySlideDown var(--transition-slow, 0.3s) cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+}
+
+/* Wyśrodkuj zawartość w sticky container (jak progress bar) */
+.configurator-selections-bar.sticky .selections-inner {
+  max-width: var(--container-md, 1148px);
+  margin: 0 auto;
+}
+
+/* Animacja sticky slide down */
+@keyframes stickySlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Placeholder gdy selections bar jest sticky (zapobiega skokowi treści) */
+.selections-sticky-placeholder {
+  height: 0;
+  display: none;
+  width: 100%;
+  /* Wysokość ustawiana dynamicznie przez JS */
+}
+
+/* Wyśrodkuj zawartość w sticky container (jak progress bar) */
+.configurator-selections-bar::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1148px;
+  pointer-events: none;
+}
+
+/* Mobile adjustments dla sticky */
+
+.selection-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 12px;
+  border-right: 1px solid #e5e7eb;
+  min-width: 0; /* Dla text-overflow */
+}
+
+.selection-item.is-attaching {
+  background: rgba(212, 165, 116, 0.10);
+  border-color: rgba(212, 165, 116, 0.28);
+}
+
+.selection-item:nth-child(4n) {
+  border-right: none; /* usuń border z ostatniego w rzędzie */
+}
+
+.selection-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.selection-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selection-value:empty::before,
+.selection-value:is(:where([data-empty]))::before {
+  content: '—';
+  color: #d1d5db;
+}
+
+/* ===== RESPONSIVE: MOBILE FIXES (iOS / WP) ===== */
+@media (max-width: 900px) {
+  /* mniej powietrza na tablet/phone */
+  #configurator-app {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .configurator-selections-bar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Na telefonie pasek wyborów nie może robić się „cegłą” – scroll w poziomie */
+@media (max-width: 560px) {
+  .selections-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px; /* miejsce na „ukryty” scrollbar */
+    scroll-snap-type: x mandatory;
+  }
+
+  .selections-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .selection-item {
+    flex: 0 0 auto;
+    min-width: 180px;
+    padding: 0 10px;
+    border-right: 1px solid #e5e7eb;
+    scroll-snap-align: start;
+  }
+
+  /* reset desktopowego nth-child(4n) */
+  .selection-item:nth-child(4n) {
+    border-right: 1px solid #e5e7eb;
+  }
+
+  .selection-item:last-child {
+    border-right: none;
+  }
+
+  .selection-value {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  #configurator-app {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .configurator-selections-bar {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* ==========================================================================
+   STEP HEADER
+   ========================================================================== */
+
+.step-header {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+  background: transparent;
+}
+
+.step-header-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0; /* bez gap, bo ikona jest wyłączona */
+}
+
+.step-icon {
+  display: none; /* Wyłączone - inżynierski styl bez ikon/emoji */
+}
+
+.step-number {
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 600;
+  color: #6b7280; /* Neutralny szary - bez zielonego/czerwonego */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.step-title {
+  font-size: var(--font-size-2xl, 22px);
+  font-weight: 700; /* Bold - pogrubiony */
+  margin-bottom: var(--spacing-title-desc, 8px); /* 8px spacing */
+  color: var(--color-text-heading, #1a1a1a); /* Ciemniejszy - przyciemniony */
+  line-height: var(--line-height-tight, 1.2); /* CIASNY line-height */
+}
+
+.step-description {
+  font-size: var(--font-size-base, 15px);
+  color: var(--color-text-primary, #1a1a1a); /* Ciemny - nie #374151 */
+  line-height: var(--line-height-relaxed, 1.5); /* Zmniejszone z 1.7 */
+  max-width: 700px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   OPTION GRID & CARDS
+   ========================================================================== */
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 11px; /* Zmniejszone z 16px o ~30% */
+  padding: 11px 0; /* Zmniejszone z 16px o ~30% */
+  margin-bottom: 11px; /* Zmniejszone z 16px o ~30% */
+  max-width: var(--container-xl, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Options-grid z form-row-mosaic - pełna szerokość */
+.options-grid .form-row-mosaic {
+  width: 100%;
+  max-width: 100%;
+  justify-items: stretch;
+}
+
+/* Desktop: zawsze dokładnie 2 kolumny – inżynierski układ */
+@media (min-width: 900px) {
+  .options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Dynamiczna 3-kolumnowa siatka dla kroków z 3 kartami (bufory) */
+.options-grid.grid-3-col {
+  grid-template-columns: repeat(3, minmax(0, 380px));
+  max-width: var(--container-xl, 1200px);
+}
+
+/* ==========================================================================
+   PRODUCT CARD – Premium layout inspirowany kartami Viessmann
+   ========================================================================== */
+
+.product-card {
+  border: var(--border-width-thick, 2px) solid var(--color-border, #e8e8e8);
+  border-radius: var(--radius-sm, 2px);
+  background: var(--color-surface, #ffffff);
+  overflow: hidden;
+  font-family: var(--font-family, 'Titillium Web'), system-ui, -apple-system, sans-serif;
+  max-width: 380px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-none, none);
+  transition: border-color var(--transition-slow, 0.25s) cubic-bezier(0.4, 0, 0.2, 1),
+    transform var(--transition-slow, 0.25s) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover {
+  border-color: var(--color-border-hover, #c8c8c8);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg, 0 6px 16px rgba(0, 0, 0, 0.08));
+}
+
+.product-card:focus-visible {
+  outline: 2px solid var(--accent-weak);
+  outline-offset: 2px;
+}
+
+.product-card.selected {
+  border: var(--border-width-thick, 2px) solid var(--color-border-strong, #2b2b2b);
+  background: var(--color-surface-2, #f7f7f7);
+  box-shadow: var(--shadow-none, none);
+}
+
+/* Checkmark w prawym górnym rogu (nie zależy od wysokości karty / sekcji ceny) */
+.product-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: var(--spacing-sm, 12px);
+  right: var(--spacing-sm, 12px);
+  width: var(--checkmark-size, 24px);
+  height: var(--checkmark-size, 24px);
+  background: var(--color-gold, #d4a574);
+  border-radius: var(--radius-full, 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-surface, #ffffff);
+  font-size: var(--checkmark-font-size, 14px);
+  font-weight: 700;
+  line-height: var(--checkmark-size, 24px);
+  text-align: center;
+  z-index: var(--z-dropdown, 10);
+  box-shadow: var(--shadow-subtle, 0 1px 3px rgba(0, 0, 0, 0.2));
+  animation: checkmarkPop var(--transition-fast, 0.2s) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Safety: jeśli gdzieś pozostały legacy ceny, nie pokazuj ich */
+.product-price {
+  display: none !important;
+}
+
+/* Summary: ceny wyłączone globalnie */
+.summary-total-row {
+  display: none !important;
+}
+
+/* Dodatkowy bezpiecznik: jeśli z jakiegoś powodu w DOM zostanie stara wersja wiersza z ceną,
+   to na mobile i tak nie powinien się pojawić w kroku 10. */
+@media (max-width: 767px) {
+  #configurator-app [data-step-key="summary"] .summary-table .summary-total-row {
+    display: none !important;
+  }
+}
+
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.product-image {
+  width: 100%;
+  background: var(--color-bg, #f6f6f6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 8px 8px 6px; /* Zmniejszone z 12px/12px/8px o ~30% */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.refrigerant-badge {
+  position: absolute;
+  top: -10px; /* Nad kartą, nie zasłania obrazu */
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a202c;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px; /* Bardziej owalny jak w Base44 */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 160px; /* Zmniejszone dla kompaktowości */
+  object-fit: contain; /* Wymuszone contain */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06)); /* Bardzo subtelny shadow */
+}
+
+.product-card .badge-recommended {
+  position: absolute;
+  top: -10px; /* Nad kartą, nie zasłania obrazu */
+  left: 12px;
+  background: var(--color-gold-light, #f5e6d3); /* Delikatne beżowo-złote tło (z buttona) */
+  color: var(--color-gold-dark, #8b6914); /* Ciemny złoty tekst */
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  border: 1px solid var(--color-gold-border, #d4a574); /* Złota ramka jak button */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-content {
+  padding: 0 8px 8px; /* Zmniejszone z 12px o ~30% */
+}
+
+.product-subtitle {
+  font-size: var(--font-size-md, 14px);
+  font-weight: 500;
+  color: var(--color-gold-dark, #8b6914);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 3px; /* Zmniejszone z 4px o ~30% */
+}
+
+.product-title {
+  font-size: var(--font-size-xl, 20px);
+  font-weight: 700;
+  color: var(--color-text, #111827);
+  margin-top: 0;
+  margin-bottom: 4px; /* Zmniejszone z 6px o ~30% */
+  line-height: var(--line-height-tight, 1.25);
+}
+
+.product-description {
+  font-size: var(--font-size-md, 14px);
+  color: var(--color-text, #1a1a1a);
+  line-height: var(--line-height-relaxed, 1.5);
+  margin-top: 0;
+  margin-bottom: 6px; /* Zmniejszone z 8px o ~30% */
+  max-height: 3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.installation-note {
+  background: var(--color-accent-light, rgba(212, 165, 116, 0.1));
+  border-left: 3px solid var(--color-accent, #d4a574);
+  padding: 7px 8px; /* Zmniejszone z 10px/12px o ~30% */
+  margin: 6px 0 8px 0; /* Zmniejszone z 8px/12px o ~30% */
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #4b5563);
+}
+
+.installation-note strong {
+  color: var(--color-deep-navy, #1a202c);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.installation-note ul {
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+  color: var(--color-text-secondary, #4b5563);
+}
+
+.installation-note li {
+  margin-bottom: 3px;
+}
+
+.installation-note li:last-child {
+  margin-bottom: 0;
+}
+
+.specs-list {
+  border-top: 1px solid var(--color-border-light, #f0f0f0);
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm, 14px) 0;
+  font-size: var(--font-size-base, 15px);
+}
+
+.spec-label {
+  color: var(--color-text-muted, #4b5563);
+}
+
+.spec-value {
+  font-weight: 600;
+  color: var(--color-text-heading, #1a1a1a); /* Ciemniejszy - nie #1A202C */
+}
+
+.product-price {
+  border-top: 1px solid var(--color-border-light, #f0f0f0);
+  padding-top: 7px; /* Zmniejszone z 10px o ~30% */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-price::before {
+  content: 'Wartość zestawu';
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px; /* Zmniejszone z 6px o ~30% */
+}
+
+.price-value {
+  font-size: 20px; /* Mniejsze - techniczne */
+  font-weight: 600; /* Zmniejszone z 700 - nie tak "sprzedażowe" */
+  color: #2b2b2b; /* Neutralny ciemny - nie czarny czarny */
+  font-feature-settings: 'tnum'; /* Tabular numbers - techniczny feel */
+}
+
+.price-currency {
+  font-size: 13px;
+  color: #6b7280;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SECTION CONTAINER
+   ========================================================================== */
+
+.section-container {
+  max-width: var(--container-xl, 1200px);
+  margin: 0 auto;
+  font-family: var(--font-family, 'Titillium Web'), system-ui, -apple-system, sans-serif;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: var(--shadow-none, none);
+  border: none;
+  overflow: visible;
+  padding: 0;
+  padding-bottom: 80px; /* Dodatkowy padding na dole dla przycisku nawigacji */
+}
+
+.section-header {
+  padding: 11px 0; /* Zmniejszone z 16px o ~30% */
+  border-bottom: var(--border-width, 1px) solid var(--color-border-light, #f0f0f0);
+  position: relative;
+}
+
+/* Bez czerwonego paska - inżynierski minimalizm */
+.section-header::before {
+  display: none; /* Usunięty czerwony pasek */
+}
+
+.section-header-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0; /* bez gap, bo ikona jest wyłączona */
+}
+
+.section-icon {
+  display: none; /* Wyłączone - inżynierski styl bez ikon/emoji */
+}
+
+.section-step {
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 600;
+  color: var(--color-text-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: var(--font-size-xl, 20px);
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin: 0 0 3px 0; /* Zmniejszone z 4px o ~30% */
+  line-height: var(--line-height-tight, 1.2);
+}
+
+.section-description {
+  font-size: var(--font-size-sm, 13px);
+  color: var(--color-text, #1a1a1a);
+  line-height: var(--line-height-relaxed, 1.5);
+  max-width: 700px;
+  margin: 0;
+}
+
+/* Info boksy - neutralne, bez czerwonego akcentu */
+.recommendation-note {
+  margin: 0 0 20px; /* Zmniejszone z 28px o ~30% */
+  padding: 14px; /* Zmniejszone z 20px o ~30% */
+  background: var(--color-bg, #fafafa);
+  border-left: 3px solid var(--color-gold, #d4a574);
+  border-right: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  border-top: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  border-bottom: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  border-radius: var(--radius-sm, 2px);
+}
+
+.recommendation-note p {
+  margin: 0;
+  font-size: var(--font-size-md, 14px);
+  color: var(--color-text, #1a1a1a);
+  line-height: var(--line-height-relaxed, 1.5);
+}
+
+/* ==========================================================================
+   OPTION CARD - Dopasowane do stylu kalkulatora
+   ========================================================================== */
+
+/* Card Base - zwiększona specyficzność */
+#configurator-app .option-card,
+.configurator-container .option-card {
+  border: 2px solid var(--color-border, #e0e0e0) !important; /* 2px jak w kalkulatorze */
+  border-radius: 2px !important; /* Jak w kalkulatorze */
+  background: var(--color-bg-section, #ffffff) !important;
+  overflow: hidden;
+  transition: all 0.2s ease !important; /* Jak w kalkulatorze */
+  cursor: pointer !important;
+  box-shadow: none !important;
+  position: relative;
+}
+
+#configurator-app .option-card:hover,
+.configurator-container .option-card:hover {
+  border-color: #999999 !important; /* Jak w kalkulatorze */
+  transform: scale(1.005) translateY(-1px) !important; /* scale(1.005) - HIGH-TECH */
+  box-shadow: none !important;
+  transition: transform var(--transition-base, 0.15s cubic-bezier(0.25, 0.1, 0.25, 1)),
+    border-color var(--transition-base, 0.15s cubic-bezier(0.25, 0.1, 0.25, 1)) !important;
+}
+
+#configurator-app .option-card.selected,
+.configurator-container .option-card.selected {
+  border: 2px solid #2b2b2b !important; /* Ciemny jak w kalkulatorze */
+  background: #f7f7f7 !important; /* Szare tło jak building-type-card */
+  box-shadow: none !important;
+}
+
+/* Checkmark - złoty w prawym dolnym rogu (jak w product-card) */
+#configurator-app .option-card.selected::after,
+.configurator-container .option-card.selected::after {
+  content: '✓';
+  position: absolute;
+  bottom: 8px; /* Prawy dolny róg */
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: var(--color-gold, #d4a574); /* Złoty - jak button i badge */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtelniejszy shadow */
+  animation: checkmarkPop 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); /* Jak product-card */
+}
+
+/* Card image */
+.option-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--color-bg-light, #fafafa);
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.option-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Badge Recommended */
+.badge-recommended {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #f7f7f7; /* Neutralne szare tło */
+  color: #1a1a1a; /* Ciemny tekst */
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  border: 1px solid #2b2b2b; /* Neutralna ciemna ramka */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card content */
+.option-content {
+  padding: 14px; /* Zmniejszone z 20px o ~30% */
+}
+
+.option-subtitle {
+  font-size: var(--font-size-sm, 13px);
+  color: var(--color-gold-dark, #8b6914); /* Delikatny złoty - jak tekst w badge */
+  text-transform: uppercase;
+  font-weight: 500; /* Zmniejszone z 600 */
+  margin-bottom: 4px; /* Zmniejszone z 6px o ~30% */
+  letter-spacing: var(--letter-spacing-caps, 0.5px); /* CAPS + TRACKING */
+}
+
+.option-title {
+  font-size: var(--font-size-lg, 16px);
+  font-weight: 600; /* Semi-bold */
+  margin-top: 0;
+  margin-bottom: 8px; /* Zmniejszone z 12px o ~30% */
+  color: var(--color-text-heading, #1a1a1a); /* Ciemniejszy - nie #1A202C */
+  line-height: var(--line-height-tight, 1.2); /* CIASNY line-height */
+}
+
+.option-description {
+  font-size: var(--font-size-base, 15px);
+  color: var(--color-text-primary, #1a1a1a); /* Ciemny - nie #374151 */
+  line-height: var(--line-height-relaxed, 1.6); /* Ujednolicone z kalkulatorem */
+  margin-top: 0;
+  margin-bottom: 11px; /* Zmniejszone z 16px o ~30% */
+}
+
+/* ==========================================================================
+   SPECS LIST
+   ========================================================================== */
+
+/* redundant specs-list moved to top */
+
+/* ==========================================================================
+   PRICE
+   ========================================================================== */
+
+.option-price {
+  border-top: 1px solid var(--color-border-light, #f0f0f0);
+  padding-top: 11px; /* Zmniejszone z 16px o ~30% */
+}
+
+.option-price::before {
+  content: 'Wartość zestawu';
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px; /* Zmniejszone z 6px o ~30% */
+}
+
+.option-price .price-value {
+  font-size: 20px; /* Mniejsze - techniczne */
+  font-weight: 600; /* Zmniejszone z 700 */
+  color: #2b2b2b; /* Neutralny ciemny */
+  font-feature-settings: 'tnum'; /* Tabular numbers */
+}
+
+.option-price .price-currency {
+  font-size: 13px;
+  color: #6b7280;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   NAVIGATION BUTTONS - Dopasowane do stylu kalkulatora
+   ========================================================================== */
+
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0; /* Zmniejszone z 16px o ~30% */
+  border-top: 1px solid var(--color-border, #e0e0e0);
+  background: var(--color-bg-light, #fafafa);
+  gap: 14px; /* Zmniejszone z 20px o ~30% */
+  position: relative;
+  z-index: 10;
+  margin-top: 20px;
+  clear: both;
+  width: 100%;
+  max-width: var(--container-xl, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-step {
+  padding: 16px 32px;
+  font-size: var(--font-size-base, 15px);
+  border-radius: 2px;
+  border: 2px solid var(--color-border, #e0e0e0);
+  background: var(--color-bg-section, #ffffff);
+  color: var(--color-text-heading, #1a1a1a); /* Ciemniejszy */
+  transition: all var(--transition-base, 0.15s cubic-bezier(0.25, 0.1, 0.25, 1)); /* HIGH-TECH */
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.btn-step:hover {
+  background: var(--color-bg-light, #fafafa);
+  border-color: #999999;
+  transform: scale(1.005); /* Subtelny scale */
+}
+
+.btn-step:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-next {
+  background: #2b2b2b; /* Ciemny neutralny - profesjonalny */
+  border-color: #2b2b2b;
+  color: white;
+}
+
+.btn-next:hover:not(:disabled) {
+  background: #1a1a1a; /* Ciemniejszy na hover */
+  border-color: #1a1a1a;
+}
+
+/* ==========================================================================
+   SUMMARY PAGE - Dopasowane do stylu kalkulatora
+   ========================================================================== */
+
+.summary-header {
+  background: #2b2b2b; /* Ciemny neutralny - profesjonalny */
+  padding: 36px;
+  color: white;
+}
+
+.summary-header h1 {
+  font-size: var(--font-size-2xl, 22px);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md, 20px);
+}
+
+.summary-header p {
+  font-size: var(--font-size-base, 15px);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.summary-badge {
+  display: inline-flex;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 600;
+}
+
+.summary-badge::before {
+  content: '★';
+  color: var(--color-gold, #d4a574);
+}
+
+/* Summary table */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.summary-table td {
+  padding: 28px 36px;
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+}
+
+.summary-table td.section-title {
+  font-weight: 600;
+  width: 30%;
+  color: var(--color-text-heading, #1a1a1a); /* Ciemniejszy */
+}
+
+.section-value {
+  width: 45%;
+  color: var(--color-text-primary, #1a1a1a); /* Ciemny - nie #374151 */
+}
+
+.section-status {
+  width: 25%;
+  text-align: right;
+}
+
+.status-selected {
+  padding: 4px var(--spacing-md, 20px);
+  background: var(--color-gold-light, #f5e6d3); /* Delikatne złote tło */
+  color: var(--color-gold-dark, #8b6914); /* Ciemny złoty tekst */
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 600;
+  border-radius: 2px;
+  border: 2px solid var(--color-gold-border, #d4a574); /* Złota ramka */
+}
+
+/* Summary actions */
+.summary-actions {
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-top: 1px solid var(--color-border, #e0e0e0);
+  background: var(--color-bg-light, #fafafa);
+  flex-wrap: wrap;
+}
+
+.summary-actions .btn {
+  padding: 16px 32px;
+  font-size: var(--font-size-base, 15px);
+  border-radius: 2px;
+  border: 2px solid var(--color-border, #e0e0e0);
+  background: var(--color-bg-section, #ffffff);
+  color: var(--color-text-heading, #1a202c);
+  transition: all 0.2s ease;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.summary-actions .btn:hover {
+  background: var(--color-bg-light, #fafafa);
+  border-color: #999999;
+}
+
+.summary-actions .btn-primary {
+  background: #2b2b2b; /* Ciemny neutralny - profesjonalny */
+  border-color: #2b2b2b;
+  color: white;
+}
+
+.summary-actions .btn-primary:hover {
+  background: #1a1a1a; /* Ciemniejszy na hover */
+  border-color: #1a1a1a;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION - UJEDNOLICONY SPACING (767px)
+   Profesjonalne doświadczenie mobilne - ujednolicone odstępy
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* ============================================
+     HELP-BOXY - Ujednolicone odstępy pionowe
+     ============================================ */
+  #configurator-app .help-box,
+  #configurator-app .recommendation-note {
+    margin-top: 6px !important;
+    margin-bottom: 0px !important;
+  }
+
+  /* ============================================
+     LABELE (PYTANIA) - Minimalny odstęp pod labelem
+     ============================================ */
+  #configurator-app .step-title,
+  #configurator-app .step-description,
+  #configurator-app .section-title,
+  #configurator-app .section-description,
+  #configurator-app .form-label,
+  #configurator-app label,
+  #configurator-app .option-title,
+  #configurator-app .product-title {
+    margin-bottom: 2px !important;
+  }
+
+  /* ============================================
+     SEKCJE I KONTENERY - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .section-container {
+    padding-bottom: 60px !important; /* Zmniejszone z 80px */
+  }
+
+  #configurator-app .step-header {
+    padding: 20px 0 !important; /* Zmniejszone z 28px 0 */
+  }
+
+  #configurator-app .section-header {
+    padding: 8px 0 !important; /* Zmniejszone z 11px 0 */
+  }
+
+  /* ============================================
+     OPTIONS GRID - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .options-grid {
+    gap: 12px !important; /* Zmniejszone z 11px - więcej oddechu */
+    padding: 12px 0 !important; /* Zmniejszone z 11px 0 */
+    margin-bottom: 12px !important; /* Zmniejszone z 11px */
+  }
+
+  /* ============================================
+     PRODUCT CARDS - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .product-card {
+    margin-bottom: 12px !important;
+  }
+
+  #configurator-app .product-content {
+    padding: 0 6px 6px !important; /* Zmniejszone z 0 8px 8px */
+  }
+
+  #configurator-app .product-title {
+    margin-bottom: 3px !important; /* Zmniejszone z 4px */
+  }
+
+  #configurator-app .product-description {
+    margin-bottom: 4px !important; /* Zmniejszone z 6px */
+  }
+
+  /* ============================================
+     OPTION CARDS - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .option-card {
+    margin-bottom: 12px !important;
+  }
+
+  #configurator-app .option-content {
+    padding: 12px !important; /* Zmniejszone z 14px */
+  }
+
+  #configurator-app .option-title {
+    margin-bottom: 6px !important; /* Zmniejszone z 8px */
+  }
+
+  #configurator-app .option-description {
+    margin-bottom: 8px !important; /* Zmniejszone z 11px */
+  }
+
+  /* ============================================
+     SPECS LIST - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .specs-list {
+    padding-top: 12px !important; /* Zmniejszone z 14px */
+    margin-bottom: 12px !important; /* Zmniejszone z 14px */
+  }
+
+  #configurator-app .spec-row {
+    padding: 10px 0 !important; /* Zmniejszone z 14px 0 */
+  }
+
+  /* ============================================
+     PRICE - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .product-price,
+  #configurator-app .option-price {
+    padding-top: 6px !important; /* Zmniejszone z 7px/11px */
+  }
+
+  #configurator-app .product-price::before,
+  #configurator-app .option-price::before {
+    margin-bottom: 3px !important; /* Zmniejszone z 4px */
+  }
+
+  /* ============================================
+     NAVIGATION BUTTONS - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .step-nav {
+    padding: 10px 0 !important; /* Zmniejszone z 11px 0 */
+    margin-top: 16px !important; /* Zmniejszone z 20px */
+    gap: 12px !important; /* Zmniejszone z 14px */
+  }
+
+  /* ============================================
+     INSTALLATION NOTE - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .installation-note {
+    padding: 6px 8px !important; /* Zmniejszone z 7px 8px */
+    margin: 4px 0 6px 0 !important; /* Zmniejszone z 6px 0 8px 0 */
+  }
+
+  /* ============================================
+     FORM ROW MOSAIC - Kompaktowe odstępy
+     ============================================ */
+  #configurator-app .form-row-mosaic {
+    gap: 12px !important; /* Zmniejszone z 16px */
+  }
+
+  #configurator-app .form-row-mosaic .form-field-item {
+    padding: 12px !important; /* Zmniejszone z 16px */
+    gap: 6px !important; /* Zmniejszone z 8px */
+  }
+
+  #configurator-app .form-row-mosaic .form-label {
+    margin-bottom: 6px !important; /* Zmniejszone z 8px */
+  }
+
+  #configurator-app .form-row-mosaic .form-field {
+    gap: 6px !important; /* Zmniejszone z 8px */
+  }
+
+  #configurator-app .form-row-mosaic .form-field-item--subsequent {
+    margin-top: 10px !important; /* Zmniejszone z 12px */
+    padding-top: 10px !important; /* Zmniejszone z 12px */
+  }
+
+  /* ============================================
+     DODATKOWE OPTYMALIZACJE - UJEDNOLICENIE SPACING
+     ============================================ */
+
+  /* Form fields - kompaktowe odstępy */
+  #configurator-app .form-field {
+    margin-bottom: 16px !important;
+  }
+
+  #configurator-app .form-field:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Inputy i selecty - kompaktowe odstępy */
+  #configurator-app input,
+  #configurator-app select,
+  #configurator-app textarea {
+    margin-top: 2px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Radio groups - kompaktowe odstępy */
+  #configurator-app .form-field__radio-group {
+    gap: 10px !important;
+    margin-top: 2px !important;
+  }
+
+  /* Options grid - kompaktowe odstępy */
+  #configurator-app .options-grid {
+    margin-top: 2px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Product cards - kompaktowe odstępy */
+  #configurator-app .product-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* Option cards - kompaktowe odstępy */
+  #configurator-app .option-card {
+    margin-bottom: 12px !important;
+  }
+
+  /* Field notes - kompaktowe odstępy */
+  #configurator-app .micro-note,
+  #configurator-app .field-note {
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ============================================
+     KROK 10 (SUMMARY) — czytelność na mobile
+     Zamiana tabeli 3-kolumnowej na “karty” (label → value → status).
+     ============================================ */
+  #configurator-app [data-step-key="summary"] .summary-header {
+    padding: 18px 16px !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-header h1 {
+    font-size: 20px !important;
+    margin-bottom: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-header p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-badge {
+    margin-top: 14px !important;
+    padding-top: 14px !important;
+    gap: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table,
+  #configurator-app [data-step-key="summary"] .summary-table tbody,
+  #configurator-app [data-step-key="summary"] .summary-table tr,
+  #configurator-app [data-step-key="summary"] .summary-table td {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table {
+    border-collapse: separate !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table tr {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid var(--color-border, #e0e0e0) !important;
+    background: #fff !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table td {
+    padding: 0 !important;
+    border: 0 !important;
+    min-height: unset !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table td.section-title {
+    font-weight: 700 !important;
+    color: var(--color-text-heading, #1a1a1a) !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table td.section-title i {
+    opacity: 0.85;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table td.section-value {
+    width: 100% !important;
+    color: var(--color-text-primary, #1a1a1a) !important;
+    line-height: 1.45 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-table td.section-status {
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 10px !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .status-selected {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    padding: 6px 14px !important;
+    border-radius: 2px !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-actions {
+    padding: 16px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    justify-content: stretch !important;
+  }
+
+  #configurator-app [data-step-key="summary"] .summary-actions .btn {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION - Kompleksowa naprawa wizualna (480px)
+   Profesjonalne doświadczenie mobilne - światowy poziom
+   ========================================================================== */
+
+/* ==========================================================================
+   HYDRAULICS INPUTS - Styl zgodny z aplikacją (desktop)
+   ========================================================================== */
+
+/* Checkboxy w pytaniach instalacyjnych */
+#configurator-app .form-field-item input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-gold, #d4a574);
+}
+
+#configurator-app .form-field-item label {
+  cursor: pointer;
+}
+
+#configurator-app .form-field-item .micro-note {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 8px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Form-row-mosaic - układ grid dla pytań instalacyjnych */
+#configurator-app .form-row-mosaic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  #configurator-app .form-row-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+#configurator-app .form-row-mosaic .form-field-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: var(--color-surface, #ffffff);
+  border: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  border-radius: var(--radius-sm, 2px);
+}
+
+#configurator-app .form-row-mosaic .form-label {
+  font-size: var(--font-size-sm, 13px);
+  font-weight: 600;
+  color: var(--color-text-heading, #1a1a1a);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+#configurator-app .form-row-mosaic .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#configurator-app .form-row-mosaic .form-field-item--subsequent {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border, #e0e0e0);
+}
+
+#configurator-app .form-row-mosaic .form-select {
+  padding: 10px 12px;
+  border: var(--border-width, 1px) solid var(--color-border, #e0e0e0);
+  border-radius: var(--radius-sm, 2px);
+  font-size: var(--font-size-base, 15px);
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-heading, #1a1a1a);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   WYMUSZENIE STYLÓW DLA #configurator-app - NAJWYŻSZY PRIORYTET
+   Na końcu pliku, żeby nadpisać wszystkie inne style (w tym z main.css)
+   ========================================================================== */
+#configurator-app {
+  margin: 0 auto !important; /* Wyśrodkowanie całego konfiguratora */
+  /* Używamy osobnych właściwości zamiast shorthand, aby uniknąć problemów z wartością 0 */
+  padding-top: 0 !important; /* Bez padding - pasek jest relative na początku */
+  padding-right: 20px !important;
+  padding-bottom: 20px !important;
+  padding-left: 20px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 1200px !important; /* Szerokość widoku konfiguratora */
+  /* Wymuszenie display, żeby przeglądarka utworzyła computed styles */
+  display: block !important;
+}

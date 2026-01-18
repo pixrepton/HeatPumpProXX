@@ -1,0 +1,768 @@
+/**
+ * SPATIAL MOBILE DESIGN - Premium Layout System
+ * Inspiracja: Screenshot workflow completion (spatial, breathing, clean)
+ * Mobile-first: 390px → 768px → desktop
+ *
+ * Zasady:
+ * - Generous spacing (16/24/32/48px)
+ * - Clean borders (1px solid)
+ * - Minimal radius (2px)
+ * - White background + subtle shadows
+ * - Vertical rhythm (8px grid)
+ * - Touch-friendly (44px+ targets)
+ */
+
+/* ========================================
+   MOBILE SPATIAL FOUNDATION (390px+)
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Container - breathing space */
+  .calculator-container,
+  .hp-calculator {
+    padding: 16px !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Sections - generous vertical spacing */
+  .section {
+    margin-bottom: 32px !important;
+    padding: 0 !important;
+    max-width: 100%;
+  }
+
+  .section:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* ========================================
+     CARDS - Premium boxed design
+     ======================================== */
+
+  .form-card,
+  .workflow-completion,
+  .results-wrapper {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    padding: 24px 20px !important;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* Card spacing - internal */
+  .form-card > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  /* ========================================
+     FORM FIELDS - Touch-friendly
+     ======================================== */
+
+  /* Labels - clear hierarchy */
+  .form-field__label,
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  /* Inputs - generous touch targets */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    min-height: 48px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important; /* iOS zoom prevention */
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: #ffffff;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-gold, #d4a574);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+  }
+
+  /* Select dropdown - iOS friendly */
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231A1A1A' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 48px !important;
+  }
+
+  /* ========================================
+     BUTTONS - Premium touch targets
+     ======================================== */
+
+  .btn,
+  .btn-next,
+  .btn-calculate,
+  .workflow-cta-button,
+  button[type="submit"] {
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 14px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: #ffffff;
+    color: var(--color-text-primary, #1a1a1a);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+  }
+
+  .btn:last-child,
+  .btn-next:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Primary button - gold */
+  .btn-calculate,
+  .btn-primary,
+  .workflow-cta-button {
+    background: var(--color-gold, #d4a574) !important;
+    color: #ffffff !important;
+    border-color: var(--color-gold, #d4a574) !important;
+  }
+
+  /* Button active state - touch feedback */
+  .btn:active,
+  button:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ========================================
+     RADIO & CHECKBOX - Touch-friendly
+     ======================================== */
+
+  /* Radio button wrapper */
+  .form-field__radio,
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-field__radio-label {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: #ffffff;
+    min-height: 56px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .form-field__radio-label:active {
+    transform: scale(0.98);
+  }
+
+  /* Radio input - larger touch target */
+  .form-field__radio-label input[type="radio"] {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Radio text */
+  .form-field__radio-label span {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--color-text-primary, #1a1a1a);
+  }
+
+  /* Selected state */
+  .form-field__radio-label:has(input:checked) {
+    border-color: var(--color-gold, #d4a574);
+    background: rgba(212, 165, 116, 0.05);
+  }
+
+  /* ========================================
+     QUANTITY INPUT - Premium stepper
+     ======================================== */
+
+  .quantity-input-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .quantity-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: #ffffff;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .quantity-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-primary, #1a1a1a);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .quantity-btn:active {
+    background: rgba(212, 165, 116, 0.1);
+    transform: scale(0.92);
+  }
+
+  .quantity-input input[type="number"] {
+    flex: 1;
+    min-height: 48px !important;
+    border: none !important;
+    border-left: 1px solid #e5e5e5 !important;
+    border-right: 1px solid #e5e5e5 !important;
+    text-align: center;
+    font-size: 16px !important;
+    font-weight: 600;
+    padding: 0 12px !important;
+    margin: 0 !important;
+  }
+
+  /* ========================================
+     RESULTS SWITCHER - Vertical stack
+     ======================================== */
+
+  .results-switcher {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+    box-sizing: border-box;
+  }
+
+  .results-switch-btn {
+    width: 100% !important;
+    min-height: 56px !important;
+    padding: 16px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: #ffffff;
+    font-size: 15px !important;
+    font-weight: 500;
+    color: var(--color-text-primary, #1a1a1a);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .results-switch-btn.active {
+    border-color: var(--color-gold, #d4a574);
+    background: rgba(212, 165, 116, 0.05);
+    font-weight: 600;
+  }
+
+  .results-switch-btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Remove icons on mobile for cleaner look */
+  .results-switch-btn i {
+    font-size: 18px;
+  }
+
+  /* ========================================
+     PROGRESS BAR - Clean mobile
+     ======================================== */
+
+  .form-progress-bar {
+    height: 4px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .form-progress-fill {
+    height: 100%;
+    background: var(--color-gold, #d4a574);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .progress-percentage {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary, #4a4a4a);
+    margin-top: 8px;
+  }
+
+  /* ========================================
+     WORKFLOW COMPLETION - Premium box
+     ======================================== */
+
+  .workflow-completion {
+    padding: 32px 24px !important;
+    margin: 24px 16px !important;
+    text-align: center;
+  }
+
+  .typewriter-container {
+    min-height: 100px;
+    margin-bottom: 32px;
+  }
+
+  .typewriter-text {
+    font-size: 16px !important;
+    line-height: 1.6;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 16px;
+  }
+
+  .typewriter-text:first-child {
+    font-weight: 600;
+  }
+
+  .typewriter-text:last-child {
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .workflow-cta {
+    margin-top: 32px;
+  }
+
+  /* ========================================
+     FORM ROWS - Vertical stack
+     ======================================== */
+
+  .form-row,
+  .form-row-mosaic {
+    display: flex;
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-bottom: 20px;
+  }
+
+  .form-row > *,
+  .form-row-mosaic > * {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* ========================================
+     HEADINGS - Clear hierarchy
+     ======================================== */
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-text-primary, #1a1a1a);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  /* Section titles */
+  .section-title,
+  .form-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-primary, #1a1a1a);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* ========================================
+     HELP TEXT - Subtle guidance
+     ======================================== */
+
+  .form-field__help,
+  .help-text,
+  small {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--color-text-muted, #6b7280);
+    margin-top: 6px;
+  }
+
+  /* ========================================
+     LISTS - Clean spacing
+     ======================================== */
+
+  ul,
+  ol {
+    padding-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  /* ========================================
+     TABLES - Mobile scroll
+     ======================================== */
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px; /* Force scroll for wide tables */
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  th {
+    font-weight: 600;
+    background: #fafafa;
+  }
+
+  /* ========================================
+     ALERTS & NOTIFICATIONS
+     ======================================== */
+
+  .alert,
+  .notification {
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .alert-success {
+    border-color: var(--color-gold, #d4a574);
+    background: rgba(212, 165, 116, 0.05);
+  }
+
+  .alert-warning {
+    border-color: var(--color-warning, #b8976a);
+    background: rgba(212, 165, 116, 0.04);
+  }
+
+  .alert-danger {
+    border-color: var(--color-danger, #8b6914);
+    background: rgba(212, 165, 116, 0.06);
+  }
+
+  /* ========================================
+     LOADING STATES
+     ======================================== */
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 32px auto;
+    border: 3px solid #f0f0f0;
+    border-top-color: var(--color-gold, #d4a574);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ========================================
+     UTILITY CLASSES
+     ======================================== */
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .mobile-text-center {
+    text-align: center !important;
+  }
+
+  .mobile-no-margin {
+    margin: 0 !important;
+  }
+
+  .mobile-no-padding {
+    padding: 0 !important;
+  }
+
+  /* ========================================
+     SLIDERS - Mobile optimization
+     ======================================== */
+
+  .custom-slider-container {
+    margin-top: 24px !important;
+    padding-top: 44px !important; /* Space for bubble on mobile */
+    padding-bottom: 16px !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .custom-slider-small,
+  .custom-slider-large {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .custom-bubble {
+    top: 0 !important;
+    font-size: 0.85rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .custom-slider-track {
+    height: 5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .custom-slider-thumb {
+    width: 22px !important;
+    height: 22px !important;
+    border-width: 2px !important;
+  }
+
+  .custom-slider-ticks {
+    margin-top: 8px !important;
+    padding: 0 4px !important;
+  }
+
+  .custom-slider-ticks .tick {
+    font-size: 0.8rem !important;
+    min-width: 24px !important;
+  }
+
+  .slider-confirm-card {
+    width: 100% !important;
+    max-width: 200px !important;
+    min-width: 140px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 20px !important;
+    margin-top: 8px !important;
+  }
+
+  .slider-confirm-card__hint {
+    font-size: 12px !important;
+  }
+} /* End @media (max-width: 768px) */
+
+/* ========================================
+   VERY SMALL MOBILE (390px-)
+   ======================================== */
+
+@media (max-width: 390px) {
+  /* Tighter spacing for small screens */
+  .calculator-container,
+  .hp-calculator {
+    padding: 12px !important;
+  }
+
+  .form-card,
+  .workflow-completion,
+  .results-wrapper {
+    padding: 20px 16px !important;
+    margin-bottom: 12px;
+  }
+
+  /* Smaller typography */
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4 {
+    font-size: 15px;
+  }
+
+  .section-title,
+  .form-section-title {
+    font-size: 16px;
+  }
+
+  /* Compact buttons */
+  .btn,
+  .btn-next,
+  .btn-calculate,
+  .workflow-cta-button {
+    min-height: 44px !important;
+    padding: 12px 20px !important;
+    font-size: 15px !important;
+  }
+
+  /* Compact inputs */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+  }
+
+  /* Compact radio buttons */
+  .form-field__radio-label {
+    min-height: 52px;
+    padding: 14px;
+  }
+
+  .form-field__radio-label input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Compact quantity input */
+  .quantity-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .quantity-input input[type="number"] {
+    min-height: 44px !important;
+  }
+
+  /* Compact switcher */
+  .results-switch-btn {
+    min-height: 52px !important;
+    padding: 14px 16px !important;
+  }
+
+  /* Compact sliders */
+  .custom-slider-container {
+    padding-top: 40px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .custom-bubble {
+    font-size: 0.8rem !important;
+    padding: 2px 6px !important;
+  }
+
+  .custom-slider-thumb {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .custom-slider-ticks .tick {
+    font-size: 0.75rem !important;
+    min-width: 20px !important;
+  }
+
+  .slider-confirm-card {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 16px !important;
+  }
+} /* End @media (max-width: 390px) */
+
+/* ========================================
+   TABLET (768px - 1024px)
+   ======================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Moderate spacing for tablets */
+  .calculator-container,
+  .hp-calculator {
+    padding: 24px !important;
+  }
+
+  .form-card,
+  .workflow-completion,
+  .results-wrapper {
+    padding: 32px 28px !important;
+  }
+
+  /* 2-column layout for form rows */
+  .form-row,
+  .form-row-mosaic {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Horizontal switcher on tablet */
+  .results-switcher {
+    flex-direction: row !important;
+  }
+
+  .results-switch-btn {
+    flex: 1 !important;
+  }
+} /* End tablet media query */
